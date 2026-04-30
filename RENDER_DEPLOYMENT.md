@@ -53,6 +53,9 @@ ADLER_AI_PROVIDER_SESSION_ANALYSIS=rules
 ADLER_AI_PROVIDER_EVOLUTION_SUMMARY=rules
 ADLER_AI_PROVIDER_PATIENT_REPORT=rules
 ADLER_AI_PROVIDER_DOCUMENT_DRAFT=rules
+ADLER_SHARED_ACCOUNT_NAME=Equipe Adler Demo
+ADLER_SHARED_ACCOUNT_EMAIL=clinica.demo@adler.ai
+ADLER_SHARED_ACCOUNT_PASSWORD=AdlerClinicDemo2026!
 ADLER_CORS_ORIGINS=http://127.0.0.1:5173,http://localhost:5173,https://adler-ai-demo-20260423.netlify.app
 ```
 
@@ -92,4 +95,3 @@ Depois rode um novo deploy do frontend.
 - Confirmar que sair/entrar preserva pacientes e agenda.
 - Trocar pacientes seedados por criacao/edicao real no frontend.
 - Corrigir Alembic para migracoes formais do backend atual.
-

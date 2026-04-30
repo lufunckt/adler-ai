@@ -18,6 +18,7 @@ from backend.routes import (
 from backend.services.app_bootstrap import ensure_shared_account
 
 app = FastAPI(title=settings.app_name, version="0.1.0")
+dashboard_dir = Path(__file__).resolve().parent / "static"
 
 allow_all_origins = "*" in settings.adler_cors_origins
 
@@ -41,13 +42,23 @@ def on_startup() -> None:
 
 
 @app.get("/", summary="Service health check")
-def root() -> RedirectResponse:
-    return RedirectResponse(url="/app/")
+def root() -> dict[str, str]:
+    return {
+        "status": "ok",
+        "service": settings.app_name,
+        "docs": "/docs",
+        "health": "/api/adler/health",
+    }
+
+
+@app.get("/health", summary="Generic service health check")
+def generic_health_check() -> dict[str, str]:
+    return {"status": "ok", "service": settings.app_name}
 
 
 @app.get("/app", include_in_schema=False)
 def app_root() -> RedirectResponse:
-    return RedirectResponse(url="/app/")
+    return RedirectResponse(url="/app/" if dashboard_dir.exists() else "/docs")
 
 
 app.include_router(auth_router)
@@ -55,6 +66,5 @@ app.include_router(adler_router)
 app.include_router(clinical_intelligence_router)
 app.include_router(whatsapp_router)
 
-dashboard_dir = Path(__file__).resolve().parent / "static"
 if dashboard_dir.exists():
     app.mount("/app", StaticFiles(directory=dashboard_dir, html=True), name="crm-app")
