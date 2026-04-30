@@ -1,0 +1,6 @@
+medicamento,exame,frequencia,finalidade,baseline_obrigatorio,alertas,fonte
+litio,litemia 12h,1-2 semanas ate estabilizar e depois trimestral,faixa terapeutica,sim,toxicidade neurologica,doc_081
+litio,creatinina e ureia,baseline e trimestral,funcao renal,sim,risco de insuficiencia renal,doc_081
+litio,tsh e t4 livre,baseline e semestral,funcao tireoidiana,sim,hipotireoidismo,doc_081
+quetiapina,glicemia e perfil lipidico,baseline e semestral,risco metabolico,sim,sindrome metabolica,doc_082
+quetiapina,peso e imc,mensal inicialmente,monitoramento metabolico,sim,ganho de peso,doc_082

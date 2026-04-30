@@ -1,0 +1,20 @@
+id,titulo,categoria,subcategoria,fonte,tipo_documento,ano,idioma,medicamento,gene,escala,diagnostico,palavras_chave,arquivo
+doc_001,psicoterapia borderline meta analise,evidencia_clinica,borderline,fonte_pendente,referencia_pendente,,pt,,,,borderline,dbt;schema;autolesao,artigos/doc_001_pendente.pdf
+doc_002,comparacao dbt schema therapy,evidencia_clinica,borderline,fonte_pendente,ensaio_clinico,,pt,,,,borderline,dbt;schema therapy,artigos/doc_002_pendente.pdf
+doc_003,psicanalise apego neurociencia,evidencia_clinica,psicodinamica,fonte_pendente,review,,pt,,,,,psicanalise;apego;neurociencia,artigos/doc_003_pendente.pdf
+doc_004,terapia cognitiva de beck,evidencia_clinica,tcc,fonte_pendente,manual_teorico,,pt,,,,depressao,tcc;beck;pensamentos automaticos,protocolos/tcc/doc_004_pendente.pdf
+doc_005,eficacia geral da tcc,evidencia_clinica,tcc,fonte_pendente,umbrella_review,,pt,,,,,tcc;qualidade de vida,protocolos/tcc/doc_005_pendente.pdf
+doc_006,tcc em depressao,evidencia_clinica,tcc,fonte_pendente,meta_analise,,pt,,,,depressao,tcc;depressao,protocolos/tcc/doc_006_pendente.pdf
+doc_007,tcc guiada online,evidencia_clinica,tcc,fonte_pendente,meta_analise,,pt,,,,,icbt;autoajuda,protocolos/tcc/doc_007_pendente.pdf
+doc_008,tcc criancas adolescentes,evidencia_clinica,tcc,fonte_pendente,estudo_clinico,,pt,,,,,tcc;jovens,protocolos/tcc/doc_008_pendente.pdf
+doc_009,tcc ansiedade insonia comorbidades,evidencia_clinica,tcc,fonte_pendente,review,,pt,,,isi,ansiedade;insonia,tcc;insonia;ansiedade,protocolos/tcc/doc_009_pendente.pdf
+doc_010,psicoterapias estruturadas borderline,evidencia_clinica,borderline,fonte_pendente,network_meta_analise,,pt,,,,borderline,dbt;schema;mentalizacao,artigos/doc_010_pendente.pdf
+doc_011,implementacao tcc act sistemas de saude,evidencia_clinica,implementacao,fonte_pendente,implementacao,,pt,,,,,tcc;act;servicos,artigos/doc_011_pendente.pdf
+doc_060,cbt versus control and other treatments depression meta analysis,evidencia_clinica,tcc,world psychiatry,meta_analise,2023,en,,,,,depressao; tcc,artigos/cbt_meta.pdf
+doc_061,network meta analysis depression treatments,evidencia_clinica,protocolos,eclinicalmedicine,network_meta_analise,2024,en,,,,,depressao; guideline,artigos/network_meta.pdf
+doc_070,act meta analysis anxiety depression,evidencia_clinica,act,journal of affective disorders,meta_analise,2024,en,,,,,act; ansiedade,artigos/act_meta.pdf
+doc_080,ssri pharmacology overview,farmacologia,ssri,,review,2022,en,sertralina,,,,ssri; farmacologia,farmacologia/ssri_overview.pdf
+doc_081,lithium monitoring clinical guideline,exames,monitoramento,,guideline,2023,en,litio,,,,litio; monitoramento,exames/litio_monitoramento.pdf
+doc_082,antipsychotics metabolic effects,farmacologia,antipsicoticos,,review,2021,en,quetiapina,,,,antipsicoticos; efeitos adversos,farmacologia/antipsicoticos.pdf
+doc_083,pharmacogenetics ssri cyp2c19,categoria_genetica,farmacogenetica,cpic,guideline,2023,en,sertralina,CYP2C19,,,farmacogenetica; ssri,genetica/cpic_ssri.pdf
+doc_084,naltrexone opioid dependence guideline,dependencia_quimica,psicofarmacologia,,guideline,2022,en,naltrexona,,,,opioides; dependencia,dependencia_quimica/naltrexona.pdf

@@ -1,0 +1,7 @@
+substancia_principal,tipo_interacao,agente_secundario,categoria,efeito,gravidade,conduta,fonte
+sertralina,medicamento,lorazepam,associacao,aumento de sedacao e lentificacao,moderada,monitorar sedacao,doc_080
+sertralina,substancia,alcool,alerta,potencializacao de sedacao,moderada,evitar uso concomitante,doc_080
+litio,medicamento,ibuprofeno,alerta,aumento da litemia e risco de toxicidade,alta,evitar ou monitorar litemia,doc_081
+litio,medicamento,diureticos,alerta,aumento da concentracao plasmatica,alta,ajustar dose e monitorar,doc_081
+quetiapina,substancia,alcool,alerta,sedacao intensa,alta,evitar combinacao,doc_082
+naltrexona,substancia,opioides,contraindicacao,bloqueio de efeito analgesico,alta,nao associar,doc_084

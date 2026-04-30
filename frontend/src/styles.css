@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+    min-height: 100%;
+  }
+
+  body {
+    @apply min-h-screen bg-slate-50 font-sans text-slate-900 antialiased;
+    background:
+      radial-gradient(circle at 82% 2%, rgba(34, 211, 238, 0.16), transparent 24%),
+      radial-gradient(circle at 24% 96%, rgba(244, 114, 182, 0.12), transparent 26%),
+      linear-gradient(135deg, #f8fafc 0%, #ffffff 52%, #ecfeff 100%);
+  }
+
+  body::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  body::-webkit-scrollbar-track {
+    background: #f8fafc;
+  }
+
+  body::-webkit-scrollbar-thumb {
+    border: 3px solid #f8fafc;
+    border-radius: 999px;
+    background: #cbd5e1;
+  }
+
+  ::selection {
+    background: rgba(6, 182, 212, 0.2);
+    color: #0f172a;
+  }
+}
+
+@layer components {
+  .figma-scroll {
+    scrollbar-gutter: stable;
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 #f8fafc;
+  }
+
+  .figma-scroll::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  .figma-scroll::-webkit-scrollbar-track {
+    background: #f8fafc;
+  }
+
+  .figma-scroll::-webkit-scrollbar-thumb {
+    border: 2px solid #f8fafc;
+    border-radius: 999px;
+    background: #cbd5e1;
+  }
+
+  .adler-grid {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    background-position: center;
+    background-size: 34px 34px;
+  }
+
+  .adler-range {
+    appearance: none;
+    height: 6px;
+    border-radius: 999px;
+    background: var(--range-track);
+    outline: none;
+  }
+
+  .adler-scroll {
+    scrollbar-gutter: stable;
+    scrollbar-width: auto;
+    scrollbar-color: #56627a rgba(255, 255, 255, 0.08);
+    overscroll-behavior: contain;
+  }
+
+  .adler-scroll::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+
+  .adler-scroll::-webkit-scrollbar-track {
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .adler-scroll::-webkit-scrollbar-thumb {
+    border: 2px solid rgba(11, 13, 16, 0.82);
+    border-radius: 999px;
+    background: linear-gradient(
+        180deg,
+        rgba(244, 114, 182, 0.64),
+        rgba(79, 223, 255, 0.56)
+      )
+      padding-box;
+  }
+
+  .adler-range::-webkit-slider-runnable-track {
+    height: 6px;
+    border-radius: 999px;
+    background: var(--range-track);
+  }
+
+  .adler-range::-moz-range-track {
+    height: 6px;
+    border-radius: 999px;
+    background: var(--range-track);
+  }
+
+  .adler-range::-webkit-slider-thumb {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    margin-top: -6px;
+    border-radius: 999px;
+    border: 2px solid #0b0d10;
+    background: var(--range-accent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--range-accent) 18%, transparent), 0 0 14px color-mix(in srgb, var(--range-accent) 40%, transparent);
+    cursor: pointer;
+  }
+
+  .adler-range::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 999px;
+    border: 2px solid #0b0d10;
+    background: var(--range-accent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--range-accent) 18%, transparent), 0 0 14px color-mix(in srgb, var(--range-accent) 40%, transparent);
+    cursor: pointer;
+  }
+}

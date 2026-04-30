@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "outDir": "./node_modules/.cache/tsconfig-node",
+    "target": "ESNext",
+    "lib": ["ESNext"]
+  },
+  "include": ["vite.config.ts"]
+}

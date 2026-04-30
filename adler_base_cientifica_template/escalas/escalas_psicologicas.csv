@@ -1,0 +1,7 @@
+nome_sigla,area,indicacao,faixa_etaria,tipo,interpretacao_resumida,arquivo
+gad7,ansiedade,rastreio e gravidade,adulto,escala,maior pontuacao indica maior ansiedade,escalas/gad7.pdf
+phq9,humor,depressao,adulto,escala,permite seguimento de depressao,escalas/phq9.pdf
+asrs1,tdah,rastreio,adulto,escala,sugere necessidade de avaliacao,escalas/asrs1.pdf
+ybocs,toc,gravidade,adulto,escala,mede intensidade de sintomas,escalas/ybocs.pdf
+pcl5,trauma,ptsd,adulto,escala,indica gravidade de trauma,escalas/pcl5.pdf
+isi,sono,insonia,adulto,escala,avaliacao de severidade da insonia,escalas/isi.pdf
