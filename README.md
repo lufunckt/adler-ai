@@ -21,6 +21,7 @@ cd backend
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
+alembic upgrade head
 uvicorn backend.app:app --reload --app-dir ..
 ```
 
@@ -33,6 +34,12 @@ npm run dev
 ```
 
 Abra `http://127.0.0.1:5173`.
+
+## Acesso de Demonstracao
+
+Para testar o fluxo completo localmente, voce pode usar as credenciais de demo:
+- **Email:** `clinica.demo@adler.ai`
+- **Senha:** `AdlerClinicDemo2026!`
 
 ## Variaveis de ambiente
 
