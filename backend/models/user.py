@@ -1,4 +1,4 @@
-"""Authenticated user model for the CRM app."""
+"""Authenticated user model for the Adler AI."""
 
 from sqlalchemy import Column, DateTime, Integer, String, func
 from sqlalchemy.orm import relationship

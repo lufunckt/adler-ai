@@ -1,4 +1,4 @@
-"""Authentication routes for the CRM app."""
+"""Authentication routes for the Adler AI."""
 
 from __future__ import annotations
 

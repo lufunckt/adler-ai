@@ -35,6 +35,7 @@ class ClinicianProfileRead(BaseModel):
 
 
 class ScheduleItemRead(BaseModel):
+    id: str
     duration: str
     mode: str
     patient_id: str
@@ -62,6 +63,25 @@ class PatientRegistryItemRead(BaseModel):
     initials: str
     name: str
     status: PatientStatus
+
+
+class PatientCreate(BaseModel):
+    name: str
+    focus: str = ""
+    diagnosis: str = "A definir"
+    current_protocol: str = "A definir"
+    status: PatientStatus = "active"
+
+
+class AppointmentCreate(BaseModel):
+    patient_id: str
+    time: str
+    duration: str = "50 min"
+    session_label: str = "Sessão individual"
+    mode: str = "Presencial"
+    room_label: str = "Consultório"
+    prep_note: str = ""
+    status: str = "scheduled"
 
 
 class MedicationEntryRead(BaseModel):

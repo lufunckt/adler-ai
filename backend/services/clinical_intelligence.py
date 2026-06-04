@@ -37,6 +37,7 @@ from backend.schemas.clinical_intelligence import (
     ClinicalHypothesis,
     ClinicalIntelligenceApproach,
     ClinicalMapEdge,
+    PharmacogeneticsUpdate,
     ClinicalMapNode,
     ClinicalMechanism,
     ClinicalPattern,
@@ -1225,6 +1226,48 @@ def request_pharmacogenetics(
     )
 
 
+def update_pharmacogenetics_result(
+    *,
+    db: Session,
+    tenant_id: str,
+    request_id: str,
+    payload: PharmacogeneticsUpdate,
+) -> dict:
+    # Em um banco real, o request_id estaria dentro do JSON ou seria uma coluna real.
+    # Como AdlerPharmacogeneticsResult.result_json contém o request_id, buscamos por lá (ou simplificamos no MVP).
+    # Para o MVP, assumimos que o gene + patient_id identifica se não houver coluna request_id.
+    # Mas AdlerPharmacogeneticsResult tem 'result_json'.
+
+    # Busca simplificada para MVP (em produção, request_id seria uma coluna indexada)
+    records = db.query(AdlerPharmacogeneticsResult).filter(
+        AdlerPharmacogeneticsResult.tenant_id == tenant_id
+    ).all()
+
+    record = next((r for r in records if r.result_json.get("request_id") == request_id), None)
+
+    if not record:
+        raise HTTPException(status_code=404, detail="Solicitação PGx não encontrada.")
+
+    if payload.phenotype:
+        record.phenotype = payload.phenotype
+
+    # Atualiza JSON mantendo dados antigos
+    new_json = dict(record.result_json)
+    new_json["status"] = payload.status
+    if payload.result_json:
+        new_json.update(payload.result_json)
+
+    record.result_json = new_json
+    db.add(record)
+    db.commit()
+    db.refresh(record)
+
+    return {
+        "status": payload.status,
+        "request_id": request_id,
+        "message": "Resultado atualizado com sucesso.",
+        "next_steps": ["Revisar implicações clínicas", "Discutir com o paciente"]
+    }
 def create_whatsapp_checkin(
     *,
     db: Session,

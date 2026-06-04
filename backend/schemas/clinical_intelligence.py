@@ -43,6 +43,12 @@ class ClinicalSessionInput(BaseModel):
     comportamentos: list[str] = Field(default_factory=list)
     medicacao: list[str] = Field(default_factory=list)
     tempo: str | None = None
+
+class PharmacogeneticsUpdate(BaseModel):
+    status: str
+    phenotype: str | None = None
+    result_json: dict | None = None
+
     abordagem_clinica: ClinicalIntelligenceApproach
     observacoes: str | None = None
 

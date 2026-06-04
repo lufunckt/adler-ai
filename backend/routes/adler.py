@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Literal
 
-from fastapi import APIRouter, Depends, File, Form, HTTPException, Response, UploadFile
+from fastapi import APIRouter, Depends, File, Form, HTTPException, Response, UploadFile, status
 from fastapi.responses import FileResponse, StreamingResponse
 from sqlalchemy.orm import Session
 
@@ -19,6 +19,9 @@ from backend.schemas.adler import (
     NotesUpdate,
     PatientRead,
     PatientRegistryItemRead,
+    PatientCreate,
+    AppointmentCreate,
+    ScheduleItemRead,
     ScientificBaseRead,
     WorkspaceSnapshotRead,
 )
@@ -32,6 +35,11 @@ from backend.services.adler_store import (
     bootstrap_payload,
     build_patients_csv,
     build_workspace_snapshot,
+    create_patient,
+    update_patient,
+    delete_patient,
+    create_appointment,
+    delete_appointment,
     delete_document,
     get_dashboard,
     get_document_blob,
@@ -96,6 +104,35 @@ def patients(
     return list_patients(search=search, status=status, db=db, tenant_id=context.tenant_id)
 
 
+@router.post("/patients", response_model=PatientRegistryItemRead, status_code=status.HTTP_201_CREATED)
+def add_patient(
+    payload: PatientCreate,
+    context: AdlerTenantContext = Depends(resolve_adler_tenant_context),
+    db: Session = Depends(get_db),
+) -> dict:
+    return create_patient(db, context.tenant_id, payload)
+
+
+@router.put("/patients/{patient_id}", response_model=PatientRegistryItemRead)
+def edit_patient(
+    patient_id: str,
+    payload: PatientCreate,
+    context: AdlerTenantContext = Depends(resolve_adler_tenant_context),
+    db: Session = Depends(get_db),
+) -> dict:
+    return update_patient(db, context.tenant_id, patient_id, payload)
+
+
+@router.delete("/patients/{patient_id}")
+def remove_patient(
+    patient_id: str,
+    context: AdlerTenantContext = Depends(resolve_adler_tenant_context),
+    db: Session = Depends(get_db),
+) -> dict[str, str]:
+    delete_patient(db, context.tenant_id, patient_id)
+    return {"status": "deleted"}
+
+
 @router.get("/patients/{patient_id}", response_model=PatientRead)
 def patient_detail(
     patient_id: str,
@@ -103,6 +140,25 @@ def patient_detail(
     db: Session = Depends(get_db),
 ) -> dict:
     return get_patient(patient_id, db=db, tenant_id=context.tenant_id)
+
+
+@router.post("/appointments", response_model=ScheduleItemRead, status_code=status.HTTP_201_CREATED)
+def add_appointment(
+    payload: AppointmentCreate,
+    context: AdlerTenantContext = Depends(resolve_adler_tenant_context),
+    db: Session = Depends(get_db),
+) -> dict:
+    return create_appointment(db, context.tenant_id, payload)
+
+
+@router.delete("/appointments/{appt_id}")
+def remove_appointment(
+    appt_id: str,
+    context: AdlerTenantContext = Depends(resolve_adler_tenant_context),
+    db: Session = Depends(get_db),
+) -> dict[str, str]:
+    delete_appointment(db, context.tenant_id, appt_id)
+    return {"status": "deleted"}
 
 
 @router.get("/workspace/{patient_id}", response_model=WorkspaceSnapshotRead)
