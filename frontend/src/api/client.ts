@@ -315,3 +315,20 @@ export function fetchAdlerWhatsAppDashboard(patientId: string) {
     `/api/adler/whatsapp/patients/${patientId}/dashboard`
   );
 }
+
+export type AdlerBootstrapResponse = {
+  dashboard: {
+    clinician: any;
+    notes: string;
+    recent_notes: any[];
+    schedule: any[];
+    summary: any;
+    tasks: any[];
+  };
+  documents: any[];
+  patients: any[];
+};
+
+export function fetchAdlerBootstrap() {
+  return call<AdlerBootstrapResponse>("/api/adler/bootstrap");
+}

@@ -1,0 +1,11 @@
+
+> adler-ai-frontend@0.1.0 dev
+> vite --host 127.0.0.1 --port 5173
+
+Port 5173 is in use, trying another one...
+Port 5174 is in use, trying another one...
+Port 5175 is in use, trying another one...
+
+  VITE v5.4.21  ready in 276 ms
+
+  ➜  Local:   http://127.0.0.1:5176/

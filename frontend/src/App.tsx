@@ -6,6 +6,7 @@ import {
   fetchAdlerEvolutionDecision,
   fetchAdlerMedicationSearch,
   fetchAdlerWhatsAppDashboard,
+  fetchAdlerBootstrap,
   type AdlerAbandonmentRiskResponse,
   type AdlerEvolutionDecisionResponse,
   type AdlerMedicationSearchResponse,
@@ -339,9 +340,48 @@ export default function App() {
   useEffect(() => {
     let active = true;
 
-    void restoreSession().then((sessionPayload) => {
+    void restoreSession().then(async (sessionPayload) => {
       if (!active) return;
       setAuthSession(sessionPayload);
+
+      if (sessionPayload) {
+        try {
+          const bootstrap = await fetchAdlerBootstrap();
+          if (!active) return;
+
+          // Mapeia os dados do backend para os tipos do frontend
+          const mappedPatients: Patient[] = bootstrap.patients.map(p => ({
+            id: p.id,
+            name: p.name,
+            initials: p.initials,
+            status: p.status,
+            focus: p.focus,
+            hypothesis: p.diagnosis,
+            protocol: p.current_protocol,
+            sessions: p.default_session,
+            progress: 0, // Backend nao tem progresso ainda
+            risk: 0,     // Backend nao tem risco base no registro
+            lastSeen: "Recentemente"
+          }));
+
+          const mappedAppointments: Appointment[] = bootstrap.dashboard.schedule.map(s => ({
+            id: s.id || Math.random().toString(36).substr(2, 9),
+            patientId: s.patient_id,
+            patientName: s.patient_name,
+            time: s.time,
+            kind: s.session_label,
+            mode: s.mode,
+            status: s.status === "completed" ? "completed" : s.status === "next" ? "next" : "scheduled",
+            note: s.prep_note || ""
+          }));
+
+          setPatients(mappedPatients);
+          setAppointments(mappedAppointments);
+        } catch (error) {
+          console.error("Erro no bootstrap:", error);
+        }
+      }
+
       setAuthReady(true);
     });
 
