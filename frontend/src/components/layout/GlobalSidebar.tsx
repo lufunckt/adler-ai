@@ -49,6 +49,18 @@ export function GlobalSidebar({ currentPage, onNavigate }: { currentPage: Page; 
         })}
       </nav>
 
+
+      <div className="px-3 mb-2">
+        <a
+          href="https://forms.gle/adler-ai-feedback"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-[13px] font-bold text-emerald-600 bg-emerald-50 hover:bg-emerald-100 transition-all border border-emerald-200/50"
+        >
+          <MessageCircle className="h-4 w-4" />
+          Enviar Feedback
+        </a>
+      </div>
       <div className="border-t border-gray-100 p-4">
         <div className="flex items-center gap-3 rounded-xl bg-gray-50 px-3 py-3">
           <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-rose-500 text-sm font-bold text-white">
@@ -65,7 +77,7 @@ export function GlobalSidebar({ currentPage, onNavigate }: { currentPage: Page; 
         </div>
         {clinician.plan === "premium" ? (
           <div className="mt-2 rounded-lg bg-rose-50 px-3 py-2">
-            <p className="text-[11px] font-semibold text-rose-600">Premium · todas as lentes</p>
+            <p className="text-[11px] font-semibold text-rose-600">Beta Tester · Acesso Total</p>
           </div>
         ) : null}
       </div>

@@ -86,7 +86,7 @@ export function AuthScreen({ onAuthenticated }: AuthScreenProps) {
             </div>
 
             <h1 className="mt-8 max-w-xl text-4xl font-semibold tracking-[-0.05em] text-white sm:text-5xl">
-              Entre no Adler com uma conta compartilhavel e teste o fluxo clinico real.
+              Acesso Antecipado ao Adler AI
             </h1>
             <p className="mt-5 max-w-xl text-base leading-7 text-white/62">
               Use a conta de avaliacao para gravar uma sessao, rodar a analise e
@@ -208,11 +208,11 @@ export function AuthScreen({ onAuthenticated }: AuthScreenProps) {
               <div className="mt-6 rounded-[28px] border border-white/8 bg-white/[0.03] p-4">
                 <div className="flex items-center justify-between gap-3">
                   <div>
-                    <p className="font-mono text-[0.62rem] uppercase tracking-[0.24em] text-white/42">
-                      Demonstracao
+                    <p className="font-mono text-[0.62rem] uppercase tracking-[0.24em] text-rose-400/80">
+                      Avaliação Rápida
                     </p>
                     <p className="mt-1 text-sm font-semibold text-white">
-                      Conta compartilhavel para avaliacao
+                      Acesso imediato para teste clínico
                     </p>
                   </div>
                   <button
@@ -221,7 +221,7 @@ export function AuthScreen({ onAuthenticated }: AuthScreenProps) {
                     disabled={isSubmitting}
                     className="rounded-full border border-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/[0.05] disabled:cursor-not-allowed disabled:opacity-60"
                   >
-                    Usar demo
+                    Iniciar Avaliação
                   </button>
                 </div>
 

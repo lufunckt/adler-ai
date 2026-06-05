@@ -89,3 +89,6 @@ O Adler AI e um sistema de apoio a organizacao, documentacao e decisao clinica. 
 - **Persistência Real:** O sistema agora utiliza SQLAlchemy/Alembic com suporte a SQLite local e Postgres em produção.
 - **Bootstrap Sincronizado:** O frontend carrega dados reais do banco no login.
 - **Novo Design do Gravador:** Interface de captura de sessão redesenhada com timer, indicadores visuais de status e UX aprimorada.
+
+## Versão Beta (v2.0) - Orientações para Testers
+Se você é um clínico participante do programa de testes, consulte o arquivo [CLINICAL_TESTER_GUIDE.md](./CLINICAL_TESTER_GUIDE.md) para instruções de onboarding, roteiro de testes e como enviar seu feedback.

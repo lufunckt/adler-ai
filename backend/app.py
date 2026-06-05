@@ -9,11 +9,13 @@ from fastapi.staticfiles import StaticFiles
 
 from backend.core.config import settings
 from backend.core.database import SessionLocal, init_db
+from backend.routes.health import router as health_router
 from backend.routes import (
     adler_router,
     auth_router,
     clinical_intelligence_router,
     whatsapp_router,
+    health_router,
 )
 from backend.services.app_bootstrap import ensure_shared_account
 
@@ -31,8 +33,15 @@ app.add_middleware(
 )
 
 
+
 @app.on_event("startup")
 def on_startup() -> None:
+    if settings.is_production:
+        if "sqlite" in settings.database_url:
+            print("WARNING: Running in production with SQLite. Durable storage is recommended.")
+        if settings.adler_cors_origins == ("*",):
+            print("CRITICAL: CORS is set to allow ALL origins in production. Please restrict this.")
+
     init_db()
     db = SessionLocal()
     try:
@@ -65,6 +74,7 @@ app.include_router(auth_router)
 app.include_router(adler_router)
 app.include_router(clinical_intelligence_router)
 app.include_router(whatsapp_router)
+app.include_router(health_router)
 
 if dashboard_dir.exists():
     app.mount("/app", StaticFiles(directory=dashboard_dir, html=True), name="crm-app")

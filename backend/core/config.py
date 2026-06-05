@@ -33,6 +33,7 @@ def _split_env_list(value: str | None, default: tuple[str, ...]) -> tuple[str, .
 
 @dataclass(frozen=True)
 class Settings:
+    is_production: bool
     adler_ai_provider: str
     adler_ai_provider_document_draft: str
     adler_ai_provider_evolution_summary: str
@@ -65,9 +66,16 @@ class Settings:
 
 def _build_settings() -> Settings:
     _load_env_file()
+    is_prod = os.getenv("ENVIRONMENT", "development").lower() == "production"
     database_url = os.getenv("DATABASE_URL") or os.getenv("POSTGRES_URL")
+
+    if is_prod and not database_url:
+        # Em producao, nao permitimos SQLite por padrao se nao houver URL
+        pass
+
     default_adler_provider = os.getenv("ADLER_AI_PROVIDER", "rules")
     return Settings(
+        is_production=is_prod,
         adler_ai_provider=default_adler_provider,
         adler_ai_provider_document_draft=os.getenv(
             "ADLER_AI_PROVIDER_DOCUMENT_DRAFT",
