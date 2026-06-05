@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type Dispatch, type SetStateAction } from "react";
+import { useEffect, useMemo, useRef, useState, type Dispatch, type SetStateAction } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { AudioLines, ClipboardList, Mic, Square } from "lucide-react";
 import type { SessionTranscriptLine } from "../lib/clinicalSession";
@@ -63,6 +63,8 @@ export function SessionRecorderPanel({
 }: SessionRecorderPanelProps) {
   const [isLive, setIsLive] = useState(false);
   const [interimText, setInterimText] = useState("");
+  const [elapsedSeconds, setElapsedSeconds] = useState(0);
+  const timerRef = useRef<number>();
   const [hasCapturedSession, setHasCapturedSession] = useState(false);
   const [recordingUrl, setRecordingUrl] = useState("");
   const [error, setError] = useState("");
@@ -89,6 +91,10 @@ export function SessionRecorderPanel({
   }, [recordingUrl]);
 
   async function startLiveCapture() {
+    setElapsedSeconds(0);
+    timerRef.current = window.setInterval(() => {
+      setElapsedSeconds((prev) => prev + 1);
+    }, 1000);
     setError("");
     setInterimText("");
 
@@ -131,6 +137,10 @@ export function SessionRecorderPanel({
   }
 
   function stopLiveCapture() {
+    if (timerRef.current) {
+      window.clearInterval(timerRef.current);
+      timerRef.current = undefined;
+    }
     setIsLive(false);
     isLiveRef.current = false;
     stopSpeechRecognition();
@@ -219,6 +229,13 @@ export function SessionRecorderPanel({
     mediaRecorderRef.current = null;
   }
 
+
+  const formattedElapsedTime = useMemo(() => {
+    const minutes = Math.floor(elapsedSeconds / 60);
+    const seconds = elapsedSeconds % 60;
+    return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+  }, [elapsedSeconds]);
+
   const visibleTranscriptLines =
     transcriptLines.length > 0 || hasCapturedSession
       ? transcriptLines
@@ -227,48 +244,65 @@ export function SessionRecorderPanel({
   return (
     <div className="mx-auto grid max-w-6xl gap-5 xl:grid-cols-[minmax(0,1fr)_340px]">
       <section
-        className="rounded-[28px] border bg-[#101318]/92 p-5 shadow-panel md:p-6"
+        className="rounded-[32px] border bg-[#0d1016]/95 p-6 shadow-2xl md:p-8 backdrop-blur-md"
         style={{
-          borderColor: isLive ? "rgba(255,77,93,0.36)" : accentBorder,
+          borderColor: isLive ? "rgba(244,63,94,0.4)" : "rgba(255,255,255,0.08)",
           boxShadow: isLive
-            ? "0 0 34px rgba(255,77,93,0.16)"
-            : `0 0 24px ${accentSurface}`
+            ? "0 0 40px rgba(244,63,94,0.12)"
+            : "0 4px 24px rgba(0,0,0,0.4)"
         }}
       >
-        <div className="flex flex-wrap items-start justify-between gap-4">
-          <div>
-            <p className="font-mono text-[0.68rem] uppercase tracking-[0.32em] text-adler-subtle">
-              Captura de sessao
-            </p>
-            <h2 className="mt-2 text-[1.55rem] font-semibold tracking-[-0.04em] text-white">
-              Gravador e transcricao ao vivo
-            </h2>
-            <p className="mt-3 max-w-3xl text-sm leading-6 text-adler-muted">
-              Usa o microfone do navegador para gerar audio local e transcricao
-              em tempo real. Depois voce revisa os campos estruturados e envia
-              a analise para o backend.
+        <div className="flex flex-wrap items-center justify-between gap-6 border-b border-white/8 pb-8">
+          <div className="flex-1">
+            <div className="flex items-center gap-3">
+              <div className="relative flex h-10 w-10 items-center justify-center rounded-2xl bg-white/[0.03] border border-white/10">
+                <Mic className="h-5 w-5 text-rose-400" />
+                {isLive && (
+                  <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-rose-500"></span>
+                  </span>
+                )}
+              </div>
+              <div>
+                <p className="font-mono text-[0.62rem] uppercase tracking-[0.3em] text-white/40">
+                  Sistema de Captura
+                </p>
+                <h2 className="mt-1 text-2xl font-bold tracking-tight text-white">
+                  Sessão Clínica <span className="text-white/40">v2.0</span>
+                </h2>
+              </div>
+            </div>
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/50">
+              Captura multidimensional com transcrição em tempo real e buffer de áudio local para revisão.
+              A análise estruturada é processada após a conclusão da sessão.
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-2">
+          <div className="flex items-center gap-4 bg-white/[0.02] border border-white/8 p-2 rounded-[24px]">
+            <div className="px-6 py-2">
+              <p className="text-[0.62rem] uppercase tracking-widest text-white/30 font-mono">Duração</p>
+              <p className="text-xl font-bold font-mono text-white mt-0.5 tracking-wider">
+                {isLive ? formattedElapsedTime : "00:00"}
+              </p>
+            </div>
             {isLive ? (
               <button
                 type="button"
                 onClick={stopLiveCapture}
-                className="inline-flex items-center gap-2 rounded-full border border-red-400/28 bg-red-500/12 px-4 py-2.5 text-sm font-semibold text-red-100"
+                className="h-14 px-8 flex items-center gap-3 rounded-[18px] bg-rose-500 text-white font-bold text-sm transition hover:bg-rose-600 shadow-lg shadow-rose-500/20"
               >
-                <Square className="h-4 w-4" />
-                Parar captura
+                <Square className="h-4 w-4 fill-current" />
+                Encerrar Captura
               </button>
             ) : (
               <button
                 type="button"
                 onClick={() => void startLiveCapture()}
-                className="inline-flex items-center gap-2 rounded-full border px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-white/8"
-                style={{ borderColor: accentBorder, backgroundColor: accentSurface }}
+                className="h-14 px-8 flex items-center gap-3 rounded-[18px] bg-white/[0.05] border border-white/10 text-white font-bold text-sm transition hover:bg-white/10 hover:border-white/20"
               >
-                <Mic className="h-4 w-4" />
-                Iniciar captura real
+                <div className="h-2 w-2 rounded-full bg-rose-500 shadow-[0_0_8px_rgba(244,63,94,0.8)]" />
+                Iniciar Atendimento
               </button>
             )}
           </div>
@@ -280,76 +314,114 @@ export function SessionRecorderPanel({
           </p>
         ) : null}
 
-        <div className="mt-5 grid gap-4 lg:grid-cols-[minmax(0,1fr)_260px]">
-          <div className="rounded-[22px] border border-white/8 bg-[#151923]/86 p-4">
-            <div className="flex items-center justify-between gap-3">
+        <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_300px]">
+          <div className="flex flex-col rounded-[28px] border border-white/8 bg-white/[0.015] overflow-hidden">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-white/8 bg-white/[0.02]">
               <div className="flex items-center gap-3">
-                <AudioLines className="h-4 w-4" style={{ color: isLive ? "#ff7b89" : accent }} />
-                <h3 className="text-base font-semibold text-white">Transcricao</h3>
+                <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-white/[0.04]">
+                  <AudioLines className="h-4 w-4 text-rose-400" />
+                </div>
+                <h3 className="text-sm font-bold text-white uppercase tracking-wider">Monitor de Transcrição</h3>
               </div>
-              <span className="font-mono text-xs text-adler-muted">
-                {isLive ? "ao vivo" : hasCapturedSession ? "captura pronta" : "demo carregada"}
-              </span>
+              <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/8">
+                <div className={`h-1.5 w-1.5 rounded-full ${isLive ? 'bg-rose-500 animate-pulse' : 'bg-white/20'}`} />
+                <span className="font-mono text-[0.62rem] uppercase tracking-widest text-white/40">
+                  {isLive ? "Processando fluxo" : hasCapturedSession ? "Concluído" : "Aguardando"}
+                </span>
+              </div>
             </div>
 
-            <div className="adler-scroll mt-4 max-h-[460px] space-y-3 overflow-y-auto pr-1">
+            <div className="adler-scroll flex-1 max-h-[520px] min-h-[400px] overflow-y-auto p-6 space-y-6">
               <AnimatePresence initial={false}>
                 {visibleTranscriptLines.map((line) => (
                   <motion.article
                     key={line.id}
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -8 }}
-                    className="rounded-[16px] border border-white/8 bg-black/12 px-4 py-3"
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    className="relative pl-6 border-l-2 border-white/5"
                   >
-                    <div className="flex items-center justify-between gap-3">
-                      <p className="text-sm font-semibold text-white">{line.speaker}</p>
-                      <p className="font-mono text-xs text-white/42">{line.timestamp}</p>
+                    <div className="absolute left-[-5px] top-1 h-2 w-2 rounded-full bg-rose-500/30 border border-rose-500/50" />
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-[0.68rem] font-bold uppercase tracking-widest text-rose-400/80">
+                        {line.speaker}
+                      </span>
+                      <span className="font-mono text-[0.62rem] text-white/30">{line.timestamp}</span>
                     </div>
-                    <p className="mt-2 text-sm leading-6 text-white/78">{line.text}</p>
+                    <p className="text-[0.92rem] leading-relaxed text-white/80 font-medium">
+                      {line.text}
+                    </p>
                   </motion.article>
                 ))}
               </AnimatePresence>
 
               {interimText ? (
-                <div className="rounded-[16px] border border-white/8 bg-white/[0.03] px-4 py-3 text-sm leading-6 text-white/54">
-                  {interimText}
-                </div>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="pl-6 border-l-2 border-rose-500/20 italic"
+                >
+                  <p className="text-[0.92rem] leading-relaxed text-white/40">
+                    {interimText}...
+                  </p>
+                </motion.div>
               ) : null}
+
+              {!isLive && !hasCapturedSession && !transcriptLines.length && (
+                <div className="h-full flex flex-col items-center justify-center text-center opacity-30 py-20">
+                  <Mic className="h-12 w-12 mb-4" />
+                  <p className="text-sm font-medium">Aguardando início da sessão para<br/>iniciar a transcrição assistida.</p>
+                </div>
+              )}
             </div>
           </div>
 
-          <aside className="space-y-4">
-            <div
-              className="rounded-[22px] border bg-black/12 p-4"
-              style={{ borderColor: accentBorder }}
-            >
-              <div className="flex items-center gap-3">
-                <AudioLines className="h-4 w-4" style={{ color: accent }} />
-                <p className="text-sm font-semibold text-white">Audio local</p>
+          <aside className="space-y-6">
+            <div className="rounded-[28px] border border-white/8 bg-white/[0.02] p-6">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-white/[0.04]">
+                  <AudioLines className="h-4 w-4 text-rose-400" />
+                </div>
+                <p className="text-xs font-bold text-white uppercase tracking-wider">Buffer de Áudio</p>
               </div>
+
               {recordingUrl ? (
-                <audio className="mt-4 w-full" controls src={recordingUrl}>
-                  <track kind="captions" />
-                </audio>
+                <div className="space-y-4">
+                  <audio className="w-full h-10 accent-rose-500" controls src={recordingUrl}>
+                    <track kind="captions" />
+                  </audio>
+                  <div className="p-3 rounded-xl bg-white/[0.03] border border-white/5">
+                    <p className="text-[0.62rem] text-white/40 leading-relaxed">
+                      O áudio é processado localmente e não é enviado aos servidores de IA para garantir a privacidade total do paciente.
+                    </p>
+                  </div>
+                </div>
               ) : (
-                <p className="mt-3 text-sm leading-6 text-adler-muted">
-                  Ao parar a captura, o audio fica disponivel localmente para
-                  conferencia do clinico.
-                </p>
+                <div className="py-8 flex flex-col items-center justify-center text-center px-4">
+                  <div className={`h-12 w-12 rounded-full border-2 border-dashed border-white/10 flex items-center justify-center mb-4 ${isLive ? 'animate-pulse' : ''}`}>
+                    <Mic className="h-5 w-5 text-white/20" />
+                  </div>
+                  <p className="text-xs leading-relaxed text-white/30">
+                    O buffer de áudio será gerado automaticamente ao encerrar a sessão.
+                  </p>
+                </div>
               )}
             </div>
 
-            <div className="rounded-[22px] border border-white/8 bg-black/12 p-4">
-              <div className="flex items-center gap-3">
-                <ClipboardList className="h-4 w-4" style={{ color: accent }} />
-                <p className="text-sm font-semibold text-white">Nota manual</p>
+            <div className="rounded-[28px] border border-white/8 bg-white/[0.02] p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-white/[0.04]">
+                  <ClipboardList className="h-4 w-4 text-rose-400" />
+                </div>
+                <p className="text-xs font-bold text-white uppercase tracking-wider">Notas Rápidas</p>
               </div>
+              <p className="text-[0.62rem] text-white/30 mb-4 leading-relaxed">
+                Use este espaço para observações fenomênicas ou insights imediatos que a IA pode não capturar.
+              </p>
               <textarea
                 value={manualNote}
                 onChange={(event) => onManualNoteChange(event.target.value)}
-                placeholder="Anotacoes brutas, hipoteses e pontos de supervisao..."
-                className="mt-4 min-h-[180px] w-full rounded-[18px] border border-white/8 bg-[#090a0c] px-4 py-3 text-sm leading-6 text-white outline-none placeholder:text-white/28 focus:border-white/16"
+                placeholder="Ex: Paciente evitou contato visual ao falar sobre..."
+                className="w-full min-h-[220px] rounded-2xl border border-white/8 bg-black/20 p-4 text-sm leading-relaxed text-white/80 outline-none placeholder:text-white/10 focus:border-rose-500/30 focus:bg-black/40 transition-all"
               />
             </div>
           </aside>

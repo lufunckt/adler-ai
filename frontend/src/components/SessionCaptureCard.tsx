@@ -19,78 +19,77 @@ export function SessionCaptureCard({
 }: SessionCaptureCardProps) {
   return (
     <section
-      className="mt-4 rounded-[24px] border bg-white/[0.035] p-4 backdrop-blur-xl"
+      className="mt-6 rounded-[28px] border bg-white/[0.02] p-5 backdrop-blur-md"
       style={{
-        borderColor: isRecording ? "rgba(255,77,93,0.28)" : accentBorder,
+        borderColor: isRecording ? "rgba(244,63,94,0.35)" : "rgba(255,255,255,0.08)",
         boxShadow: isRecording
-          ? "0 0 28px rgba(255,77,93,0.16)"
-          : `0 0 24px ${accentSurface}`
+          ? "0 0 32px rgba(244,63,94,0.1)"
+          : "0 4px 20px rgba(0,0,0,0.2)"
       }}
     >
-      <div className="flex items-start justify-between gap-3">
-        <div>
-          <p className="text-[0.68rem] uppercase tracking-[0.28em] text-adler-subtle">
-            Captura da Sessao
-          </p>
-          <h3 className="mt-2 text-base font-semibold tracking-[-0.03em] text-white">
+      <div className="flex items-start justify-between gap-4">
+        <div className="flex-1">
+          <div className="flex items-center gap-2 mb-2">
+            <div className={`h-1.5 w-1.5 rounded-full ${isRecording ? 'bg-rose-500 animate-pulse' : 'bg-white/20'}`} />
+            <p className="text-[0.62rem] font-bold uppercase tracking-[0.25em] text-white/30">
+              Captura em Tempo Real
+            </p>
+          </div>
+          <h3 className="text-lg font-bold tracking-tight text-white leading-tight">
             {patient.recorder.title}
           </h3>
         </div>
 
-        <span
-          className="rounded-full border px-3 py-1.5 font-mono text-[0.68rem] uppercase tracking-[0.22em]"
+        <div
+          className="px-3 py-1.5 rounded-xl border font-mono text-[0.68rem] font-bold tracking-wider"
           style={{
-            color: isRecording ? "#ff7b89" : accent,
-            borderColor: isRecording ? "rgba(255,77,93,0.32)" : accentBorder,
-            backgroundColor: isRecording ? "rgba(255,77,93,0.1)" : accentSurface
+            color: isRecording ? "#fb7185" : "rgba(255,255,255,0.4)",
+            borderColor: isRecording ? "rgba(244,63,94,0.3)" : "rgba(255,255,255,0.08)",
+            backgroundColor: isRecording ? "rgba(244,63,94,0.08)" : "rgba(255,255,255,0.02)"
           }}
         >
-          {isRecording ? "analise ao vivo" : patient.recorder.duration}
-        </span>
+          {isRecording ? "AO VIVO" : patient.recorder.duration}
+        </div>
       </div>
 
       <p className="mt-3 text-sm leading-6 text-white/82">{patient.recorder.summary}</p>
 
-      <div className="mt-4 rounded-[18px] border border-white/8 bg-black/12 px-3 py-3">
-        <div className="mb-3 flex items-center justify-between gap-3">
+      <div className="mt-5 rounded-2xl border border-white/5 bg-black/20 p-4">
+        <div className="mb-4 flex items-center justify-between gap-3 border-b border-white/5 pb-3">
           <div className="flex items-center gap-2">
-            <Activity className="h-4 w-4" style={{ color: accent }} />
-            <span className="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-adler-subtle">
-              Fluxo de transcricao
+            <AudioLines className="h-3.5 w-3.5 text-rose-400" />
+            <span className="text-[0.62rem] font-bold uppercase tracking-widest text-white/30">
+              Fluxo de Transcrição
             </span>
           </div>
           <AnimatePresence mode="wait" initial={false}>
             <motion.span
               key={isRecording ? "recording" : "loaded"}
-              initial={{ opacity: 0, y: 6 }}
+              initial={{ opacity: 0, y: 4 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -6 }}
-              className="font-mono text-xs text-white/62"
+              exit={{ opacity: 0, y: -4 }}
+              className="font-mono text-[0.62rem] font-bold text-white/20 uppercase tracking-tighter"
             >
-              {isRecording ? "buffer atualizando" : "trecho carregado"}
+              {isRecording ? "Sincronizando..." : "Histórico local"}
             </motion.span>
           </AnimatePresence>
         </div>
 
-        <div className="adler-scroll max-h-[270px] space-y-3 overflow-y-auto pr-1">
+        <div className="adler-scroll max-h-[240px] space-y-4 overflow-y-auto pr-2">
           {patient.recorder.transcriptSegments.slice(0, 3).map((segment) => (
             <div
               key={segment.id}
-              className="rounded-[16px] border border-white/6 bg-white/[0.025] px-3 py-3"
+              className="relative pl-4 border-l border-white/5"
             >
-              <div className="flex items-center justify-between gap-3">
-                <div className="flex items-center gap-2">
-                  <AudioLines className="h-3.5 w-3.5" style={{ color: accent }} />
-                  <span className="text-xs font-semibold tracking-[-0.01em] text-white">
-                    {segment.speaker}
-                  </span>
-                </div>
-                <div className="flex items-center gap-2 font-mono text-[0.68rem] uppercase tracking-[0.18em] text-adler-subtle">
-                  {isRecording ? <Dot className="h-4 w-4 text-adler-red" /> : null}
-                  <span>{segment.timestamp}</span>
-                </div>
+              <div className="flex items-center justify-between mb-1.5">
+                <span className="text-[0.62rem] font-bold uppercase tracking-widest text-rose-400/60">
+                  {segment.speaker}
+                </span>
+                <span className="font-mono text-[0.62rem] text-white/20">{segment.timestamp}</span>
               </div>
-              <p className="mt-2 text-[0.82rem] leading-6 text-white/78">{segment.text}</p>
+              <p className="text-xs leading-relaxed text-white/60 line-clamp-2">
+                {segment.text}
+              </p>
             </div>
           ))}
         </div>
