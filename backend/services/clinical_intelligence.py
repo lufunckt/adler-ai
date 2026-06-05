@@ -18,6 +18,7 @@ from sqlalchemy import desc, func
 from sqlalchemy.orm import Session
 
 from backend.models.adler_clinical import (
+    AdlerSessionNoteDraft,
     AdlerAppointmentConfirmation,
     AdlerClinicalAnalysis,
     AdlerClinicalSession,
@@ -1261,3 +1262,23 @@ def create_whatsapp_checkin(
         consent_status=record.consent_status,
         created_at=record.created_at,
     )
+
+def upsert_session_note_draft(db: Session, tenant_id: str, payload: SessionNoteDraftCreate) -> AdlerSessionNoteDraft:
+    record = db.query(AdlerSessionNoteDraft).filter(
+        AdlerSessionNoteDraft.tenant_id == tenant_id,
+        AdlerSessionNoteDraft.patient_id == payload.patient_id
+    ).first()
+
+    if record:
+        record.content = payload.content
+    else:
+        record = AdlerSessionNoteDraft(
+            tenant_id=tenant_id,
+            patient_id=payload.patient_id,
+            content=payload.content
+        )
+        db.add(record)
+
+    db.commit()
+    db.refresh(record)
+    return record

@@ -295,3 +295,12 @@ class WhatsappCheckinRead(BaseModel):
     notes: str | None
     consent_status: str
     created_at: datetime
+
+class SessionNoteDraftCreate(BaseModel):
+    patient_id: str
+    content: str
+
+class SessionNoteDraftRead(BaseModel):
+    patient_id: str
+    content: str
+    updated_at: datetime

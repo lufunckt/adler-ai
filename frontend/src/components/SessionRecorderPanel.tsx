@@ -1,6 +1,8 @@
-import { useEffect, useMemo, useRef, useState, type Dispatch, type SetStateAction } from "react";
+import React, { useEffect, useMemo, useRef, useState, type Dispatch, type SetStateAction } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { AudioLines, ClipboardList, Mic, Square } from "lucide-react";
+import {
+  AudioLines, ClipboardList, Mic, Square, CheckCircle2
+} from "lucide-react";
 import type { SessionTranscriptLine } from "../lib/clinicalSession";
 
 type BrowserSpeechRecognitionResult = ArrayLike<{ transcript: string }> & {
@@ -20,81 +22,81 @@ type BrowserSpeechRecognition = EventTarget & {
   continuous: boolean;
   interimResults: boolean;
   lang: string;
-  onend: (() => void) | null;
-  onerror: ((event: BrowserSpeechRecognitionErrorEvent) => void) | null;
-  onresult: ((event: BrowserSpeechRecognitionEvent) => void) | null;
-  start(): void;
-  stop(): void;
+  onresult: (event: BrowserSpeechRecognitionEvent) => void;
+  onerror: (event: BrowserSpeechRecognitionErrorEvent) => void;
+  onend: () => void;
+  start: () => void;
+  stop: () => void;
 };
 
-type BrowserSpeechRecognitionConstructor = new () => BrowserSpeechRecognition;
-
 type SpeechRecognitionWindow = Window & {
-  SpeechRecognition?: BrowserSpeechRecognitionConstructor;
-  webkitSpeechRecognition?: BrowserSpeechRecognitionConstructor;
+  SpeechRecognition?: new () => BrowserSpeechRecognition;
+  webkitSpeechRecognition?: new () => BrowserSpeechRecognition;
 };
 
 type SessionRecorderPanelProps = {
   accent: string;
   accentBorder: string;
   accentSurface: string;
-  fallbackTranscript: SessionTranscriptLine[];
   isRecording: boolean;
   manualNote: string;
+  onManualNoteChange: (v: string) => void;
+  saveStatus?: "idle" | "saving" | "saved" | "error";
   onCaptureStart?: () => void;
-  onManualNoteChange: (value: string) => void;
-  setTranscriptLines: Dispatch<SetStateAction<SessionTranscriptLine[]>>;
   toggleRecording: () => void;
   transcriptLines: SessionTranscriptLine[];
+  setTranscriptLines: Dispatch<SetStateAction<SessionTranscriptLine[]>>;
 };
+
+const fallbackTranscript: SessionTranscriptLine[] = [
+  {
+    id: "f1",
+    speaker: "Paciente",
+    text: "Tenho me sentido muito cansado ultimamente, com dificuldade de foco no trabalho.",
+    timestamp: "09:05"
+  },
+  {
+    id: "f2",
+    speaker: "Clinico",
+    text: "Isso começou após a mudança na rotina de sono que discutimos na sessão anterior?",
+    timestamp: "09:07"
+  }
+];
 
 export function SessionRecorderPanel({
   accent,
   accentBorder,
   accentSurface,
-  fallbackTranscript,
   isRecording,
   manualNote,
-  onCaptureStart,
   onManualNoteChange,
-  setTranscriptLines,
+  saveStatus = "idle",
+  onCaptureStart,
   toggleRecording,
-  transcriptLines
+  transcriptLines,
+  setTranscriptLines
 }: SessionRecorderPanelProps) {
   const [isLive, setIsLive] = useState(false);
-  const [interimText, setInterimText] = useState("");
-  const [elapsedSeconds, setElapsedSeconds] = useState(0);
-  const timerRef = useRef<number>();
-  const [hasCapturedSession, setHasCapturedSession] = useState(false);
-  const [recordingUrl, setRecordingUrl] = useState("");
   const [error, setError] = useState("");
-  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
-  const recognitionRef = useRef<BrowserSpeechRecognition | null>(null);
+  const [interimText, setInterimText] = useState("");
+  const [recordingUrl, setRecordingUrl] = useState<string | null>(null);
+  const [hasCapturedSession, setHasCapturedSession] = useState(false);
+  const [elapsedSeconds, setElapsedSeconds] = useState(0);
+
   const streamRef = useRef<MediaStream | null>(null);
+  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const chunksRef = useRef<Blob[]>([]);
+  const recognitionRef = useRef<BrowserSpeechRecognition | null>(null);
   const isLiveRef = useRef(false);
+  const timerRef = useRef<number>();
 
-  useEffect(() => {
-    isLiveRef.current = isLive;
-  }, [isLive]);
-
-  useEffect(() => {
-    setHasCapturedSession(false);
-  }, [fallbackTranscript]);
-
-  useEffect(() => {
-    return () => {
-      stopSpeechRecognition();
-      stopMediaTracks();
-      if (recordingUrl) URL.revokeObjectURL(recordingUrl);
-    };
-  }, [recordingUrl]);
+  const formattedElapsedTime = useMemo(() => {
+    const minutes = Math.floor(elapsedSeconds / 60);
+    const seconds = elapsedSeconds % 60;
+    return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+  }, [elapsedSeconds]);
 
   async function startLiveCapture() {
-    setElapsedSeconds(0);
-    timerRef.current = window.setInterval(() => {
-      setElapsedSeconds((prev) => prev + 1);
-    }, 1000);
     setError("");
     setInterimText("");
 
@@ -125,6 +127,12 @@ export function SessionRecorderPanel({
       startSpeechRecognition();
       setIsLive(true);
       isLiveRef.current = true;
+
+      setElapsedSeconds(0);
+      timerRef.current = window.setInterval(() => {
+        setElapsedSeconds((prev) => prev + 1);
+      }, 1000);
+
       if (!isRecording) toggleRecording();
     } catch (caught) {
       setError(
@@ -137,13 +145,14 @@ export function SessionRecorderPanel({
   }
 
   function stopLiveCapture() {
+    setIsLive(false);
+    isLiveRef.current = false;
+    stopSpeechRecognition();
+
     if (timerRef.current) {
       window.clearInterval(timerRef.current);
       timerRef.current = undefined;
     }
-    setIsLive(false);
-    isLiveRef.current = false;
-    stopSpeechRecognition();
 
     const recorder = mediaRecorderRef.current;
     if (recorder && recorder.state !== "inactive") {
@@ -228,13 +237,6 @@ export function SessionRecorderPanel({
     streamRef.current = null;
     mediaRecorderRef.current = null;
   }
-
-
-  const formattedElapsedTime = useMemo(() => {
-    const minutes = Math.floor(elapsedSeconds / 60);
-    const seconds = elapsedSeconds % 60;
-    return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
-  }, [elapsedSeconds]);
 
   const visibleTranscriptLines =
     transcriptLines.length > 0 || hasCapturedSession
@@ -413,6 +415,15 @@ export function SessionRecorderPanel({
                   <ClipboardList className="h-4 w-4 text-rose-400" />
                 </div>
                 <p className="text-xs font-bold text-white uppercase tracking-wider">Notas Rápidas</p>
+                {saveStatus !== "idle" && (
+                  <div className="ml-auto flex items-center gap-1.5">
+                    {saveStatus === "saving" && <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-amber-400" />}
+                    {saveStatus === "saved" && <CheckCircle2 className="h-3 w-3 text-emerald-400" />}
+                    <span className="text-[0.62rem] font-medium text-white/40">
+                      {saveStatus === "saving" ? "Salvando..." : saveStatus === "saved" ? "Salvo" : "Erro"}
+                    </span>
+                  </div>
+                )}
               </div>
               <p className="text-[0.62rem] text-white/30 mb-4 leading-relaxed">
                 Use este espaço para observações fenomênicas ou insights imediatos que a IA pode não capturar.

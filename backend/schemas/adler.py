@@ -35,6 +35,7 @@ class ClinicianProfileRead(BaseModel):
 
 
 class ScheduleItemRead(BaseModel):
+    id: str | None = None
     duration: str
     mode: str
     patient_id: str
@@ -62,6 +63,22 @@ class PatientRegistryItemRead(BaseModel):
     initials: str
     name: str
     status: PatientStatus
+
+
+class PatientCreate(BaseModel):
+    name: str
+    focus: str | None = None
+
+
+class AppointmentCreate(BaseModel):
+    patient_id: str | None = None
+    patient_name: str | None = None
+    time: str
+    duration: str = "50 min"
+    session_label: str = "Sessão individual"
+    mode: str = "Presencial"
+    room_label: str = "Consultório"
+    prep_note: str = ""
 
 
 class MedicationEntryRead(BaseModel):
@@ -149,18 +166,18 @@ class PatientRead(BaseModel):
     current_protocol: str
     default_session: int
     diagnosis: str
-    differential_alert: DifferentialAlertRead
+    differential_alert: DifferentialAlertRead | None = None
     focus: str
-    genetics: GeneticsProfileRead
+    genetics: GeneticsProfileRead | None = None
     harm_reduction: HarmReductionProfileRead | None = None
     id: str
     initials: str
     interactions: list[MedicationInteractionItemRead] = Field(default_factory=list)
     labs: LaboratoryMonitoringProfileRead | None = None
-    medications: dict[str, MedicationEntryRead]
+    medications: dict[str, MedicationEntryRead] = Field(default_factory=dict)
     name: str
-    pharmacology: dict[str, PharmacologyLensRead]
-    recorder: RecorderRead
+    pharmacology: dict[str, PharmacologyLensRead] = Field(default_factory=dict)
+    recorder: RecorderRead | None = None
     status: PatientStatus
 
 
@@ -191,7 +208,7 @@ class WorkspaceSnapshotRead(BaseModel):
 class DashboardSummaryRead(BaseModel):
     active_patients: int
     inactive_patients: int
-    notes_last_updated_at: datetime
+    notes_last_updated_at: datetime | None = None
     pending_tasks: int
     sessions_today: int
 
@@ -206,7 +223,7 @@ class DashboardRead(BaseModel):
 
 
 class NotesRead(BaseModel):
-    updated_at: datetime
+    updated_at: datetime | None = None
     value: str
 
 

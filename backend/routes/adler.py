@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from typing import Literal
+from uuid import uuid4
 
 from fastapi import APIRouter, Depends, File, Form, HTTPException, Response, UploadFile
 from fastapi.responses import FileResponse, StreamingResponse
@@ -21,6 +22,9 @@ from backend.schemas.adler import (
     PatientRegistryItemRead,
     ScientificBaseRead,
     WorkspaceSnapshotRead,
+    PatientCreate,
+    AppointmentCreate,
+    ScheduleItemRead,
 )
 from backend.services.adler_science import (
     get_document_model_path,
@@ -42,6 +46,8 @@ from backend.services.adler_store import (
     load_notes,
     save_document,
     save_notes,
+    create_patient,
+    create_appointment,
 )
 from backend.services.adler_auth import AdlerTenantContext, resolve_adler_tenant_context
 
@@ -283,3 +289,19 @@ def download_document_model(model_id: str) -> FileResponse:
         media_type="application/pdf",
         filename=model.get("arquivo") or f"{model_id}.pdf",
     )
+
+@router.post("/patients", response_model=PatientRegistryItemRead, status_code=201)
+def create_new_patient(
+    payload: PatientCreate,
+    context: AdlerTenantContext = Depends(resolve_adler_tenant_context),
+    db: Session = Depends(get_db),
+) -> dict:
+    return create_patient(db, context.tenant_id, payload)
+
+@router.post("/appointments", response_model=ScheduleItemRead, status_code=201)
+def create_new_appointment(
+    payload: AppointmentCreate,
+    context: AdlerTenantContext = Depends(resolve_adler_tenant_context),
+    db: Session = Depends(get_db),
+) -> dict:
+    return create_appointment(db, context.tenant_id, payload)

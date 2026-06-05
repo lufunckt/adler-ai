@@ -13,6 +13,7 @@ from sqlalchemy.orm import Session
 
 from backend.models.adler_patient import AdlerAppointment, AdlerPatient
 from backend.models.adler_workspace import AdlerTenantDocument, AdlerTenantNote
+from backend.models.adler_clinical import AdlerClinicalAnalysis
 from backend.schemas.adler import ClinicalApproach, PatientStatus
 from backend.services.adler_auth import AdlerTenantContext
 
@@ -330,21 +331,52 @@ def build_workspace_snapshot(
     first_name = patient["name"].split(" ")[0]
     profile = APPROACH_PROFILES.get(approach, APPROACH_PROFILES["schema"])
 
+    # Tenta buscar analise real se db estiver disponivel
+    real_analysis = None
+    if db is not None and tenant_id is not None:
+        real_analysis = db.query(AdlerClinicalAnalysis).filter(
+            AdlerClinicalAnalysis.tenant_id == tenant_id,
+            AdlerClinicalAnalysis.patient_id == patient_id,
+            AdlerClinicalAnalysis.session_number == selected_session
+        ).order_by(AdlerClinicalAnalysis.version.desc()).first()
+
     insights = []
-    for idx, (title, desc) in enumerate(profile["insights"], start=1):
-        insights.append({
-            "id": f"{approach}-{idx}",
-            "title": title,
-            "description": desc.format(name=first_name),
-            "confidence": 85 - (idx * 5),
-        })
+    summary_text = profile["summary"].format(name=first_name, session=selected_session)
+    clinical_frame = profile["clinical_frame"]
+
+    if real_analysis and real_analysis.analysis_json:
+        data = real_analysis.analysis_json
+        if data.get("resumo_executivo"):
+            summary_text = data["resumo_executivo"]
+        if data.get("quadro_clinico"):
+            clinical_frame = data["quadro_clinico"]
+
+        # Converte hipoteses ou alertas reais em insights se existirem
+        real_insights = data.get("hipoteses", []) + data.get("alertas", [])
+        for idx, item in enumerate(real_insights[:4], start=1):
+            insights.append({
+                "id": f"real-{idx}",
+                "title": item.get("titulo") or item.get("descricao") or "Insight Clínico",
+                "description": item.get("descricao") or item.get("justificativa") or "",
+                "confidence": item.get("confianca", 80)
+            })
+
+    # Fallback/Complemento com insights do profile se necessário
+    if len(insights) < 2:
+        for idx, (title, desc) in enumerate(profile["insights"], start=1):
+            insights.append({
+                "id": f"{approach}-{idx}",
+                "title": title,
+                "description": desc.format(name=first_name),
+                "confidence": 85 - (idx * 5),
+            })
 
     return {
         "approach": approach,
         "patient": patient,
         "selected_session": selected_session,
-        "summary": profile["summary"].format(name=first_name, session=selected_session),
-        "clinical_frame": profile["clinical_frame"],
+        "summary": summary_text,
+        "clinical_frame": clinical_frame,
         "insights": insights,
         "risk": _risk_snapshot(approach, selected_session),
     }
@@ -421,3 +453,58 @@ def build_patients_csv(db: Session | None = None, tenant_id: str | None = None) 
         escaped_row = [f'"{str(value).replace(chr(34), chr(34) * 2)}"' for value in row]
         lines.append(",".join(escaped_row))
     return "\n".join(lines)
+
+def create_patient(db: Session, tenant_id: str, payload: PatientCreate) -> dict:
+    patient_id = str(uuid4())[:8]
+    initials = "".join(p[0] for p in payload.name.split()[:2]).upper()
+
+    record = AdlerPatient(
+        id=patient_id,
+        tenant_id=tenant_id,
+        name=payload.name,
+        initials=initials,
+        focus=payload.focus or "Avaliação inicial",
+        diagnosis="Em investigação",
+        current_protocol="Avaliação inicial",
+        default_session=1,
+        status="active",
+    )
+    db.add(record)
+    db.commit()
+    db.refresh(record)
+    return _patient_record_to_registry_item(record)
+
+def create_appointment(db: Session, tenant_id: str, payload: AppointmentCreate) -> dict:
+    # Se nao houver id mas houver nome, tentamos achar ou criamos um paciente basico
+    p_id = payload.patient_id
+    p_name = payload.patient_name or "Paciente"
+
+    if not p_id and payload.patient_name:
+        existing = db.query(AdlerPatient).filter(
+            AdlerPatient.tenant_id == tenant_id,
+            AdlerPatient.name == payload.patient_name
+        ).first()
+        if existing:
+            p_id = existing.id
+        else:
+            new_p = create_patient(db, tenant_id, PatientCreate(name=payload.patient_name))
+            p_id = new_p["id"]
+            p_name = new_p["name"]
+
+    record = AdlerAppointment(
+        id=str(uuid4()),
+        tenant_id=tenant_id,
+        patient_id=p_id or "unknown",
+        time=payload.time,
+        duration=payload.duration,
+        session_label=payload.session_label,
+        mode=payload.mode,
+        room_label=payload.room_label,
+        prep_note=payload.prep_note,
+        status="scheduled",
+        sort_order=99,
+    )
+    db.add(record)
+    db.commit()
+    db.refresh(record)
+    return _appointment_record_to_payload(record, p_name)

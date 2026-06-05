@@ -308,3 +308,18 @@ export function buildSeedTranscript({
     }
   ];
 }
+
+export function capitalizeMedication(name: string) {
+  return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+}
+
+export function buildMedicationFallback(name: string) {
+  return {
+    title: capitalizeMedication(name),
+    subtitle: "Medicamento em uso",
+    dose: "Dose nao informada",
+    efficacy: 50,
+    efficacy_label: "Eficacia sob observacao",
+    highlight: "Alvo terapeutico: estabilizacao clinica"
+  };
+}

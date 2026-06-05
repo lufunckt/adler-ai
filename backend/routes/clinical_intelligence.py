@@ -266,3 +266,18 @@ def whatsapp_checkin(
 ) -> WhatsappCheckinRead:
     _require_premium(context)
     return create_whatsapp_checkin(db=db, tenant_id=context.tenant_id, payload=payload)
+from backend.schemas.clinical_intelligence import SessionNoteDraftCreate, SessionNoteDraftRead
+
+@router.post("/sessions/notes-draft", response_model=SessionNoteDraftRead)
+def save_session_note_draft(
+    payload: SessionNoteDraftCreate,
+    context: AdlerTenantContext = Depends(resolve_adler_tenant_context),
+    db: Session = Depends(get_db),
+) -> dict:
+    from backend.services.clinical_intelligence import upsert_session_note_draft
+    record = upsert_session_note_draft(db, context.tenant_id, payload)
+    return {
+        "patient_id": record.patient_id,
+        "content": record.content,
+        "updated_at": record.updated_at
+    }

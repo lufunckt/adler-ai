@@ -332,3 +332,40 @@ export type AdlerBootstrapResponse = {
 export function fetchAdlerBootstrap() {
   return call<AdlerBootstrapResponse>("/api/adler/bootstrap");
 }
+
+export type PatientCreateInput = {
+  name: string;
+  focus?: string;
+};
+
+export type AppointmentCreateInput = {
+  patient_id?: string;
+  patient_name?: string;
+  time: string;
+  duration?: string;
+  session_label?: string;
+  mode?: string;
+  room_label?: string;
+  prep_note?: string;
+};
+
+export function createAdlerPatient(payload: PatientCreateInput) {
+  return call<any>("/api/adler/patients", {
+    method: "POST",
+    body: JSON.stringify(payload)
+  });
+}
+
+export function createAdlerAppointment(payload: AppointmentCreateInput) {
+  return call<any>("/api/adler/appointments", {
+    method: "POST",
+    body: JSON.stringify(payload)
+  });
+}
+
+export function saveAdlerSessionNoteDraft(payload: { patient_id: string; content: string }) {
+  return call<any>("/api/adler/intelligence/sessions/notes-draft", {
+    method: "POST",
+    body: JSON.stringify(payload)
+  });
+}
