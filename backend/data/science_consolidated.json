@@ -1,0 +1,860 @@
+{
+  "concepts": [
+    {
+      "conceito": "psicoterapia no transtorno de personalidade borderline",
+      "chave_clinica": "evidencias de ensaios clinicos indicam reducao moderada de sintomas com psicoterapias estruturadas",
+      "aplicacao_pratica": "priorizar encaminhamento para psicoterapia manualizada especifica em vez de farmacoterapia isolada",
+      "fonte": "doc_001"
+    },
+    {
+      "conceito": "terapia dialetico comportamental dbt",
+      "chave_clinica": "evidencia consistente de reducao de comportamento suicida e autolesao em multiplos ensaios clinicos",
+      "aplicacao_pratica": "indicar dbt para pacientes com borderline grave com risco de autolesao em formato estruturado",
+      "fonte": "doc_001"
+    },
+    {
+      "conceito": "terapia do esquema schema therapy",
+      "chave_clinica": "ensaios clinicos mostram eficacia comparavel a outras terapias estruturadas com melhora funcional relevante",
+      "aplicacao_pratica": "utilizar como alternativa a dbt especialmente em padroes relacionais cronicos",
+      "fonte": "doc_001"
+    },
+    {
+      "conceito": "comparacao dbt versus schema therapy",
+      "chave_clinica": "ensaio clinico randomizado nao mostrou diferenca significativa entre abordagens com grande tamanho de efeito em ambas",
+      "aplicacao_pratica": "escolher abordagem com base em disponibilidade perfil do paciente e expertise da equipe",
+      "fonte": "doc_002"
+    },
+    {
+      "conceito": "limitacoes da evidencia em psicoterapia borderline",
+      "chave_clinica": "alta taxa de nao resposta e ausencia de predicao clara de qual terapia funciona melhor para cada paciente",
+      "aplicacao_pratica": "monitorar resposta clinica continuamente e ajustar abordagem quando necessario",
+      "fonte": "doc_001"
+    },
+    {
+      "conceito": "uso de psicofarmacos em borderline",
+      "chave_clinica": "nao ha evidencia consistente para tratar sintomas nucleares com medicacao",
+      "aplicacao_pratica": "usar medicacao apenas como adjuvante para sintomas especificos evitando polifarmacia",
+      "fonte": "doc_001"
+    },
+    {
+      "conceito": "fundamentos psicanaliticos clinicos",
+      "chave_clinica": "conceitos de inconsciente mecanismos de defesa e transferencia permanecem relevantes na pratica moderna",
+      "aplicacao_pratica": "utilizar formulacao psicodinamica para compreender padroes relacionais e reacoes terapeuticas",
+      "fonte": "doc_003"
+    },
+    {
+      "conceito": "psicoterapia psicodinamica baseada em evidencia",
+      "chave_clinica": "modelos estruturados como mentalization based therapy e terapia focada na transferencia mostram eficacia em ensaios clinicos",
+      "aplicacao_pratica": "aplicar protocolos estruturados com monitoramento de resultados",
+      "fonte": "doc_003"
+    },
+    {
+      "conceito": "terapia cognitiva de beck",
+      "chave_clinica": "modelo baseado em identificacao de pensamentos automaticos e crencas centrais com reestruturacao cognitiva",
+      "aplicacao_pratica": "aplicar tecnicas de reestruturacao cognitiva e experimentos comportamentais em transtornos do humor",
+      "fonte": "doc_004"
+    },
+    {
+      "conceito": "integracao psicanalise apego neurociencia",
+      "chave_clinica": "evidencias mostram convergencia entre modelos psicodinamicos teoria do apego e neurobiologia",
+      "aplicacao_pratica": "usar avaliacao de apego e regulacao emocional para orientar escolha terapeutica",
+      "fonte": "doc_003"
+    },
+    {
+      "conceito": "eficacia geral da terapia cognitivo comportamental",
+      "chave_clinica": "beneficio consistente porem modesto em ampla gama de condicoes com melhora de qualidade de vida",
+      "aplicacao_pratica": "utilizar tcc como abordagem base em diversos transtornos mantendo expectativas realistas de efeito",
+      "fonte": "doc_005"
+    },
+    {
+      "conceito": "tcc em depressao",
+      "chave_clinica": "efeitos moderados a grandes comparados a controle com eficacia semelhante a farmacoterapia no curto prazo e superior no medio prazo",
+      "aplicacao_pratica": "indicar tcc como tratamento de primeira linha em depressao podendo substituir ou combinar com medicacao",
+      "fonte": "doc_006"
+    },
+    {
+      "conceito": "comparacao tcc versus outras psicoterapias",
+      "chave_clinica": "nao ha superioridade clara da tcc sobre outras psicoterapias estruturadas",
+      "aplicacao_pratica": "escolher abordagem com base em perfil do paciente disponibilidade e preferencia clinica",
+      "fonte": "doc_006"
+    },
+    {
+      "conceito": "icbt versus tcc presencial",
+      "chave_clinica": "efeito equivalente entre formatos guiados online e presencial",
+      "aplicacao_pratica": "expandir uso de icbt para aumentar acesso sem perda de eficacia",
+      "fonte": "doc_007"
+    },
+    {
+      "conceito": "icbt guiada versus nao guiada",
+      "chave_clinica": "intervencoes guiadas apresentam melhor desempenho em quadros moderados a graves",
+      "aplicacao_pratica": "priorizar suporte profissional em casos mais graves",
+      "fonte": "doc_007"
+    },
+    {
+      "conceito": "autoajuda baseada em tcc",
+      "chave_clinica": "efeitos pequenos a moderados com numero necessario para tratar em torno de oito",
+      "aplicacao_pratica": "utilizar como estrategia inicial ou complementar em quadros leves",
+      "fonte": "doc_007"
+    },
+    {
+      "conceito": "tcc em criancas e adolescentes",
+      "chave_clinica": "efeitos moderados a grandes com altas taxas de remissao em contexto clinico real",
+      "aplicacao_pratica": "aplicar tcc como abordagem principal em transtornos internalizantes e externalizantes em jovens",
+      "fonte": "doc_008"
+    },
+    {
+      "conceito": "tcc em transtornos de ansiedade e relacionados",
+      "chave_clinica": "efeitos grandes comparados a lista de espera e pequenos a moderados comparados a cuidados usuais",
+      "aplicacao_pratica": "manter uso clinico reconhecendo variacao de efeito conforme comparador",
+      "fonte": "doc_009"
+    },
+    {
+      "conceito": "tcc para insonia com comorbidades",
+      "chave_clinica": "efeitos moderados a grandes com melhora adicional em depressao ptsd e uso de alcool",
+      "aplicacao_pratica": "indicar tcc i como tratamento de primeira linha para insonia",
+      "fonte": "doc_009"
+    },
+    {
+      "conceito": "tcc em esquizofrenia",
+      "chave_clinica": "efeitos pequenos a medios com evidencia limitada em follow up",
+      "aplicacao_pratica": "utilizar como tratamento adjuvante e nao como monoterapia",
+      "fonte": "doc_009"
+    },
+    {
+      "conceito": "tcc em transtorno do espectro autista",
+      "chave_clinica": "efeitos pequenos a medios com necessidade de maior robustez metodologica",
+      "aplicacao_pratica": "aplicar com cautela e adaptar intervencoes ao perfil do paciente",
+      "fonte": "doc_009"
+    },
+    {
+      "conceito": "psicoterapias estruturadas em borderline",
+      "chave_clinica": "efeitos moderados em sintomas autoagressao e uso de servicos em comparacao ao controle",
+      "aplicacao_pratica": "priorizar terapias manualizadas especializadas para borderline",
+      "fonte": "doc_010"
+    },
+    {
+      "conceito": "dbt no transtorno de personalidade borderline",
+      "chave_clinica": "rede de evidencia mais robusta entre terapias com eficacia consistente",
+      "aplicacao_pratica": "indicar dbt especialmente em casos com autolesao e impulsividade",
+      "fonte": "doc_010"
+    },
+    {
+      "conceito": "comparacao entre terapias no borderline",
+      "chave_clinica": "nao ha superioridade clara entre abordagens como dbt psicodinamica mentalizacao e schema therapy",
+      "aplicacao_pratica": "escolher tratamento com base em contexto clinico e recursos disponiveis",
+      "fonte": "doc_010"
+    },
+    {
+      "conceito": "implementacao de tcc e act em sistemas de saude",
+      "chave_clinica": "programas multifacetados aumentam adesao e geram melhora sintomatica moderada a grande",
+      "aplicacao_pratica": "investir em treinamento estruturado e suporte institucional para escalar intervencoes",
+      "fonte": "doc_011"
+    },
+    {
+      "conceito": "act e terapias de terceira onda",
+      "chave_clinica": "base de evidencia crescente especialmente em dor cronica e saude mental",
+      "aplicacao_pratica": "integrar act como complemento em abordagens modernas de psicoterapia",
+      "fonte": "doc_011"
+    },
+    {
+      "conceito": "ssri mecanismo",
+      "chave_clinica": "inibicao recaptacao serotonina",
+      "aplicacao_pratica": "usar como primeira linha em depressao",
+      "fonte": "doc_080"
+    },
+    {
+      "conceito": "litio estabilizador",
+      "chave_clinica": "faixa terapeutica estreita",
+      "aplicacao_pratica": "monitorar exames regularmente",
+      "fonte": "doc_081"
+    },
+    {
+      "conceito": "antipsicoticos efeitos metabolicos",
+      "chave_clinica": "ganho de peso e dislipidemia",
+      "aplicacao_pratica": "monitorar metabolismo",
+      "fonte": "doc_082"
+    },
+    {
+      "conceito": "farmacogenetica cyp2c19",
+      "chave_clinica": "metabolizacao de ssri",
+      "aplicacao_pratica": "ajustar dose conforme metabolizador",
+      "fonte": "doc_083"
+    },
+    {
+      "conceito": "naltrexona opioides",
+      "chave_clinica": "antagonista opioide",
+      "aplicacao_pratica": "usar em dependencia e evitar opioides",
+      "fonte": "doc_084"
+    },
+    {
+      "conceito": "alianca terapeutica",
+      "chave_clinica": "vinculo colaborativo entre clinico e paciente focado em metas e tarefas",
+      "aplicacao_pratica": "monitorar rupturas e reparos na alianca para reduzir evasao",
+      "fonte": "doc_003"
+    },
+    {
+      "conceito": "reparentalizacao limitada",
+      "chave_clinica": "atendimento das necessidades emocionais do paciente dentro dos limites terapeuticos",
+      "aplicacao_pratica": "oferecer suporte e seguranca para esquemas de privacao emocional",
+      "fonte": "doc_001"
+    },
+    {
+      "conceito": "exposicao com prevencao de resposta",
+      "chave_clinica": "exposicao ao estimulo temido sem a execucao do ritual de neutralizacao",
+      "aplicacao_pratica": "planejar hierarquia de exposicao e monitorar habituacao da ansiedade",
+      "fonte": "doc_004"
+    },
+    {
+      "conceito": "janela terapeutica do litio",
+      "chave_clinica": "faixa estreita de concentracao plasmatica segura (geralmente 0.6 a 1.2 mEq/L)",
+      "aplicacao_pratica": "coletar litemia 12h apos a ultima dose para ajuste preciso",
+      "fonte": "doc_081"
+    }
+  ],
+  "psychopathology": [
+    {
+      "psicopatologia": "transtorno_depressivo_maior",
+      "categoria": "humor",
+      "sintomas_centrais": "humor deprimido; anedonia; fadiga; desesperanca",
+      "sintomas_associados": "alteracao de sono; alteracao de apetite; culpa; lentificacao; ideacao suicida",
+      "curso_padrao": "episodico com risco de recorrencia",
+      "diagnosticos_diferenciais": "luto; transtorno bipolar; hipotireoidismo; uso de substancias",
+      "abordagens_terapeuticas_indicadas": "tcc; terapia interpessoal; act; psicoterapia psicodinamica breve",
+      "abordagens_farmacologicas_comuns": "isrs; irsn; bupropiona; mirtazapina",
+      "escalas_uteis": "phq9; bdi",
+      "observacoes_clinicas": "avaliar risco suicida; sintomas psicoticos e historia de hipomania antes de definir tratamento"
+    },
+    {
+      "psicopatologia": "transtorno_depressivo_persistente",
+      "categoria": "humor",
+      "sintomas_centrais": "humor deprimido cronico; baixa energia; baixa autoestima",
+      "sintomas_associados": "desesperanca; dificuldade de concentracao; alteracao de sono; anedonia parcial",
+      "curso_padrao": "cronico por anos",
+      "diagnosticos_diferenciais": "transtorno depressivo maior cronico; transtorno de personalidade; condicoes medicas",
+      "abordagens_terapeuticas_indicadas": "tcc; terapia do esquema; psicoterapia psicodinamica; act",
+      "abordagens_farmacologicas_comuns": "isrs; irsn",
+      "escalas_uteis": "phq9; bdi",
+      "observacoes_clinicas": "frequente historia longa de funcionamento rebaixado e esquemas de desvalor"
+    },
+    {
+      "psicopatologia": "transtorno_bipolar_tipo_1",
+      "categoria": "humor",
+      "sintomas_centrais": "episodios maniacos; expansividade; reducao da necessidade de sono",
+      "sintomas_associados": "grandiosidade; impulsividade; psicose; depressao maior",
+      "curso_padrao": "episodico com alto risco de recorrencia",
+      "diagnosticos_diferenciais": "uso de substancias; tdah; transtorno esquizoafetivo",
+      "abordagens_terapeuticas_indicadas": "psicoeducacao; tcc para bipolar; terapia interpessoal e do ritmo social; terapia familiar",
+      "abordagens_farmacologicas_comuns": "litio; valproato; antipsicoticos atipicos",
+      "escalas_uteis": "ymrs; mdq",
+      "observacoes_clinicas": "evitar antidepressivo isolado se houver suspeita bipolar"
+    },
+    {
+      "psicopatologia": "transtorno_bipolar_tipo_2",
+      "categoria": "humor",
+      "sintomas_centrais": "hipomania; episodios depressivos recorrentes",
+      "sintomas_associados": "irritabilidade; impulsividade; labilidade afetiva",
+      "curso_padrao": "episodico recorrente",
+      "diagnosticos_diferenciais": "transtorno depressivo maior; transtorno borderline; ciclotimia",
+      "abordagens_terapeuticas_indicadas": "psicoeducacao; tcc; terapia do ritmo social; terapia familiar",
+      "abordagens_farmacologicas_comuns": "litio; lamotrigina; quetiapina",
+      "escalas_uteis": "mdq; hcl32",
+      "observacoes_clinicas": "muito subdiagnosticado em pacientes que chegam por depressao"
+    },
+    {
+      "psicopatologia": "ciclotimia",
+      "categoria": "humor",
+      "sintomas_centrais": "instabilidade cronica do humor; oscilacoes subclinicas",
+      "sintomas_associados": "irritabilidade; impulsividade; sensibilidade interpessoal",
+      "curso_padrao": "cronico",
+      "diagnosticos_diferenciais": "transtorno borderline; tdah; bipolar tipo 2",
+      "abordagens_terapeuticas_indicadas": "psicoeducacao; tcc; terapia do esquema",
+      "abordagens_farmacologicas_comuns": "estabilizadores de humor em casos selecionados",
+      "escalas_uteis": "hcl32",
+      "observacoes_clinicas": "importante diferenciar de reatividade interpessoal e tracos de personalidade"
+    },
+    {
+      "psicopatologia": "transtorno_de_ansiedade_generalizada",
+      "categoria": "ansiedade",
+      "sintomas_centrais": "preocupacao excessiva; dificil controle da preocupacao",
+      "sintomas_associados": "tensao muscular; fadiga; irritabilidade; insonia; inquietacao",
+      "curso_padrao": "cronico flutuante",
+      "diagnosticos_diferenciais": "hipertireoidismo; uso de estimulantes; toc; depressao",
+      "abordagens_terapeuticas_indicadas": "tcc; act; terapia metacognitiva; mindfulness baseado em evidencia",
+      "abordagens_farmacologicas_comuns": "isrs; irsn; buspirona",
+      "escalas_uteis": "gad7; bai",
+      "observacoes_clinicas": "sintoma nuclear e preocupacao persistente com multiplos dominios"
+    },
+    {
+      "psicopatologia": "transtorno_do_panico",
+      "categoria": "ansiedade",
+      "sintomas_centrais": "ataques de panico recorrentes; medo de novos ataques",
+      "sintomas_associados": "evitacao; hipervigilancia corporal; desrealizacao",
+      "curso_padrao": "episodico com evitacao crescente sem tratamento",
+      "diagnosticos_diferenciais": "arritmias; asma; hipertireoidismo; uso de cafeina ou estimulantes",
+      "abordagens_terapeuticas_indicadas": "tcc com exposicao interoceptiva; act",
+      "abordagens_farmacologicas_comuns": "isrs; irsn; benzodiazepinicos em uso seletivo",
+      "escalas_uteis": "pdss; bai",
+      "observacoes_clinicas": "explicar ciclo panico medo evitacao costuma melhorar adesao"
+    },
+    {
+      "psicopatologia": "agorafobia",
+      "categoria": "ansiedade",
+      "sintomas_centrais": "medo de lugares onde escapar seria dificil",
+      "sintomas_associados": "evitacao de transporte; filas; multidoes; sair sozinho",
+      "curso_padrao": "cronico se mantido por evitacao",
+      "diagnosticos_diferenciais": "panico; fobia social; vestibulopatias",
+      "abordagens_terapeuticas_indicadas": "tcc com exposicao gradual; act",
+      "abordagens_farmacologicas_comuns": "isrs",
+      "escalas_uteis": "mobility inventory; bai",
+      "observacoes_clinicas": "a evitacao mantem o quadro e precisa ser alvo central"
+    },
+    {
+      "psicopatologia": "transtorno_de_ansiedade_social",
+      "categoria": "ansiedade",
+      "sintomas_centrais": "medo intenso de avaliacao negativa",
+      "sintomas_associados": "evitacao social; rubor; tremor; antecipacao ansiosa",
+      "curso_padrao": "cronico com inicio precoce",
+      "diagnosticos_diferenciais": "timidez; autismo; transtorno de personalidade evitativa",
+      "abordagens_terapeuticas_indicadas": "tcc com exposicao; treino de habilidades sociais; act; psicoterapia psicodinamica focal",
+      "abordagens_farmacologicas_comuns": "isrs; irsn",
+      "escalas_uteis": "lsas; spinq",
+      "observacoes_clinicas": "avaliar prejuizo funcional academico ocupacional e relacional"
+    },
+    {
+      "psicopatologia": "fobia_especifica",
+      "categoria": "ansiedade",
+      "sintomas_centrais": "medo intenso de objeto ou situacao especifica",
+      "sintomas_associados": "evitacao imediata; resposta autonomica",
+      "curso_padrao": "persistente",
+      "diagnosticos_diferenciais": "toc; ptsd; panico",
+      "abordagens_terapeuticas_indicadas": "tcc com exposicao",
+      "abordagens_farmacologicas_comuns": "geralmente sem farmacoterapia de rotina",
+      "escalas_uteis": "fear survey schedules",
+      "observacoes_clinicas": "responde muito bem a exposicao bem planejada"
+    },
+    {
+      "psicopatologia": "transtorno_obsessivo_compulsivo",
+      "categoria": "toc_relacionados",
+      "sintomas_centrais": "obsessoes; compulsoes; evitacao",
+      "sintomas_associados": "lentificacao; culpa; duvida patologica; necessidade de certeza",
+      "curso_padrao": "cronico",
+      "diagnosticos_diferenciais": "transtorno de personalidade obsessivo compulsiva; psicose; tea",
+      "abordagens_terapeuticas_indicadas": "tcc com exposicao e prevencao de resposta; act",
+      "abordagens_farmacologicas_comuns": "isrs em doses altas; clomipramina",
+      "escalas_uteis": "ybocs; oci-r",
+      "observacoes_clinicas": "diferenciar pensamento intrusivo egodistonico de delirio"
+    },
+    {
+      "psicopatologia": "transtorno_dismorfico_corporal",
+      "categoria": "toc_relacionados",
+      "sintomas_centrais": "preocupacao excessiva com defeito percebido",
+      "sintomas_associados": "checagem; camuflagem; evitacao social",
+      "curso_padrao": "cronico",
+      "diagnosticos_diferenciais": "transtornos alimentares; delirio somatico",
+      "abordagens_terapeuticas_indicadas": "tcc; erp",
+      "abordagens_farmacologicas_comuns": "isrs",
+      "escalas_uteis": "bdd-ybocs",
+      "observacoes_clinicas": "risco de busca repetida por procedimentos esteticos"
+    },
+    {
+      "psicopatologia": "transtorno_de_acumulacao",
+      "categoria": "toc_relacionados",
+      "sintomas_centrais": "dificuldade persistente de descartar objetos",
+      "sintomas_associados": "desorganizacao; prejuizo funcional; apego excessivo",
+      "curso_padrao": "cronico",
+      "diagnosticos_diferenciais": "toc; demencia; depressao",
+      "abordagens_terapeuticas_indicadas": "tcc adaptada; intervencoes motivacionais",
+      "abordagens_farmacologicas_comuns": "farmacoterapia sem papel claro",
+      "escalas_uteis": "saving inventory revised",
+      "observacoes_clinicas": "baixa insight e baixa adesao sao comuns"
+    },
+    {
+      "psicopatologia": "tricotilomania",
+      "categoria": "toc_relacionados",
+      "sintomas_centrais": "arrancar cabelos repetidamente",
+      "sintomas_associados": "tensao previa; alivio posterior; vergonha",
+      "curso_padrao": "cronico flutuante",
+      "diagnosticos_diferenciais": "toc; autolesao; dermatillomania",
+      "abordagens_terapeuticas_indicadas": "tcc com reversao de habito; act",
+      "abordagens_farmacologicas_comuns": "n-acetilcisteina em alguns casos",
+      "escalas_uteis": "mgh hairpulling scale",
+      "observacoes_clinicas": "monitorar gatilhos emocionais e automatismos"
+    },
+    {
+      "psicopatologia": "transtorno_de_estresse_pos_traumatico",
+      "categoria": "trauma",
+      "sintomas_centrais": "reviviscencia; evitacao; hipervigilancia",
+      "sintomas_associados": "pesadelos; culpa; entorpecimento; irritabilidade",
+      "curso_padrao": "cronico variavel",
+      "diagnosticos_diferenciais": "transtorno agudo de estresse; toc; depressao; trauma complexo",
+      "abordagens_terapeuticas_indicadas": "tcc focada em trauma; emdr; exposicao prolongada; terapia cognitiva para trauma",
+      "abordagens_farmacologicas_comuns": "isrs; prazosina em casos selecionados",
+      "escalas_uteis": "pcl5; caps5",
+      "observacoes_clinicas": "avaliar dissociacao risco suicida e uso de substancias"
+    },
+    {
+      "psicopatologia": "transtorno_de_estresse_agudo",
+      "categoria": "trauma",
+      "sintomas_centrais": "sintomas de trauma nas semanas iniciais",
+      "sintomas_associados": "dissociacao; reviviscencia; evitacao; hiperativacao",
+      "curso_padrao": "agudo",
+      "diagnosticos_diferenciais": "ptsd; resposta normal ao trauma",
+      "abordagens_terapeuticas_indicadas": "psicoeducacao; intervencao precoce focada em trauma quando indicado",
+      "abordagens_farmacologicas_comuns": "farmacoterapia apenas sintomatica em casos selecionados",
+      "escalas_uteis": "acute stress disorder scale",
+      "observacoes_clinicas": "nem todo quadro agudo evolui para ptsd"
+    },
+    {
+      "psicopatologia": "transtorno_de_personalidade_borderline",
+      "categoria": "personalidade",
+      "sintomas_centrais": "instabilidade afetiva; medo de abandono; impulsividade",
+      "sintomas_associados": "autolesao; vazio cronico; raiva intensa; dissociacao transitoria",
+      "curso_padrao": "cronico com melhora funcional possivel",
+      "diagnosticos_diferenciais": "bipolaridade; ptsd complexo; tdah; transtorno por uso de substancias",
+      "abordagens_terapeuticas_indicadas": "dbt; terapia do esquema; mentalization based therapy; terapia focada na transferencia",
+      "abordagens_farmacologicas_comuns": "farmacos apenas para sintomas alvo e comorbidades",
+      "escalas_uteis": "msi-bpd; bsl-23",
+      "observacoes_clinicas": "evitar polifarmacia e priorizar psicoterapia estruturada"
+    },
+    {
+      "psicopatologia": "transtorno_de_personalidade_narcisista",
+      "categoria": "personalidade",
+      "sintomas_centrais": "grandiosidade; necessidade de admiracao; baixa tolerancia a critica",
+      "sintomas_associados": "vergonha; raiva; oscilacao entre superioridade e fragilidade",
+      "curso_padrao": "cronico",
+      "diagnosticos_diferenciais": "bipolaridade; personalidade antissocial; histrionica",
+      "abordagens_terapeuticas_indicadas": "psicoterapia psicodinamica; terapia do esquema; mentalization based approaches",
+      "abordagens_farmacologicas_comuns": "sem farmacoterapia especifica",
+      "escalas_uteis": "pni quando usado em pesquisa",
+      "observacoes_clinicas": "atencao a rupturas de alianca e hipersensibilidade narcisica"
+    },
+    {
+      "psicopatologia": "transtorno_de_personalidade_antissocial",
+      "categoria": "personalidade",
+      "sintomas_centrais": "desrespeito persistente por normas e direitos alheios",
+      "sintomas_associados": "impulsividade; agressividade; manipulacao; baixa culpa",
+      "curso_padrao": "cronico",
+      "diagnosticos_diferenciais": "uso de substancias; tdah; mania",
+      "abordagens_terapeuticas_indicadas": "intervencoes estruturadas focadas em risco e comportamento; terapia motivacional",
+      "abordagens_farmacologicas_comuns": "farmacos apenas para comorbidades ou agressividade selecionada",
+      "escalas_uteis": "pcl-r em contexto forense",
+      "observacoes_clinicas": "avaliar risco para terceiros e uso de substancias"
+    },
+    {
+      "psicopatologia": "transtorno_de_personalidade_evitativa",
+      "categoria": "personalidade",
+      "sintomas_centrais": "inibicao social; sentimento de inadequacao; hipersensibilidade a critica",
+      "sintomas_associados": "evitacao relacional; ansiedade social intensa",
+      "curso_padrao": "cronico",
+      "diagnosticos_diferenciais": "ansiedade social; autismo",
+      "abordagens_terapeuticas_indicadas": "tcc; terapia do esquema; psicoterapia psicodinamica focal",
+      "abordagens_farmacologicas_comuns": "isrs em comorbidade ansiosa",
+      "escalas_uteis": "lsas; instrumentos de personalidade",
+      "observacoes_clinicas": "sobrepoe bastante com ansiedade social"
+    },
+    {
+      "psicopatologia": "esquizofrenia",
+      "categoria": "psicoticos",
+      "sintomas_centrais": "delirios; alucinacoes; desorganizacao",
+      "sintomas_associados": "alogia; avolicao; prejuizo cognitivo; retraimento social",
+      "curso_padrao": "cronico em surtos e remissoes",
+      "diagnosticos_diferenciais": "transtorno esquizoafetivo; uso de substancias; transtorno bipolar com psicose",
+      "abordagens_terapeuticas_indicadas": "psicoeducacao; tcc para psicose; reabilitacao psicossocial; intervencao familiar",
+      "abordagens_farmacologicas_comuns": "antipsicoticos",
+      "escalas_uteis": "panss; bprs",
+      "observacoes_clinicas": "avaliar adesao risco sintomas negativos e funcionalidade"
+    },
+    {
+      "psicopatologia": "transtorno_esquizoafetivo",
+      "categoria": "psicoticos",
+      "sintomas_centrais": "sintomas psicoticos com episodios de humor relevantes",
+      "sintomas_associados": "depressao; mania; prejuizo funcional",
+      "curso_padrao": "cronico",
+      "diagnosticos_diferenciais": "bipolar com psicose; esquizofrenia",
+      "abordagens_terapeuticas_indicadas": "psicoeducacao; tcc; terapia familiar",
+      "abordagens_farmacologicas_comuns": "antipsicoticos; estabilizadores; antidepressivos conforme quadro",
+      "escalas_uteis": "panss; ymrs; madrs",
+      "observacoes_clinicas": "diferenciar temporalmente sintomas psicoticos e do humor"
+    },
+    {
+      "psicopatologia": "transtorno_delirante",
+      "categoria": "psicoticos",
+      "sintomas_centrais": "delirio persistente relativamente sistematizado",
+      "sintomas_associados": "desconfianca; litigiosidade; pouco prejuizo fora do tema delirante",
+      "curso_padrao": "cronico",
+      "diagnosticos_diferenciais": "toc pobre insight; paranoia induzida por substancia",
+      "abordagens_terapeuticas_indicadas": "abordagem terapeutica de baixa confrontacao; tcc para psicose quando viavel",
+      "abordagens_farmacologicas_comuns": "antipsicoticos em alguns casos",
+      "escalas_uteis": "bprs",
+      "observacoes_clinicas": "alianca terapeutica costuma ser delicada"
+    },
+    {
+      "psicopatologia": "tdah_adulto",
+      "categoria": "neurodesenvolvimento",
+      "sintomas_centrais": "desatencao; impulsividade; desorganizacao",
+      "sintomas_associados": "procrastinacao; labilidade emocional; baixo rendimento",
+      "curso_padrao": "cronico",
+      "diagnosticos_diferenciais": "ansiedade; bipolaridade; uso de substancias; borderline",
+      "abordagens_terapeuticas_indicadas": "tcc para tdah; coaching estruturado; psicoeducacao",
+      "abordagens_farmacologicas_comuns": "estimulantes; atomoxetina; bupropiona",
+      "escalas_uteis": "asrs1",
+      "observacoes_clinicas": "avaliar historia desde infancia e prejuizo em multiplos contextos"
+    },
+    {
+      "psicopatologia": "transtorno_do_espectro_autista",
+      "categoria": "neurodesenvolvimento",
+      "sintomas_centrais": "dificuldades na comunicacao social; padroes restritos e repetitivos",
+      "sintomas_associados": "hipersensibilidade sensorial; rigidez; interesses restritos",
+      "curso_padrao": "cronico do neurodesenvolvimento",
+      "diagnosticos_diferenciais": "ansiedade social; personalidade esquizoide; toc",
+      "abordagens_terapeuticas_indicadas": "intervencoes psicoeducativas; treinamento de habilidades; tcc adaptada",
+      "abordagens_farmacologicas_comuns": "farmacos apenas para sintomas associados",
+      "escalas_uteis": "aq; raads-r; instrumentos diagnosticos formais",
+      "observacoes_clinicas": "adaptar linguagem previsibilidade e demanda sensorial"
+    },
+    {
+      "psicopatologia": "anorexia_nervosa",
+      "categoria": "alimentares",
+      "sintomas_centrais": "restricao energetica; medo de ganhar peso; distorcao corporal",
+      "sintomas_associados": "amenorreia historicamente; bradicardia; compulsividade",
+      "curso_padrao": "potencialmente grave e cronico",
+      "diagnosticos_diferenciais": "depressao; toc; dismorfia corporal",
+      "abordagens_terapeuticas_indicadas": "tcc-e; terapia familiar para adolescentes; suporte nutricional",
+      "abordagens_farmacologicas_comuns": "olanzapina em casos selecionados",
+      "escalas_uteis": "eating disorder examination questionnaire",
+      "observacoes_clinicas": "risco medico pode ser prioridade acima da psicoterapia"
+    },
+    {
+      "psicopatologia": "bulimia_nervosa",
+      "categoria": "alimentares",
+      "sintomas_centrais": "compulsao alimentar com compensacoes",
+      "sintomas_associados": "culpa; vergonha; oscilacao ponderal",
+      "curso_padrao": "cronico flutuante",
+      "diagnosticos_diferenciais": "anorexia; compulsao alimentar; borderline",
+      "abordagens_terapeuticas_indicadas": "tcc-e; terapia interpessoal",
+      "abordagens_farmacologicas_comuns": "isrs especialmente fluoxetina",
+      "escalas_uteis": "ede-q; bdi",
+      "observacoes_clinicas": "avaliar eletrolitos e risco clinico"
+    },
+    {
+      "psicopatologia": "transtorno_de_compulsao_alimentar",
+      "categoria": "alimentares",
+      "sintomas_centrais": "episodios de compulsao sem compensacao regular",
+      "sintomas_associados": "culpa; comer escondido; desconforto fisico",
+      "curso_padrao": "cronico",
+      "diagnosticos_diferenciais": "bulimia; obesidade sem compulsao",
+      "abordagens_terapeuticas_indicadas": "tcc; terapia interpessoal; act",
+      "abordagens_farmacologicas_comuns": "lisdexanfetamina em alguns casos; isrs selecionados",
+      "escalas_uteis": "binge eating scale",
+      "observacoes_clinicas": "frequente comorbidade com depressao e trauma"
+    },
+    {
+      "psicopatologia": "transtorno_por_uso_de_alcool",
+      "categoria": "substancias",
+      "sintomas_centrais": "perda de controle; craving; tolerancia; abstinencia",
+      "sintomas_associados": "prejuizo ocupacional; recaidas; comorbidades",
+      "curso_padrao": "cronico recorrente",
+      "diagnosticos_diferenciais": "uso social sem transtorno; bipolaridade; ansiedade",
+      "abordagens_terapeuticas_indicadas": "terapia motivacional; tcc; prevencao de recaida; grupos",
+      "abordagens_farmacologicas_comuns": "naltrexona; acamprosato; dissulfiram em casos selecionados",
+      "escalas_uteis": "audit; ciwa-ar",
+      "observacoes_clinicas": "avaliar risco de abstinencia complicada"
+    },
+    {
+      "psicopatologia": "transtorno_por_uso_de_opioides",
+      "categoria": "substancias",
+      "sintomas_centrais": "craving; tolerancia; abstinencia; uso compulsivo",
+      "sintomas_associados": "sobredose; uso de risco; prejuizo funcional",
+      "curso_padrao": "cronico recorrente",
+      "diagnosticos_diferenciais": "dor cronica com uso terapeutico; uso de multiplas substancias",
+      "abordagens_terapeuticas_indicadas": "entrevista motivacional; reducao de danos; terapia de recaida",
+      "abordagens_farmacologicas_comuns": "buprenorfina; metadona; naltrexona",
+      "escalas_uteis": "dast; cows",
+      "observacoes_clinicas": "alto risco de overdose e necessidade de plano de seguranca"
+    },
+    {
+      "psicopatologia": "transtorno_por_uso_de_estimulantes",
+      "categoria": "substancias",
+      "sintomas_centrais": "uso compulsivo; craving; binge; queda funcional",
+      "sintomas_associados": "paranoia; insonia; depressao pos uso",
+      "curso_padrao": "cronico recorrente",
+      "diagnosticos_diferenciais": "tdah; bipolaridade; psicose primaria",
+      "abordagens_terapeuticas_indicadas": "tcc; manejo de contingencias; reducao de danos",
+      "abordagens_farmacologicas_comuns": "sem farmaco padrao bem estabelecido",
+      "escalas_uteis": "dast",
+      "observacoes_clinicas": "monitorar risco cardiovascular e psicose induzida"
+    },
+    {
+      "psicopatologia": "insonia",
+      "categoria": "sono",
+      "sintomas_centrais": "dificuldade para iniciar ou manter sono",
+      "sintomas_associados": "fadiga; irritabilidade; prejuizo cognitivo",
+      "curso_padrao": "cronico ou agudo",
+      "diagnosticos_diferenciais": "apneia; ansiedade; depressao; uso de estimulantes",
+      "abordagens_terapeuticas_indicadas": "tcc-i; higiene do sono; act adaptada",
+      "abordagens_farmacologicas_comuns": "hipnoticos em curto prazo; melatonina em casos selecionados",
+      "escalas_uteis": "isi",
+      "observacoes_clinicas": "tcc-i e primeira linha na maioria dos casos"
+    },
+    {
+      "psicopatologia": "transtorno_de_sintomas_somaticos",
+      "categoria": "somaticos",
+      "sintomas_centrais": "foco excessivo em sintomas fisicos com sofrimento desproporcional",
+      "sintomas_associados": "uso alto de servicos; ansiedade com saude",
+      "curso_padrao": "cronico",
+      "diagnosticos_diferenciais": "condicao medica real; transtorno de ansiedade de doenca",
+      "abordagens_terapeuticas_indicadas": "tcc; psicoterapia psicodinamica focal; manejo longitudinal",
+      "abordagens_farmacologicas_comuns": "farmacos para comorbidades",
+      "escalas_uteis": "phq15",
+      "observacoes_clinicas": "validar sofrimento sem reforcar investigacao infinita"
+    },
+    {
+      "psicopatologia": "transtorno_de_ansiedade_de_doenca",
+      "categoria": "somaticos",
+      "sintomas_centrais": "preocupacao persistente em ter doenca grave",
+      "sintomas_associados": "checagem corporal; busca de exames ou evitacao",
+      "curso_padrao": "cronico",
+      "diagnosticos_diferenciais": "toc; transtorno delirante somatico",
+      "abordagens_terapeuticas_indicadas": "tcc; act",
+      "abordagens_farmacologicas_comuns": "isrs em comorbidade ansiosa",
+      "escalas_uteis": "whiteley index",
+      "observacoes_clinicas": "importante reduzir reassurance repetitiva"
+    },
+    {
+      "psicopatologia": "transtorno_dissociativo_de_identidade",
+      "categoria": "dissociativos",
+      "sintomas_centrais": "descontinuidade de identidade; amnesia dissociativa",
+      "sintomas_associados": "despersonalizacao; trauma complexo; autolesao",
+      "curso_padrao": "cronico",
+      "diagnosticos_diferenciais": "ptsd complexo; borderline; psicose",
+      "abordagens_terapeuticas_indicadas": "psicoterapia faseada focada em estabilizacao e trauma",
+      "abordagens_farmacologicas_comuns": "farmacos apenas para comorbidades",
+      "escalas_uteis": "des; mid",
+      "observacoes_clinicas": "evitar confrontacao prematura de memoria traumatica"
+    },
+    {
+      "psicopatologia": "transtorno_de_despersonalizacao_desrealizacao",
+      "categoria": "dissociativos",
+      "sintomas_centrais": "sensacao persistente de estranheza de si ou do ambiente",
+      "sintomas_associados": "ansiedade; embotamento; hipervigilancia",
+      "curso_padrao": "cronico flutuante",
+      "diagnosticos_diferenciais": "panico; uso de cannabis; epilepsia",
+      "abordagens_terapeuticas_indicadas": "tcc; grounding; abordagens focadas em ansiedade e trauma",
+      "abordagens_farmacologicas_comuns": "farmacos sem indicacao especifica consolidada",
+      "escalas_uteis": "cambridge depersonalization scale",
+      "observacoes_clinicas": "psicoeducacao reduz medo de enlouquecer"
+    },
+    {
+      "psicopatologia": "transtorno_bipolar_tipo_1",
+      "categoria": "humor",
+      "sintomas_centrais": "oscilacao entre mania e depressao com prejuizo grave",
+      "sintomas_associados": "euforia; grandiosidade; menos sono; logorreia; irritabilidade",
+      "curso_padrao": "cronico recorrente",
+      "diagnosticos_diferenciais": "transtorno esquizoafetivo; tdah; uso de estimulantes",
+      "abordagens_terapeuticas_indicadas": "psicoeducacao; tcc para bipolaridade; monitoramento de ritmo",
+      "abordagens_farmacologicas_comuns": "estabilizadores; litio; antipsicoticos",
+      "escalas_uteis": "ymrs; madrs",
+      "observacoes_clinicas": "mania e emergencia medica e exige intervencao imediata"
+    },
+    {
+      "psicopatologia": "transtorno_bipolar_tipo_2",
+      "categoria": "humor",
+      "sintomas_centrais": "episodios hipomaniacos e depressao maior",
+      "sintomas_associados": "energia alta sem psicose; depressao profunda; labilidade",
+      "curso_padrao": "cronico recorrente",
+      "diagnosticos_diferenciais": "depressao unipolar; borderline; ciclotimia",
+      "abordagens_terapeuticas_indicadas": "psicoeducacao; tcc focado em humor; act",
+      "abordagens_farmacologicas_comuns": "estabilizadores; anticonvulsivantes",
+      "escalas_uteis": "madrs; ymrs",
+      "observacoes_clinicas": "frequentemente subdiagnosticado como depressao unipolar"
+    },
+    {
+      "psicopatologia": "transtorno_de_panico",
+      "categoria": "ansiedade",
+      "sintomas_centrais": "ataques de panico inesperados e recorrentes",
+      "sintomas_associados": "palpitacoes; medo de morrer; falta de ar; sudorese",
+      "curso_padrao": "episodico com ansiedade antecipatoria",
+      "diagnosticos_diferenciais": "condicao cardiaca; fobia social; tept",
+      "abordagens_terapeuticas_indicadas": "tcc com exposicao interoceptiva; psicoeducacao",
+      "abordagens_farmacologicas_comuns": "isrs; benzodiazepínicos em crise",
+      "escalas_uteis": "bai; pass",
+      "observacoes_clinicas": "evitar uso cronico de benzodiazepínicos"
+    }
+  ],
+  "interactions": [
+    {
+      "substancia_principal": "sertralina",
+      "tipo_interacao": "medicamento",
+      "agente_secundario": "lorazepam",
+      "categoria": "associacao",
+      "efeito": "aumento de sedacao e lentificacao",
+      "gravidade": "moderada",
+      "conduta": "monitorar sedacao",
+      "fonte": "doc_080"
+    },
+    {
+      "substancia_principal": "sertralina",
+      "tipo_interacao": "substancia",
+      "agente_secundario": "alcool",
+      "categoria": "alerta",
+      "efeito": "potencializacao de sedacao",
+      "gravidade": "moderada",
+      "conduta": "evitar uso concomitante",
+      "fonte": "doc_080"
+    },
+    {
+      "substancia_principal": "litio",
+      "tipo_interacao": "medicamento",
+      "agente_secundario": "ibuprofeno",
+      "categoria": "alerta",
+      "efeito": "aumento da litemia e risco de toxicidade",
+      "gravidade": "alta",
+      "conduta": "evitar ou monitorar litemia",
+      "fonte": "doc_081"
+    },
+    {
+      "substancia_principal": "litio",
+      "tipo_interacao": "medicamento",
+      "agente_secundario": "diureticos",
+      "categoria": "alerta",
+      "efeito": "aumento da concentracao plasmatica",
+      "gravidade": "alta",
+      "conduta": "ajustar dose e monitorar",
+      "fonte": "doc_081"
+    },
+    {
+      "substancia_principal": "quetiapina",
+      "tipo_interacao": "substancia",
+      "agente_secundario": "alcool",
+      "categoria": "alerta",
+      "efeito": "sedacao intensa",
+      "gravidade": "alta",
+      "conduta": "evitar combinacao",
+      "fonte": "doc_082"
+    },
+    {
+      "substancia_principal": "naltrexona",
+      "tipo_interacao": "substancia",
+      "agente_secundario": "opioides",
+      "categoria": "contraindicacao",
+      "efeito": "bloqueio de efeito analgesico",
+      "gravidade": "alta",
+      "conduta": "nao associar",
+      "fonte": "doc_084"
+    },
+    {
+      "substancia_principal": "isrs",
+      "tipo_interacao": "farmacodinâmica",
+      "agente_secundario": "tramadol",
+      "categoria": "alerta",
+      "efeito": "sindrome serotoninérgica",
+      "gravidade": "alto",
+      "conduta": "evitar combinacao ou monitorar sinais de toxicidade",
+      "fonte": "doc_080"
+    },
+    {
+      "substancia_principal": "litio",
+      "tipo_interacao": "farmacocinética",
+      "agente_secundario": "aines (ex: ibuprofeno)",
+      "categoria": "alerta",
+      "efeito": "reducao de clearance renal de litio",
+      "gravidade": "alto",
+      "conduta": "evitar aines e usar paracetamol como alternativa",
+      "fonte": "doc_081"
+    },
+    {
+      "substancia_principal": "quetiapina",
+      "tipo_interacao": "farmacodinâmica",
+      "agente_secundario": "alcool",
+      "categoria": "alerta",
+      "efeito": "sedacao excessiva e queda funcional",
+      "gravidade": "moderado",
+      "conduta": "orientar abstinencia ou reducao de danos",
+      "fonte": "doc_082"
+    },
+    {
+      "substancia_principal": "sertralina",
+      "tipo_interacao": "farmacodinâmica",
+      "agente_secundario": "erva de sao joao",
+      "categoria": "alerta",
+      "efeito": "potencializacao serotoninérgica",
+      "gravidade": "moderado",
+      "conduta": "orientar sobre riscos de fitoterapicos sem controle",
+      "fonte": "doc_083"
+    }
+  ],
+  "monitoring": [
+    {
+      "medicamento": "litio",
+      "exame": "litemia 12h",
+      "frequencia": "1-2 semanas ate estabilizar e depois trimestral",
+      "finalidade": "faixa terapeutica",
+      "baseline_obrigatorio": "sim",
+      "alertas": "toxicidade neurologica",
+      "fonte": "doc_081"
+    },
+    {
+      "medicamento": "litio",
+      "exame": "creatinina e ureia",
+      "frequencia": "baseline e trimestral",
+      "finalidade": "funcao renal",
+      "baseline_obrigatorio": "sim",
+      "alertas": "risco de insuficiencia renal",
+      "fonte": "doc_081"
+    },
+    {
+      "medicamento": "litio",
+      "exame": "tsh e t4 livre",
+      "frequencia": "baseline e semestral",
+      "finalidade": "funcao tireoidiana",
+      "baseline_obrigatorio": "sim",
+      "alertas": "hipotireoidismo",
+      "fonte": "doc_081"
+    },
+    {
+      "medicamento": "quetiapina",
+      "exame": "glicemia e perfil lipidico",
+      "frequencia": "baseline e semestral",
+      "finalidade": "risco metabolico",
+      "baseline_obrigatorio": "sim",
+      "alertas": "sindrome metabolica",
+      "fonte": "doc_082"
+    },
+    {
+      "medicamento": "quetiapina",
+      "exame": "peso e imc",
+      "frequencia": "mensal inicialmente",
+      "finalidade": "monitoramento metabolico",
+      "baseline_obrigatorio": "sim",
+      "alertas": "ganho de peso",
+      "fonte": "doc_082"
+    },
+    {
+      "medicamento": "valproato",
+      "exame": "enzimas hepaticas (tgo/tgp)",
+      "frequencia": "anual ou se houver sintomas",
+      "finalidade": "hepatotoxicidade",
+      "baseline_obrigatorio": "sim",
+      "alertas": "ictericia ou dor abdominal",
+      "fonte": "doc_084"
+    },
+    {
+      "medicamento": "clozapina",
+      "exame": "hemograma completo (leucocitos/neutrofilos)",
+      "frequencia": "semanal inicialmente",
+      "finalidade": "risco de agranulocitose",
+      "baseline_obrigatorio": "sim",
+      "alertas": "febre ou dor de garganta",
+      "fonte": "doc_082"
+    },
+    {
+      "medicamento": "venlafaxina",
+      "exame": "pressao arterial",
+      "frequencia": "mensal",
+      "finalidade": "hipertensao dose-dependente",
+      "baseline_obrigatorio": "nao",
+      "alertas": "cefaleia ou tontura",
+      "fonte": "doc_080"
+    }
+  ]
+}

@@ -18,7 +18,7 @@ export function GlobalSidebar({ currentPage, onNavigate }: { currentPage: Page; 
         <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-gray-900 text-white">
           <Sparkles className="h-5 w-5" />
         </div>
-        <span className="text-lg font-bold tracking-tight">Adler AI</span>
+        <div className="flex flex-col"><span className="text-lg font-bold tracking-tight leading-tight">Adler AI</span><span className="text-[10px] font-bold text-indigo-600 uppercase tracking-widest">Clinical Intelligence</span></div>
       </div>
 
       <nav className="flex-1 space-y-1 px-3 py-4">

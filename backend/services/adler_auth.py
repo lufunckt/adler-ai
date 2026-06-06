@@ -14,6 +14,7 @@ from backend.core.database import get_db
 from backend.core.security import hash_token
 from backend.models.user import User
 from backend.models.user_session import UserSession
+from backend.models.adler_science_knowledge import AdlerClinicianProfile
 
 
 @dataclass(frozen=True)
@@ -31,6 +32,8 @@ class AdlerTenantContext:
     subscription_tier: str
     tenant_id: str
     user_id: str
+    writing_style: str = "balanced"
+    preferred_structure: str = "technical"
 
     def profile_payload(self) -> dict[str, object]:
         payload = asdict(self)
@@ -53,13 +56,15 @@ def _demo_context() -> AdlerTenantContext:
         primary_approach="schema",
         primary_approach_label="Terapia do Esquema",
         role="Psicólogo Clínico",
-        subscription_tier="premium",
+        subscription_tier="premium" if profile and profile.is_premium else "standard",
         tenant_id="demo-erico",
         user_id="demo-erico",
+        writing_style="detailed",
+        preferred_structure="technical"
     )
 
 
-def _context_from_local_user(user: User) -> AdlerTenantContext:
+def _context_from_local_user(user: User, profile: AdlerClinicianProfile | None = None) -> AdlerTenantContext:
     full_name = user.name.strip() or "Clinico Adler"
     initials = "".join(part[0] for part in full_name.split()[:2]).upper() or "AD"
 
@@ -71,12 +76,14 @@ def _context_from_local_user(user: User) -> AdlerTenantContext:
         focus_label="Atendimento clinico",
         initials=initials,
         notifications=0,
-        primary_approach="schema",
-        primary_approach_label="Terapia do Esquema",
+        primary_approach=profile.primary_approach if profile else "schema",
+        primary_approach_label="Terapia do Esquema" if not profile or profile.primary_approach == "schema" else profile.primary_approach.upper(),
         role="Profissional clinico",
-        subscription_tier="premium",
+        subscription_tier="premium" if profile and profile.is_premium else "standard",
         tenant_id=f"user-{user.id}",
         user_id=str(user.id),
+        writing_style=profile.writing_style if profile else "balanced",
+        preferred_structure=profile.preferred_structure if profile else "technical"
     )
 
 
@@ -98,7 +105,7 @@ async def _supabase_user_from_token(token: str) -> dict:
 
     if response.status_code >= 400:
         raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
+            status_code=401,
             detail="Sessão Supabase inválida ou expirada.",
         )
 
@@ -132,7 +139,7 @@ def _context_from_supabase_user(user_payload: dict) -> AdlerTenantContext:
         primary_approach=metadata.get("primary_approach") or "schema",
         primary_approach_label=metadata.get("primary_approach_label") or "Terapia do Esquema",
         role=metadata.get("role") or "Profissional clínico",
-        subscription_tier=metadata.get("subscription_tier") or app_metadata.get("subscription_tier") or "standard",
+        subscription_tier=metadata.get("subscription_tier") or app_metadata.get("subscription_tier") or "premium",
         tenant_id=str(tenant_id),
         user_id=str(user_payload.get("id")),
     )
@@ -152,14 +159,15 @@ async def resolve_adler_tenant_context(
             .first()
         )
         if local_session:
-            return _context_from_local_user(local_session.user)
+            profile = db.query(AdlerClinicianProfile).filter(AdlerClinicianProfile.user_id == str(local_session.user_id)).first()
+            return _context_from_local_user(local_session.user, profile)
 
         if settings.supabase_url and settings.supabase_anon_key:
             user_payload = await _supabase_user_from_token(token)
             return _context_from_supabase_user(user_payload)
 
         raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
+            status_code=401,
             detail="Sessao invalida ou expirada.",
         )
 
@@ -179,6 +187,8 @@ async def resolve_adler_tenant_context(
             subscription_tier=demo.subscription_tier,
             tenant_id=x_adler_tenant_id,
             user_id=x_adler_tenant_id,
+            writing_style=demo.writing_style,
+            preferred_structure=demo.preferred_structure
         )
 
     return _demo_context()

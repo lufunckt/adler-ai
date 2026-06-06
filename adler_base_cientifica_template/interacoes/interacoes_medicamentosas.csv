@@ -5,3 +5,7 @@ litio,medicamento,ibuprofeno,alerta,aumento da litemia e risco de toxicidade,alt
 litio,medicamento,diureticos,alerta,aumento da concentracao plasmatica,alta,ajustar dose e monitorar,doc_081
 quetiapina,substancia,alcool,alerta,sedacao intensa,alta,evitar combinacao,doc_082
 naltrexona,substancia,opioides,contraindicacao,bloqueio de efeito analgesico,alta,nao associar,doc_084
+isrs,farmacodinâmica,tramadol,alerta,sindrome serotoninérgica,alto,evitar combinacao ou monitorar sinais de toxicidade,doc_080
+litio,farmacocinética,aines (ex: ibuprofeno),alerta,reducao de clearance renal de litio,alto,evitar aines e usar paracetamol como alternativa,doc_081
+quetiapina,farmacodinâmica,alcool,alerta,sedacao excessiva e queda funcional,moderado,orientar abstinencia ou reducao de danos,doc_082
+sertralina,farmacodinâmica,erva de sao joao,alerta,potencializacao serotoninérgica,moderado,orientar sobre riscos de fitoterapicos sem controle,doc_083

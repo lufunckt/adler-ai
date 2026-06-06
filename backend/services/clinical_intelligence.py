@@ -54,6 +54,7 @@ from backend.schemas.clinical_intelligence import (
     WhatsappCheckinCreate,
     WhatsappCheckinRead,
 )
+from backend.services.adler_science import get_clinical_criteria, list_concepts_by_keywords
 from backend.services.adler_ai_router import try_generate_structured
 from backend.services.adler_store import get_patient
 
@@ -253,7 +254,7 @@ def _analysis_from_ai_payload(
     )
 
 
-def _analysis_route_prompt(payload: ClinicalSessionInput, baseline: ClinicalAnalysisJSON) -> tuple[str, str]:
+def _analysis_route_prompt(payload: ClinicalSessionInput, baseline: ClinicalAnalysisJSON, approach_info=None, evidence=None) -> tuple[str, str]:
     system_prompt = (
         "You are Adler AI's clinical structuring layer. "
         "Return grounded JSON only. "
@@ -273,6 +274,18 @@ def _analysis_route_prompt(payload: ClinicalSessionInput, baseline: ClinicalAnal
         f"Session input JSON:\n{json.dumps(payload.model_dump(mode='json'), ensure_ascii=True)}\n\n"
         f"Baseline structured analysis JSON:\n{json.dumps(_analysis_payload_from_baseline(baseline), ensure_ascii=True)}"
     )
+    if approach_info:
+        system_prompt = (
+            f"{system_prompt}\n\n"
+            f"CLINICAL APPROACH GROUNDING ({approach_info.approach.upper()}):\n"
+            f"- Primary Goal: {approach_info.characteristics_json.get("goal") if approach_info.characteristics_json else "N/A"}\n"
+            f"- Standard Techniques: {approach_info.characteristics_json.get("techniques") if approach_info.characteristics_json else "N/A"}\n"
+            f"Structure your insights and action plans using this therapeutic stance."
+        )
+    if evidence:
+        subjects = [e.subject for e in evidence[:3]] # limit for prompt space
+        system_prompt = f"{system_prompt}\n\nSCIENTIFIC EVIDENCE GROUNDING:\n- Available evidence for: {subjects}.\n- Use official study IDs if referencing standard protocols."
+
     return system_prompt, user_prompt
 
 
@@ -386,9 +399,13 @@ def _build_structured_analysis_rules(payload: ClinicalSessionInput, tenant_id: s
     return analysis
 
 
-def _build_structured_analysis(payload: ClinicalSessionInput, tenant_id: str) -> tuple[ClinicalAnalysisJSON, str]:
+def _build_structured_analysis(payload: ClinicalSessionInput, tenant_id: str, db: Session) -> tuple[ClinicalAnalysisJSON, str]:
+    from backend.models.adler_science_knowledge import AdlerTherapeuticProtocol, AdlerClinicalEvidence
+    approach_info = db.query(AdlerTherapeuticProtocol).filter_by(approach=payload.abordagem_clinica).first()
+    # Simple evidence grounding for specific symptoms if found
+    evidence = db.query(AdlerClinicalEvidence).all()
     baseline = _build_structured_analysis_rules(payload, tenant_id)
-    system_prompt, user_prompt = _analysis_route_prompt(payload, baseline)
+    system_prompt, user_prompt = _analysis_route_prompt(payload, baseline, approach_info, evidence)
     ai_payload, selection, _error = try_generate_structured(
         task="session_analysis",
         schema_model=AIClinicalAnalysisPayload,
@@ -538,7 +555,7 @@ def create_structured_analysis(
     db.flush()
 
     try:
-        analysis, engine_name = _build_structured_analysis(payload, tenant_id)
+        analysis, engine_name = _build_structured_analysis(payload, tenant_id, db)
     except ValidationError as exc:
         db.rollback()
         raise HTTPException(status_code=422, detail=exc.errors()) from exc

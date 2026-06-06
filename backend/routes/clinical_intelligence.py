@@ -278,3 +278,26 @@ def whatsapp_checkin(
 ) -> WhatsappCheckinRead:
     _require_premium(context)
     return create_whatsapp_checkin(db=db, tenant_id=context.tenant_id, payload=payload)
+
+# Document Filling V2
+from backend.services.clinical_intelligence_v2 import fill_official_document
+from backend.schemas.science_v2 import DocumentFillRequest, DocumentFillResponse
+
+@router.post("/documents/fill", response_model=DocumentFillResponse)
+def document_fill(
+    payload: DocumentFillRequest,
+    context: AdlerTenantContext = Depends(resolve_adler_tenant_context),
+    db: Session = Depends(get_db)
+):
+    _require_premium(context)
+    result = fill_official_document(
+        db=db,
+        tenant_id=context.tenant_id,
+        template_id=payload.template_id,
+        patient_id=payload.patient_id,
+        session_number=payload.session_number,
+        mode=payload.mode
+    )
+    if "error" in result:
+        raise HTTPException(status_code=404, detail=result["error"])
+    return result

@@ -270,3 +270,7 @@ class ScientificBaseRead(BaseModel):
     summary: dict[str, int]
     tenant_id: str
     warnings: list[ScientificWarningRead]
+
+class RawScienceIngestRequest(BaseModel):
+    text: str
+    target_category: Literal["concepts", "psychopathology", "interactions", "monitoring"]

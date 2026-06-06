@@ -405,3 +405,21 @@ export function fetchAdlerWhatsAppDashboard(patientId: string) {
     `/api/adler/whatsapp/patients/${patientId}/dashboard`
   );
 }
+
+/**
+ * Generic API client for raw calls
+ */
+export const api = {
+  get: <T>(path: string) => call<T>(path),
+  post: <T>(path: string, body: any) => call<T>(path, {
+    method: "POST",
+    body: JSON.stringify(body)
+  }),
+  put: <T>(path: string, body: any) => call<T>(path, {
+    method: "PUT",
+    body: JSON.stringify(body)
+  }),
+  delete: <T>(path: string) => call<T>(path, {
+    method: "DELETE"
+  })
+};

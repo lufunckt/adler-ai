@@ -20,6 +20,7 @@ from backend.schemas.adler import (
     PatientRead,
     PatientRegistryItemRead,
     PatientCreate,
+    RawScienceIngestRequest,
     AppointmentCreate,
     ScheduleItemRead,
     ScientificBaseRead,
@@ -339,3 +340,57 @@ def download_document_model(model_id: str) -> FileResponse:
         media_type="application/pdf",
         filename=model.get("arquivo") or f"{model_id}.pdf",
     )
+
+@router.post("/science/ingest-text")
+async def ingest_science_text(
+    payload: RawScienceIngestRequest,
+    context: AdlerTenantContext = Depends(resolve_adler_tenant_context),
+) -> dict:
+    from backend.services.adler_science import ingest_raw_science_text
+    return await ingest_raw_science_text(payload)
+
+# Science V2 Search Routes
+from backend.services.adler_science_v2 import (
+    search_dsm_criteria,
+    search_validated_medications,
+    list_official_templates
+)
+from backend.schemas.science_v2 import (
+    DSMCriteriaRead,
+    MedicationValidatedRead,
+    OfficialTemplateRead
+)
+
+@router.get("/science/dsm/search", response_model=list[DSMCriteriaRead])
+def dsm_search(
+    q: str,
+    db: Session = Depends(get_db)
+):
+    return search_dsm_criteria(db, q)
+
+@router.get("/science/medications/search-validated", response_model=list[MedicationValidatedRead])
+def medication_search_validated(
+    q: str,
+    db: Session = Depends(get_db)
+):
+    return search_validated_medications(db, q)
+
+@router.get("/science/templates", response_model=list[OfficialTemplateRead])
+def templates_list(
+    q: str | None = None,
+    db: Session = Depends(get_db)
+):
+    return list_official_templates(db, q)
+
+@router.get("/config/onboarding-status")
+def onboarding_status(
+    context: AdlerTenantContext = Depends(resolve_adler_tenant_context),
+    db: Session = Depends(get_db)
+):
+    from backend.models.adler_science_knowledge import AdlerClinicianProfile
+    profile = db.query(AdlerClinicianProfile).filter_by(user_id=context.user_id).first()
+    return {
+        "onboarding_completed": profile.onboarding_completed if profile else False,
+        "is_premium": profile.is_premium if profile else False,
+        "approach": profile.primary_approach if profile else None
+    }

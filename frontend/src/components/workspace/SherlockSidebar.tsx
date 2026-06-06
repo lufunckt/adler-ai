@@ -12,7 +12,7 @@ export function SherlockSidebar({ patient, session }: { patient: Patient; sessio
       <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-gray-400">Sherlock Insights</p>
       <h3 className="mt-2 text-lg font-bold text-gray-900">Leitura clínica</h3>
       <p className="mt-2 text-sm leading-6 text-gray-500">
-        Sessão {session}. {approach.label}. Foco em modos, necessidades emocionais e padrões de enfrentamento.
+        Sessão {session}. Foco em modos, necessidades emocionais e padrões de enfrentamento.
       </p>
 
       <div className={`mt-5 rounded-xl border p-5 ${risk >= 60 ? "border-red-200 bg-red-50" : "border-emerald-200 bg-emerald-50"}`}>

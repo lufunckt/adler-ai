@@ -43,12 +43,6 @@ class ClinicalSessionInput(BaseModel):
     comportamentos: list[str] = Field(default_factory=list)
     medicacao: list[str] = Field(default_factory=list)
     tempo: str | None = None
-
-class PharmacogeneticsUpdate(BaseModel):
-    status: str
-    phenotype: str | None = None
-    result_json: dict | None = None
-
     abordagem_clinica: ClinicalIntelligenceApproach
     observacoes: str | None = None
 
@@ -56,6 +50,11 @@ class PharmacogeneticsUpdate(BaseModel):
     @classmethod
     def normalize_list(cls, value: list[str]) -> list[str]:
         return [item.strip() for item in value if item and item.strip()]
+
+class PharmacogeneticsUpdate(BaseModel):
+    status: str
+    phenotype: str | None = None
+    result_json: dict | None = None
 
 
 class ClinicalPattern(BaseModel):
