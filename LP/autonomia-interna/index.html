@@ -16,8 +16,6 @@
     </style>
 </head>
 <body class="bg-white">
-
-    <!-- Header -->
     <header class="py-6 border-b border-gray-100">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <a href="../index.html" class="text-gray-400 hover:text-primary transition">
@@ -27,8 +25,6 @@
             <div class="w-6"></div>
         </div>
     </header>
-
-    <!-- Hero Section -->
     <section class="py-16 md:py-24 bg-soft">
         <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -50,33 +46,40 @@
             </div>
         </div>
     </section>
-
-    <!-- Identificação -->
     <section class="py-20">
         <div class="container mx-auto px-6 max-w-4xl text-center">
             <h2 class="text-3xl md:text-4xl font-bold mb-10">Quantas vezes você disse “sim” quando tudo dentro de você queria dizer “não”?</h2>
             <div class="grid md:grid-cols-2 gap-4 text-left">
-                {[
-                    "Você aceita mais do que deveria.",
-                    "Evita conflito para não decepcionar.",
-                    "Cuida de todo mundo e se deixa por último.",
-                    "Culpa quando tenta descansar.",
-                    "Explica-se demais.",
-                    "Cobra-se por necessidades humanas."
-                ].map(item => `
-                    <div class="p-5 border border-gray-100 rounded-xl flex items-center gap-3">
-                        <span class="text-rose-400">×</span>
-                        <span class="text-gray-600 text-sm">${item}</span>
-                    </div>
-                `).join('')}
+                <div class="p-5 border border-gray-100 rounded-xl flex items-center gap-3">
+                    <span class="text-rose-400">×</span>
+                    <span class="text-gray-600 text-sm">Você aceita mais do que deveria.</span>
+                </div>
+                <div class="p-5 border border-gray-100 rounded-xl flex items-center gap-3">
+                    <span class="text-rose-400">×</span>
+                    <span class="text-gray-600 text-sm">Evita conflito para não decepcionar.</span>
+                </div>
+                <div class="p-5 border border-gray-100 rounded-xl flex items-center gap-3">
+                    <span class="text-rose-400">×</span>
+                    <span class="text-gray-600 text-sm">Cuida de todo mundo e se deixa por último.</span>
+                </div>
+                <div class="p-5 border border-gray-100 rounded-xl flex items-center gap-3">
+                    <span class="text-rose-400">×</span>
+                    <span class="text-gray-600 text-sm">Culpa quando tenta descansar.</span>
+                </div>
+                <div class="p-5 border border-gray-100 rounded-xl flex items-center gap-3">
+                    <span class="text-rose-400">×</span>
+                    <span class="text-gray-600 text-sm">Explica-se demais.</span>
+                </div>
+                <div class="p-5 border border-gray-100 rounded-xl flex items-center gap-3">
+                    <span class="text-rose-400">×</span>
+                    <span class="text-gray-600 text-sm">Cobra-se por necessidades humanas.</span>
+                </div>
             </div>
             <div class="mt-12 p-8 bg-rose-50 rounded-3xl border border-rose-100">
-                <p class="text-rose-900 text-lg">Com o tempo, isso não vira bondade. **Vira esgotamento.** E o pior: dizer "não" continua parecendo perigoso demais.</p>
+                <p class="text-rose-900 text-lg">Com o tempo, isso não vira bondade. <strong>Vira esgotamento.</strong> E o pior: dizer "não" continua parecendo perigoso demais.</p>
             </div>
         </div>
     </section>
-
-    <!-- Reposicionamento -->
     <section class="py-24 bg-gray-900 text-white">
         <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
             <div>
@@ -91,30 +94,37 @@
             </div>
         </div>
     </section>
-
-    <!-- Para quem é -->
     <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Este processo é para você se:</h2>
             <div class="max-w-3xl mx-auto grid gap-4">
-                {[
-                    "Sente culpa quando precisa dizer “não”.",
-                    "Vive sobrecarregada por demandas que não são suas.",
-                    "Tem medo de decepcionar pessoas importantes.",
-                    "Sente-se responsável pelo bem-estar dos outros.",
-                    "Não consegue descansar sem sentir que está falhando.",
-                    "Sente que se perdeu tentando ser disponível o tempo todo."
-                ].map(item => `
-                    <div class="bg-white p-5 rounded-2xl border border-gray-100 flex items-center gap-4">
-                        <span class="text-primary font-bold">→</span>
-                        <span class="text-gray-700">${item}</span>
-                    </div>
-                `).join('')}
+                <div class="bg-white p-5 rounded-2xl border border-gray-100 flex items-center gap-4">
+                    <span class="text-primary font-bold">→</span>
+                    <span class="text-gray-700">Sente culpa quando precisa dizer “não”.</span>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border border-gray-100 flex items-center gap-4">
+                    <span class="text-primary font-bold">→</span>
+                    <span class="text-gray-700">Vive sobrecarregada por demandas que não são suas.</span>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border border-gray-100 flex items-center gap-4">
+                    <span class="text-primary font-bold">→</span>
+                    <span class="text-gray-700">Tem medo de decepcionar pessoas importantes.</span>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border border-gray-100 flex items-center gap-4">
+                    <span class="text-primary font-bold">→</span>
+                    <span class="text-gray-700">Sente-se responsável pelo bem-estar dos outros.</span>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border border-gray-100 flex items-center gap-4">
+                    <span class="text-primary font-bold">→</span>
+                    <span class="text-gray-700">Não consegue descansar sem sentir que está falhando.</span>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border border-gray-100 flex items-center gap-4">
+                    <span class="text-primary font-bold">→</span>
+                    <span class="text-gray-700">Sente que se perdeu tentando ser disponível o tempo todo.</span>
+                </div>
             </div>
         </div>
     </section>
-
-    <!-- Método -->
     <section class="py-24">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl md:text-5xl font-black mb-16 text-center">Três pontos centrais</h2>
@@ -134,8 +144,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Resultado -->
     <section class="py-20 text-center">
         <div class="container mx-auto px-6 max-w-4xl">
             <h2 class="text-3xl md:text-5xl font-black mb-8">Você pode cuidar dos outros sem desaparecer de si.</h2>
@@ -144,8 +152,6 @@
             </p>
         </div>
     </section>
-
-    <!-- CTA Final -->
     <footer class="py-24 bg-primary text-white text-center">
         <div class="container mx-auto px-6 max-w-3xl">
             <h2 class="text-3xl md:text-4xl font-bold mb-8">Você não precisa esperar o esgotamento virar colapso para começar a se escolher.</h2>
@@ -157,6 +163,5 @@
             <p class="mt-16 text-sm opacity-60">© 2026 Juliana Grimaldi. Todos os direitos reservados.</p>
         </div>
     </footer>
-
 </body>
 </html>
