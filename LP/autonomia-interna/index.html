@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomia Interna | Juliana Grimaldi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Roboto', sans-serif; color: #1a1a1a; }
+        h1, h2, h3, .font-lato { font-family: 'Lato', sans-serif; }
+        .bg-primary { background-color: #00d082; }
+        .text-primary { color: #00d082; }
+        .border-primary { border-color: #00d082; }
+        .bg-soft { background-color: #f9fafb; }
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- Header -->
+    <header class="py-6 border-b border-gray-100">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="../index.html" class="text-gray-400 hover:text-primary transition">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            </a>
+            <img src="https://julianagrimaldioficial.com.br/wp-content/uploads/2026/02/Logo-Juliana-Grimaldi-1.png" alt="Juliana Grimaldi" class="h-10 md:h-12">
+            <div class="w-6"></div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-16 md:py-24 bg-soft">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="text-primary font-bold tracking-widest uppercase text-xs mb-4 block">Autonomia Interna</span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight mb-6">
+                    O fim do esgotamento começa quando você aprende a se priorizar sem culpa.
+                </h1>
+                <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                    Um processo para mulheres que sentem dificuldade de dizer “não”, estabelecer limites e sustentar escolhas próprias sem se sentirem egoístas, erradas ou responsáveis por tudo.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#" class="bg-primary hover:bg-[#00b070] text-white px-8 py-4 rounded-full font-bold text-center transition shadow-lg">Quero Me Priorizar</a>
+                    <a href="#" class="border-2 border-gray-900 hover:bg-gray-900 hover:text-white text-gray-900 px-8 py-4 rounded-full font-bold text-center transition">Falar com a equipe</a>
+                </div>
+            </div>
+            <div class="relative">
+                <img src="https://julianagrimaldioficial.com.br/wp-content/uploads/2026/04/juliana_grimaldi_terapia_atualizacao_de_memorias-12.jpg" alt="Juliana Grimaldi" class="rounded-3xl shadow-2xl z-10 relative">
+                <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-primary rounded-full -z-0 opacity-20"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Identificação -->
+    <section class="py-20">
+        <div class="container mx-auto px-6 max-w-4xl text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-10">Quantas vezes você disse “sim” quando tudo dentro de você queria dizer “não”?</h2>
+            <div class="grid md:grid-cols-2 gap-4 text-left">
+                {[
+                    "Você aceita mais do que deveria.",
+                    "Evita conflito para não decepcionar.",
+                    "Cuida de todo mundo e se deixa por último.",
+                    "Culpa quando tenta descansar.",
+                    "Explica-se demais.",
+                    "Cobra-se por necessidades humanas."
+                ].map(item => `
+                    <div class="p-5 border border-gray-100 rounded-xl flex items-center gap-3">
+                        <span class="text-rose-400">×</span>
+                        <span class="text-gray-600 text-sm">${item}</span>
+                    </div>
+                `).join('')}
+            </div>
+            <div class="mt-12 p-8 bg-rose-50 rounded-3xl border border-rose-100">
+                <p class="text-rose-900 text-lg">Com o tempo, isso não vira bondade. **Vira esgotamento.** E o pior: dizer "não" continua parecendo perigoso demais.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reposicionamento -->
+    <section class="py-24 bg-gray-900 text-white">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="text-3xl md:text-5xl font-black mb-8 leading-tight">Autonomia interna não é egoísmo. É estrutura emocional.</h2>
+                <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+                    Aprender a se priorizar não significa deixar de se importar com os outros. Significa parar de trair a si mesma para manter relações onde você só é aceita quando se diminui.
+                </p>
+                <p class="text-primary font-bold text-xl">A autonomia nasce quando você age sem ser sequestrada pela culpa.</p>
+            </div>
+            <div>
+                <img src="https://julianagrimaldioficial.com.br/wp-content/uploads/2026/03/juliana-grimaldi-terapia-3.webp" alt="Equilíbrio Emocional" class="rounded-3xl shadow-2xl grayscale hover:grayscale-0 transition duration-700">
+            </div>
+        </div>
+    </section>
+
+    <!-- Para quem é -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Este processo é para você se:</h2>
+            <div class="max-w-3xl mx-auto grid gap-4">
+                {[
+                    "Sente culpa quando precisa dizer “não”.",
+                    "Vive sobrecarregada por demandas que não são suas.",
+                    "Tem medo de decepcionar pessoas importantes.",
+                    "Sente-se responsável pelo bem-estar dos outros.",
+                    "Não consegue descansar sem sentir que está falhando.",
+                    "Sente que se perdeu tentando ser disponível o tempo todo."
+                ].map(item => `
+                    <div class="bg-white p-5 rounded-2xl border border-gray-100 flex items-center gap-4">
+                        <span class="text-primary font-bold">→</span>
+                        <span class="text-gray-700">${item}</span>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    </section>
+
+    <!-- Método -->
+    <section class="py-24">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-5xl font-black mb-16 text-center">Três pontos centrais</h2>
+            <div class="grid lg:grid-cols-3 gap-8">
+                <div class="p-10 rounded-3xl bg-soft border border-gray-100">
+                    <h3 class="text-xl font-bold mb-4">Mapeamento do autoabandono</h3>
+                    <p class="text-gray-500 text-sm">Identificação de onde você ignora suas necessidades para evitar rejeição.</p>
+                </div>
+                <div class="p-10 rounded-3xl bg-soft border border-gray-100">
+                    <h3 class="text-xl font-bold mb-4">Raiz emocional do medo</h3>
+                    <p class="text-gray-500 text-sm">Investigação dos significados internos que associaram limite a perigo ou perda.</p>
+                </div>
+                <div class="p-10 rounded-3xl bg-soft border border-gray-100">
+                    <h3 class="text-xl font-bold mb-4">Postura com consciência</h3>
+                    <p class="text-gray-500 text-sm">Desenvolvimento de novas formas de se posicionar e proteger sua energia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resultado -->
+    <section class="py-20 text-center">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="text-3xl md:text-5xl font-black mb-8">Você pode cuidar dos outros sem desaparecer de si.</h2>
+            <p class="text-xl text-gray-600 mb-10 leading-relaxed">
+                Quando você aprende a se priorizar, sua vida deixa de ser uma sequência de concessões silenciosas. Não é sobre virar alguém dura, é sobre não precisar se abandonar para ser amada.
+            </p>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <footer class="py-24 bg-primary text-white text-center">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8">Você não precisa esperar o esgotamento virar colapso para começar a se escolher.</h2>
+            <p class="text-xl mb-12 opacity-90">Inicie o processo de Autonomia Interna e aprenda a construir limites com consciência, firmeza e menos culpa.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#" class="bg-gray-900 text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-black transition shadow-2xl">Quero Me Priorizar</a>
+                <a href="#" class="bg-white text-primary px-10 py-5 rounded-full font-bold text-lg hover:bg-gray-100 transition shadow-2xl">Falar com Equipe</a>
+            </div>
+            <p class="mt-16 text-sm opacity-60">© 2026 Juliana Grimaldi. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
