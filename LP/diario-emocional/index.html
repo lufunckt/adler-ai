@@ -16,8 +16,6 @@
     </style>
 </head>
 <body class="bg-white">
-
-    <!-- Header -->
     <header class="py-6 border-b border-gray-100">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <a href="../index.html" class="text-gray-400 hover:text-primary transition">
@@ -27,8 +25,6 @@
             <div class="w-6"></div>
         </div>
     </header>
-
-    <!-- Hero Section -->
     <section class="py-16 md:py-24 bg-soft">
         <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -50,8 +46,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Identificação -->
     <section class="py-20">
         <div class="container mx-auto px-6 max-w-4xl">
             <h2 class="text-3xl md:text-4xl font-bold mb-10 text-center">Você já reagiu de um jeito e só depois percebeu que não era aquilo que queria ter feito?</h2>
@@ -61,38 +55,62 @@
             </div>
             <div class="mt-12 bg-gray-900 text-white p-10 rounded-3xl text-center">
                 <p class="text-xl font-bold mb-4">Nomear o que você sente é o primeiro passo para deixar de ser conduzida por isso.</p>
-                <p class="text-gray-400">O Diário Emocional é uma ferramenta prática de autopercepção guiada para organizar sua experiência interna.</p>
+                <p class="text-gray-400">O Diário Emocional é uma ferramenta prática de autopercepção guiada para organizar sua experiênca interna.</p>
             </div>
         </div>
     </section>
-
-    <!-- Conteúdo (As 9 Etapas) -->
     <section id="conteudo" class="py-24 bg-gray-50">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl md:text-5xl font-black mb-16 text-center">O que você vai encontrar</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {[
-                    { t: "Data e contexto", d: "Para entender o que aconteceu antes da emoção aparecer." },
-                    { t: "Emoção sentida", d: "Para nomear sentimentos principais e secundários." },
-                    { t: "Intensidade emocional", d: "Para perceber a força da emoção antes e depois da escrita." },
-                    { t: "Sensação no corpo", d: "Para reconhecer como a emoção aparece fisicamente." },
-                    { t: "Pensamentos automáticos", d: "Para identificar frases internas no momento da reação." },
-                    { t: "Significado emocional", d: "Para compreender o que aquela situação parece dizer sobre você." },
-                    { t: "Nova interpretação", d: "Para criar uma perspectiva mais ampla, empática e verdadeira." },
-                    { t: "Ação consciente", d: "Para escolher uma resposta diferente do impulso automático." },
-                    { t: "Reflexão final", d: "Para perceber como você se sente depois de escrever e organizar." }
-                ].map((item, idx) => `
-                    <div class="bg-white p-6 rounded-2xl border border-gray-100 hover:shadow-md transition">
-                        <span class="text-primary font-black mb-2 block">${(idx + 1).toString().padStart(2, '0')}</span>
-                        <h3 class="font-bold mb-2 text-gray-900">${item.t}</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed">${item.d}</p>
-                    </div>
-                `).join('')}
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 hover:shadow-md transition">
+                    <span class="text-primary font-black mb-2 block">01</span>
+                    <h3 class="font-bold mb-2 text-gray-900">Data e contexto</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Para entender o que aconteceu antes da emoção aparecer.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 hover:shadow-md transition">
+                    <span class="text-primary font-black mb-2 block">02</span>
+                    <h3 class="font-bold mb-2 text-gray-900">Emoção sentida</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Para nomear sentimentos principais e secundários.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 hover:shadow-md transition">
+                    <span class="text-primary font-black mb-2 block">03</span>
+                    <h3 class="font-bold mb-2 text-gray-900">Intensidade emocional</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Para perceber a força da emoção antes e depois da escrita.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 hover:shadow-md transition">
+                    <span class="text-primary font-black mb-2 block">04</span>
+                    <h3 class="font-bold mb-2 text-gray-900">Sensação no corpo</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Para reconhecer como a emoção aparece fisicamente.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 hover:shadow-md transition">
+                    <span class="text-primary font-black mb-2 block">05</span>
+                    <h3 class="font-bold mb-2 text-gray-900">Pensamentos automáticos</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Para identificar frases internas no momento da reação.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 hover:shadow-md transition">
+                    <span class="text-primary font-black mb-2 block">06</span>
+                    <h3 class="font-bold mb-2 text-gray-900">Significado emocional</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Para compreender o que aquela situação parece dizer sobre você.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 hover:shadow-md transition">
+                    <span class="text-primary font-black mb-2 block">07</span>
+                    <h3 class="font-bold mb-2 text-gray-900">Nova interpretação</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Para criar uma perspectiva mais ampla, empática e verdadeira.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 hover:shadow-md transition">
+                    <span class="text-primary font-black mb-2 block">08</span>
+                    <h3 class="font-bold mb-2 text-gray-900">Ação consciente</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Para escolher uma resposta diferente do impulso automático.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 hover:shadow-md transition">
+                    <span class="text-primary font-black mb-2 block">09</span>
+                    <h3 class="font-bold mb-2 text-gray-900">Reflexão final</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Para perceber como você se sente depois de escrever e organizar.</p>
+                </div>
             </div>
         </div>
     </section>
-
-    <!-- Para quem é -->
     <section class="py-20">
         <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
             <div>
@@ -101,24 +119,30 @@
             <div>
                 <h2 class="text-3xl md:text-4xl font-bold mb-10">O Diário Emocional é para você se:</h2>
                 <ul class="space-y-4">
-                    {[
-                        "Quer desenvolver mais autoconhecimento emocional.",
-                        "Sente dificuldade de entender seus gatilhos.",
-                        "Costuma reagir no impulso.",
-                        "Deseja melhorar sua autorregulação.",
-                        "Busca uma prática simples e profunda para o dia a dia."
-                    ].map(item => `
-                        <li class="flex items-start gap-4">
-                            <span class="text-primary font-bold">✓</span>
-                            <span class="text-gray-700">${item}</span>
-                        </li>
-                    `).join('')}
+                    <li class="flex items-start gap-4">
+                        <span class="text-primary font-bold">✓</span>
+                        <span class="text-gray-700">Quer desenvolver mais autoconhecimento emocional.</span>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <span class="text-primary font-bold">✓</span>
+                        <span class="text-gray-700">Sente dificuldade de entender seus gatilhos.</span>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <span class="text-primary font-bold">✓</span>
+                        <span class="text-gray-700">Costuma reagir no impulso.</span>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <span class="text-primary font-bold">✓</span>
+                        <span class="text-gray-700">Deseja melhorar sua autorregulação.</span>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <span class="text-primary font-bold">✓</span>
+                        <span class="text-gray-700">Busca uma prática simples e profunda para o dia a dia.</span>
+                    </li>
                 </ul>
             </div>
         </div>
     </section>
-
-    <!-- Resultado -->
     <section class="py-20 bg-primary/5 text-center">
         <div class="container mx-auto px-6 max-w-4xl">
             <h2 class="text-3xl md:text-4xl font-black mb-8 leading-tight text-gray-900">Quando você se percebe, cria espaço entre o impulso e a escolha.</h2>
@@ -127,8 +151,6 @@
             </p>
         </div>
     </section>
-
-    <!-- CTA Final -->
     <footer class="py-24 bg-primary text-white text-center">
         <div class="container mx-auto px-6 max-w-3xl">
             <h2 class="text-3xl md:text-4xl font-bold mb-8">Hoje você pode começar com uma prática simples: se perceber.</h2>
@@ -140,6 +162,5 @@
             <p class="mt-16 text-sm opacity-60">© 2026 Juliana Grimaldi. Todos os direitos reservados.</p>
         </div>
     </footer>
-
 </body>
 </html>

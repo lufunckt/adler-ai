@@ -18,8 +18,6 @@
     </style>
 </head>
 <body class="bg-white">
-
-    <!-- Header -->
     <header class="py-6 border-b border-gray-100">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <a href="../index.html" class="text-gray-400 hover:text-primary transition">
@@ -29,8 +27,6 @@
             <div class="w-6"></div>
         </div>
     </header>
-
-    <!-- Hero Section -->
     <section class="py-16 md:py-24 bg-soft">
         <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -52,8 +48,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Identificação -->
     <section class="py-20">
         <div class="container mx-auto px-6 max-w-4xl">
             <h2 class="text-3xl md:text-4xl font-bold mb-10 text-center">Você já tentou mudar, mas sente que algo dentro de você continua puxando para o mesmo lugar?</h2>
@@ -71,8 +65,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Reposicionamento -->
     <section id="como-funciona" class="py-24 bg-gray-900 text-white">
         <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
             <div>
@@ -87,45 +79,60 @@
                 </div>
             </div>
             <div class="space-y-6">
-                {[
-                    "Sente que repete ciclos emocionais, mesmo agindo diferente.",
-                    "Exausta por sustentar tudo por fora, enquanto sente confusão por dentro.",
-                    "Dificuldade de dizer 'não' sem sentir culpa.",
-                    "Percebe autossabotagem em momentos importantes.",
-                    "Medo de ser julgada ou desapontar alguém."
-                ].map(item => `
-                    <div class="flex items-start gap-4">
-                        <div class="bg-primary/20 p-1.5 rounded text-primary text-xs">✓</div>
-                        <p class="text-gray-300 text-sm">${item}</p>
-                    </div>
-                `).join('')}
+                <div class="flex items-start gap-4">
+                    <div class="bg-primary/20 p-1.5 rounded text-primary text-xs">✓</div>
+                    <p class="text-gray-300 text-sm">Sente que repete ciclos emocionais, mesmo agindo diferente.</p>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="bg-primary/20 p-1.5 rounded text-primary text-xs">✓</div>
+                    <p class="text-gray-300 text-sm">Exausta por sustentar tudo por fora, enquanto sente confusão por dentro.</p>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="bg-primary/20 p-1.5 rounded text-primary text-xs">✓</div>
+                    <p class="text-gray-300 text-sm">Dificuldade de dizer 'não' sem sentir culpa.</p>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="bg-primary/20 p-1.5 rounded text-primary text-xs">✓</div>
+                    <p class="text-gray-300 text-sm">Percebe autossabotagem em momentos importantes.</p>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="bg-primary/20 p-1.5 rounded text-primary text-xs">✓</div>
+                    <p class="text-gray-300 text-sm">Medo de ser julgada ou desapontar alguém.</p>
+                </div>
             </div>
         </div>
     </section>
-
-    <!-- Mapeamento -->
     <section class="py-24">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl md:text-5xl font-black mb-16 text-center">O que olhamos na sessão</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {[
-                    { t: "Situação atual", d: "O que está acontecendo na sua vida hoje e onde o padrão mais aparece." },
-                    { t: "Emoções predominantes", d: "Quais emoções se repetem: medo, culpa, raiva, tristeza ou insuficiência." },
-                    { t: "Gatilhos emocionais", d: "Quais situações ativam respostas automáticas no seu comportamento." },
-                    { t: "Pensamentos automáticos", d: "Quais interpretações surgem quando você se sente ameaçada ou exposta." },
-                    { t: "Significado emocional", d: "O que aquela situação parece dizer sobre seu valor e capacidade." },
-                    { t: "Caminho indicado", d: "Qual processo faz mais sentido para o seu momento emocional." }
-                ].map(item => `
-                    <div class="p-8 rounded-3xl border border-gray-100 bg-soft">
-                        <h3 class="text-lg font-bold mb-4 text-dark-blue">${item.t}</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed">${item.d}</p>
-                    </div>
-                `).join('')}
+                <div class="p-8 rounded-3xl border border-gray-100 bg-soft">
+                    <h3 class="text-lg font-bold mb-4 text-dark-blue">Situação atual</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">O que está acontecendo na sua vida hoje e onde o padrão mais aparece.</p>
+                </div>
+                <div class="p-8 rounded-3xl border border-gray-100 bg-soft">
+                    <h3 class="text-lg font-bold mb-4 text-dark-blue">Emoções predominantes</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Quais emoções se repetem: medo, culpa, raiva, tristeza ou insuficiência.</p>
+                </div>
+                <div class="p-8 rounded-3xl border border-gray-100 bg-soft">
+                    <h3 class="text-lg font-bold mb-4 text-dark-blue">Gatilhos emocionais</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Quais situações ativam respostas automáticas no seu comportamento.</p>
+                </div>
+                <div class="p-8 rounded-3xl border border-gray-100 bg-soft">
+                    <h3 class="text-lg font-bold mb-4 text-dark-blue">Pensamentos automáticos</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Quais interpretações surgem quando você se sente ameaçada ou exposta.</p>
+                </div>
+                <div class="p-8 rounded-3xl border border-gray-100 bg-soft">
+                    <h3 class="text-lg font-bold mb-4 text-dark-blue">Significado emocional</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">O que aquela situação parece dizer sobre seu valor e capacidade.</p>
+                </div>
+                <div class="p-8 rounded-3xl border border-gray-100 bg-soft">
+                    <h3 class="text-lg font-bold mb-4 text-dark-blue">Caminho indicado</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Qual processo faz mais sentido para o seu momento emocional.</p>
+                </div>
             </div>
         </div>
     </section>
-
-    <!-- Resultado -->
     <section class="py-20 bg-gray-50 text-center">
         <div class="container mx-auto px-6 max-w-4xl">
             <h2 class="text-3xl md:text-5xl font-black mb-8 leading-tight">Clareza muda a forma como você se vê.</h2>
@@ -134,8 +141,6 @@
             </p>
         </div>
     </section>
-
-    <!-- CTA Final -->
     <footer class="py-24 bg-dark-blue text-white text-center">
         <div class="container mx-auto px-6 max-w-3xl">
             <h2 class="text-3xl md:text-4xl font-bold mb-8">Talvez você não precise tentar controlar tudo. Talvez precise entender de onde isso começa.</h2>
@@ -147,6 +152,5 @@
             <p class="mt-16 text-sm opacity-60">© 2026 Juliana Grimaldi. Todos os direitos reservados.</p>
         </div>
     </footer>
-
 </body>
 </html>
