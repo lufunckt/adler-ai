@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,173 +7,148 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Roboto', sans-serif; color: #1a1a1a; }
+        body { font-family: 'Roboto', sans-serif; color: #1a1a1a; -webkit-font-smoothing: antialiased; }
         h1, h2, h3, .font-lato { font-family: 'Lato', sans-serif; }
         .bg-primary { background-color: #00d082; }
         .text-primary { color: #00d082; }
         .border-primary { border-color: #00d082; }
         .bg-soft { background-color: #f9fafb; }
+        .btn-hover { transition: all 0.3s ease; }
+        .btn-hover:hover { transform: scale(1.02); }
     </style>
 </head>
 <body class="bg-white">
-    <header class="py-6 border-b border-gray-100">
+
+    <!-- Header -->
+    <header class="py-6 border-b border-gray-100 sticky top-0 bg-white/80 backdrop-blur-md z-40">
         <div class="container mx-auto px-6 flex justify-between items-center">
-            <a href="../index.html" class="text-gray-400 hover:text-primary transition">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            <a href="../index.html" class="text-gray-400 hover:text-primary transition-all hover:-translate-x-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
             </a>
             <img src="https://julianagrimaldioficial.com.br/wp-content/uploads/2026/02/Logo-Juliana-Grimaldi-1.png" alt="Juliana Grimaldi" class="h-10 md:h-12">
-            <div class="w-6"></div>
+            <div class="w-8"></div>
         </div>
     </header>
-    <section class="py-16 md:py-24 bg-soft">
-        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+
+    <!-- Hero Section -->
+    <section class="py-20 md:py-32 bg-soft text-center lg:text-left relative overflow-hidden">
+        <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center relative z-10">
             <div>
-                <span class="text-primary font-bold tracking-widest uppercase text-xs mb-4 block">Visibilidade Natural</span>
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight mb-6">
-                    Expresse-se com clareza e segurança, sendo ouvida e respeitada sem precisar forçar nada.
+                <span class="text-primary font-bold tracking-[0.2em] uppercase text-[10px] mb-6 block">Visibilidade Natural</span>
+                <h1 class="text-4xl md:text-6xl font-black text-gray-900 leading-[1.1] mb-8 tracking-tighter">
+                    Expresse-se com clareza e seja ouvida sem precisar forçar nada.
                 </h1>
-                <p class="text-xl text-gray-600 mb-8 leading-relaxed">
-                    Um processo para mulheres que desejam aparecer, comunicar e sustentar sua presença com mais naturalidade, sem medo excessivo de julgamento, rejeição ou inadequação.
+                <p class="text-lg md:text-xl text-gray-500 mb-10 leading-relaxed font-light">
+                    Um processo para mulheres que desejam sustentar sua presença com naturalidade, sem medo excessivo de julgamento.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="#" class="bg-primary hover:bg-[#00b070] text-white px-8 py-4 rounded-full font-bold text-center transition shadow-lg">Quero Ter Voz</a>
-                    <a href="#" class="border-2 border-gray-900 hover:bg-gray-900 hover:text-white text-gray-900 px-8 py-4 rounded-full font-bold text-center transition">Falar com a equipe</a>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <a href="#" class="bg-primary text-white px-10 py-5 rounded-2xl font-bold text-center btn-hover shadow-xl shadow-primary/20">Quero Ter Voz</a>
+                    <a href="#" class="border-2 border-gray-900 text-gray-900 px-10 py-5 rounded-2xl font-bold text-center hover:bg-gray-900 hover:text-white transition-all">Falar com a equipe</a>
                 </div>
             </div>
-            <div class="relative">
-                <img src="https://julianagrimaldioficial.com.br/wp-content/uploads/2026/04/Ju-Grimaldi.jpg" alt="Juliana Grimaldi" class="rounded-3xl shadow-2xl z-10 relative">
-                <div class="absolute -top-6 -right-6 w-32 h-32 bg-primary rounded-full -z-0 opacity-20"></div>
-            </div>
-        </div>
-    </section>
-    <section class="py-20">
-        <div class="container mx-auto px-6 max-w-4xl">
-            <h2 class="text-3xl md:text-4xl font-bold mb-10 text-center">Você tem algo a dizer, mas trava quando precisa ser vista.</h2>
-            <div class="grid md:grid-cols-2 gap-8 text-gray-700 leading-relaxed">
-                <ul class="space-y-3">
-                    <li class="flex items-center gap-3">
-                        <span class="w-1.5 h-1.5 bg-rose-400 rounded-full"></span>
-                        <span>Pensa demais antes de falar.</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span class="w-1.5 h-1.5 bg-rose-400 rounded-full"></span>
-                        <span>Evita se expor a qualquer custo.</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span class="w-1.5 h-1.5 bg-rose-400 rounded-full"></span>
-                        <span>Deixa outros ocuparem seu espaço.</span>
-                    </li>
-                </ul>
-                <ul class="space-y-3">
-                    <li class="flex items-center gap-3">
-                        <span class="w-1.5 h-1.5 bg-rose-400 rounded-full"></span>
-                        <span>Medo de parecer inadequada ou exagerada.</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span class="w-1.5 h-1.5 bg-rose-400 rounded-full"></span>
-                        <span>Prefere continuar invisível para se proteger.</span>
-                    </li>
-                </ul>
-            </div>
-            <div class="mt-12 p-8 bg-gray-50 rounded-3xl text-center">
-                <p class="text-gray-600 text-lg italic">
-                    "A invisibilidade também pode ser uma estratégia emocional. Ela protege da crítica e do erro, mas impede que você ocupe o lugar que já é seu."
-                </p>
+            <div class="relative group">
+                <div class="absolute -inset-4 bg-primary/10 rounded-[40px] rotate-3 group-hover:rotate-0 transition-transform duration-700"></div>
+                <img src="https://julianagrimaldioficial.com.br/wp-content/uploads/2026/04/Ju-Grimaldi.jpg" alt="Juliana Grimaldi" class="rounded-[32px] shadow-2xl relative z-10 transition-transform group-hover:scale-[1.01] duration-700">
             </div>
         </div>
     </section>
-    <section class="py-24 bg-gray-900 text-white overflow-hidden relative">
-        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-            <div>
-                <h2 class="text-3xl md:text-5xl font-black mb-8 leading-tight">Ser vista não deveria exigir que você vire uma personagem.</h2>
-                <p class="text-gray-400 text-lg mb-8 leading-relaxed">
-                    Visibilidade natural não é sobre forçar presença ou falar mais alto. É sobre organizar internamente o medo de aparecer e conseguir sustentar o próprio valor sem sentir que está incomodando.
-                </p>
-            </div>
-            <div class="relative">
-                <img src="https://julianagrimaldioficial.com.br/wp-content/uploads/2026/04/juliana_grimaldi_terapia_atualizacao_de_memorias-27.jpg" alt="Juliana Grimaldi" class="rounded-3xl shadow-2xl relative z-10 border-4 border-white/10">
-                <div class="absolute -bottom-10 -right-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl"></div>
-            </div>
-        </div>
-    </section>
-    <section class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Este processo é para você se:</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-2xl border border-gray-100">
-                    <p class="text-gray-700 text-sm leading-relaxed">Trava na hora de aparecer, apesar de ter muito a comunicar.</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl border border-gray-100">
-                    <p class="text-gray-700 text-sm leading-relaxed">Tem medo de críticas, julgamentos ou rejeição.</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl border border-gray-100">
-                    <p class="text-gray-700 text-sm leading-relaxed">Compara-se com mulheres que parecem mais seguras.</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl border border-gray-100">
-                    <p class="text-gray-700 text-sm leading-relaxed">Sente que precisa estar perfeita antes de se posicionar.</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl border border-gray-100">
-                    <p class="text-gray-700 text-sm leading-relaxed">Evita oportunidades por medo de exposição.</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl border border-gray-100">
-                    <p class="text-gray-700 text-sm leading-relaxed">Deseja uma presença segura, elegante e verdadeira.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+
+    <!-- Identificação -->
     <section class="py-24">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-5xl font-black mb-16 text-center uppercase tracking-tighter">O Caminho</h2>
-            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                <div class="flex gap-6 items-start">
-                    <span class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">1</span>
-                    <div>
-                        <h3 class="font-bold mb-2">Mapeamento dos bloqueios</h3>
-                        <p class="text-gray-500 text-sm">Identificação dos momentos em que você se cala ou se reduz.</p>
-                    </div>
-                </div>
-                <div class="flex gap-6 items-start">
-                    <span class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">2</span>
-                    <div>
-                        <h3 class="font-bold mb-2">Gatilhos e Insegurança</h3>
-                        <p class="text-gray-500 text-sm">Investigação dos medos associados à crítica e comparação.</p>
-                    </div>
-                </div>
-                <div class="flex gap-6 items-start">
-                    <span class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">3</span>
-                    <div>
-                        <h3 class="font-bold mb-2">Segurança Interna</h3>
-                        <p class="text-gray-500 text-sm">Presença consciente sem depender de aprovação constante.</p>
-                    </div>
-                </div>
-                <div class="flex gap-6 items-start">
-                    <span class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">4</span>
-                    <div>
-                        <h3 class="font-bold mb-2">Comunicação Natural</h3>
-                        <p class="text-gray-500 text-sm">Novas respostas para se expressar com clareza e autenticidade.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="py-20 text-center bg-gray-50">
         <div class="container mx-auto px-6 max-w-4xl">
-            <h2 class="text-3xl md:text-5xl font-black mb-8 leading-tight text-gray-900">Você não precisa disputar espaço. Precisa parar de se retirar dele.</h2>
-            <p class="text-xl text-gray-600 mb-10 leading-relaxed">
-                A visibilidade natural acontece quando sua presença deixa de ser uma ameaça interna. Quando você fala sem se desmontar e entende que sua voz não precisa ser perfeita para ser legítima.
-            </p>
+            <h2 class="text-3xl md:text-5xl font-black mb-16 text-center tracking-tight text-gray-900 leading-tight">Você tem algo a dizer, mas trava quando precisa ser vista.</h2>
+            <div class="grid md:grid-cols-2 gap-8 text-gray-500 leading-relaxed text-lg font-light">
+                <ul class="space-y-4">
+                    <li class="flex items-center gap-4">
+                        <div class="w-1.5 h-1.5 bg-rose-300 rounded-full"></div>
+                        <span>Pensa demais antes de falar e acaba perdendo o tempo da fala.</span>
+                    </li>
+                    <li class="flex items-center gap-4">
+                        <div class="w-1.5 h-1.5 bg-rose-300 rounded-full"></div>
+                        <span>Evita se expor por medo de parecer inadequada.</span>
+                    </li>
+                </ul>
+                <ul class="space-y-4">
+                    <li class="flex items-center gap-4">
+                        <div class="w-1.5 h-1.5 bg-rose-300 rounded-full"></div>
+                        <span>Tem boas ideias, mas deixa outras pessoas ocuparem o seu espaço.</span>
+                    </li>
+                    <li class="flex items-center gap-4">
+                        <div class="w-1.5 h-1.5 bg-rose-300 rounded-full"></div>
+                        <span>Uma parte sua prefere continuar invisível para se proteger.</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="mt-20 bg-soft p-12 rounded-[48px] text-center border border-gray-100 italic relative overflow-hidden group">
+                <p class="relative z-10 text-xl text-gray-600">"A invisibilidade também pode ser uma estratégia emocional. Ela protege da crítica, mas impede que você ocupe o lugar que já é seu."</p>
+                <div class="absolute -bottom-10 -right-10 w-48 h-48 bg-primary/5 rounded-full group-hover:scale-125 transition-transform duration-700"></div>
+            </div>
         </div>
     </section>
-    <footer class="py-24 bg-primary text-white text-center">
-        <div class="container mx-auto px-6 max-w-3xl">
-            <h2 class="text-3xl md:text-4xl font-bold mb-8">Sua voz não precisa continuar presa ao medo de ser julgada.</h2>
-            <p class="text-xl mb-12 opacity-90">Desenvolva uma presença mais segura, clara e natural para ser vista, ouvida e respeitada.</p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#" class="bg-gray-900 text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-black transition shadow-2xl">Quero Ter Voz</a>
-                <a href="#" class="bg-white text-primary px-10 py-5 rounded-full font-bold text-lg hover:bg-gray-100 transition shadow-2xl">Falar com Equipe</a>
+
+    <!-- Reposicionamento -->
+    <section class="py-32 bg-gray-900 text-white overflow-hidden relative">
+        <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
+            <div>
+                <h2 class="text-4xl md:text-6xl font-black mb-10 leading-[1.1] tracking-tighter">Ser vista não deveria exigir que você vire personagem.</h2>
+                <p class="text-gray-400 text-lg mb-10 leading-relaxed font-light">
+                    Visibilidade natural não é sobre forçar presença ou falar mais alto que os outros. É sobre organizar internamente o medo de aparecer.
+                </p>
+                <div class="bg-primary/20 p-8 rounded-3xl border border-primary/20 inline-block">
+                    <p class="text-primary font-bold text-xl tracking-tight">Ocupe espaço sem sentir que está invadindo ou incomodando.</p>
+                </div>
             </div>
-            <p class="mt-16 text-sm opacity-60">© 2026 Juliana Grimaldi. Todos os direitos reservados.</p>
+            <div class="relative group">
+                <div class="absolute inset-0 bg-primary/20 rounded-[40px] blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
+                <img src="https://julianagrimaldioficial.com.br/wp-content/uploads/2026/04/juliana_grimaldi_terapia_atualizacao_de_memorias-27.jpg" alt="Visibilidade Natural" class="rounded-[40px] shadow-2xl relative z-10 grayscale hover:grayscale-0 transition-all duration-1000">
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <footer class="py-32 bg-primary text-white text-center">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <h2 class="text-4xl md:text-5xl font-black mb-10 tracking-tight leading-tight">Sua voz não precisa continuar presa ao medo de ser julgada.</h2>
+            <p class="text-xl mb-16 opacity-80 font-light leading-relaxed">Desenvolva uma presença mais segura, clara e natural para ser vista, ouvida e respeitada.</p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <a href="#" class="bg-gray-900 text-white px-12 py-6 rounded-2xl font-bold text-lg hover:scale-105 transition shadow-2xl">Quero Ter Voz</a>
+                <a href="#" class="bg-white text-primary px-12 py-6 rounded-2xl font-bold text-lg hover:scale-105 transition shadow-2xl">Falar com Equipe</a>
+            </div>
+            <p class="mt-24 text-xs opacity-40">© 2026 Juliana Grimaldi. Todos os direitos reservados.</p>
         </div>
     </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/5599999999999" target="_blank" class="fixed bottom-8 right-8 z-50 bg-[#25d366] text-white p-4 rounded-full shadow-[0_10px_40px_rgba(37,211,102,0.4)] hover:scale-110 transition-transform flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <!-- Cookie Consent -->
+    <div id="cookie-consent" class="fixed bottom-0 inset-x-0 z-[60] bg-white border-t border-gray-100 p-6 md:p-8 shadow-[0_-10px_40px_rgba(0,0,0,0.05)] flex flex-col md:flex-row items-center justify-between gap-6 transition-all duration-700 translate-y-full opacity-0 text-left">
+        <div class="flex items-center gap-4">
+            <div class="bg-soft p-3 rounded-2xl text-primary flex-shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+            </div>
+            <p class="text-sm text-gray-500 max-w-2xl leading-relaxed">Utilizamos cookies para melhorar sua experiência. Ao continuar, você concorda com nossa política de privacidade.</p>
+        </div>
+        <button onclick="acceptCookies()" class="bg-primary hover:bg-[#00b070] text-white px-10 py-3 rounded-full font-bold text-sm transition-all whitespace-nowrap shadow-lg active:scale-95">Aceitar</button>
+    </div>
+
+    <script>
+        function acceptCookies() {
+            const consent = document.getElementById('cookie-consent');
+            consent.classList.add('translate-y-full', 'opacity-0');
+            localStorage.setItem('cookie-consent-accepted', 'true');
+        }
+        window.onload = () => {
+            if (!localStorage.getItem('cookie-consent-accepted')) {
+                setTimeout(() => {
+                    const consent = document.getElementById('cookie-consent');
+                    consent.classList.remove('translate-y-full', 'opacity-0');
+                }, 1500);
+            }
+        };
+    </script>
+
 </body>
 </html>
