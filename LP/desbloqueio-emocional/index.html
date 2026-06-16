@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desbloqueio Emocional | Juliana Grimaldi</title>
+    <title>Desbloqueio Emocional: Relacionamento e Dinheiro | Juliana Grimaldi</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Roboto', sans-serif; color: #333; }
+        body { font-family: 'Roboto', sans-serif; color: #1a1a1a; }
         h1, h2, h3, .font-lato { font-family: 'Lato', sans-serif; }
         .bg-primary { background-color: #00d082; }
         .text-primary { color: #00d082; }
@@ -19,8 +19,12 @@
 
     <!-- Header -->
     <header class="py-6 border-b border-gray-100">
-        <div class="container mx-auto px-6 flex justify-center">
-            <img src="https://julianagrimaldioficial.com.br/wp-content/uploads/2026/02/Logo-Juliana-Grimaldi-1.png" alt="Juliana Grimaldi" class="h-12 md:h-16">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="../index.html" class="text-gray-400 hover:text-primary transition">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            </a>
+            <img src="https://julianagrimaldioficial.com.br/wp-content/uploads/2026/02/Logo-Juliana-Grimaldi-1.png" alt="Juliana Grimaldi" class="h-10 md:h-12">
+            <div class="w-6"></div>
         </div>
     </header>
 
@@ -28,15 +32,12 @@
     <section class="py-16 md:py-24 bg-soft">
         <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
             <div>
-                <span class="text-primary font-bold tracking-widest uppercase text-sm mb-4 block">Desbloqueio Emocional</span>
+                <span class="text-primary font-bold tracking-widest uppercase text-xs mb-4 block">Desbloqueio Emocional: Relacionamento e Dinheiro</span>
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight mb-6">
-                    Quando o padrão emocional muda, a vida começa a mudar junto.
+                    Os padrões que travam sua vida afetiva e financeira podem ter a mesma raiz emocional.
                 </h1>
                 <p class="text-xl text-gray-600 mb-8 leading-relaxed">
-                    Um processo em 8 encontros, com sessões de até 1h30, para acessar memórias emocionais que sustentam autossabotagem, insegurança e bloqueios.
-                </p>
-                <p class="text-lg text-gray-700 mb-10 border-l-4 border-primary pl-6 py-2">
-                    Identificamos e atualizamos os registros emocionais que geram dificuldades nos relacionamentos, na forma como você se posiciona na vida e na sua capacidade de romper ciclos repetitivos.
+                    Um processo para identificar e transformar ciclos de culpa, medo, dependência, escassez, autossabotagem e repetição de escolhas que impactam seus relacionamentos e sua relação com o dinheiro.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
                     <a href="#" class="bg-primary hover:bg-[#00b070] text-white px-8 py-4 rounded-full font-bold text-center transition shadow-lg">Ver Pacote: R$ 1.997</a>
@@ -44,7 +45,7 @@
                 </div>
             </div>
             <div class="relative">
-                <img src="https://julianagrimaldioficial.com.br/wp-content/uploads/2026/04/juliana_grimaldi_terapia_atualizacao_de_memorias-11.jpg" alt="Juliana Grimaldi - Desbloqueio" class="rounded-3xl shadow-2xl z-10 relative">
+                <img src="https://julianagrimaldioficial.com.br/wp-content/uploads/2026/04/juliana_grimaldi_terapia_atualizacao_de_memorias-11.jpg" alt="Juliana Grimaldi" class="rounded-3xl shadow-2xl z-10 relative">
                 <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-primary rounded-full -z-0 opacity-20"></div>
             </div>
         </div>
@@ -53,107 +54,47 @@
     <!-- Identificação -->
     <section class="py-20">
         <div class="container mx-auto px-6 max-w-4xl text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12">Você percebe que alguns padrões continuam se repetindo.</h2>
+            <h2 class="text-3xl md:text-4xl font-bold mb-10">Você muda o cenário, mas sente que o roteiro se repete.</h2>
             <div class="grid gap-6 text-left">
-                <p class="text-lg text-gray-700 leading-relaxed bg-gray-50 p-6 rounded-2xl border-l-4 border-gray-200">
-                    Você entende racionalmente o que precisa mudar, mas emocionalmente continua reagindo da mesma forma. Você se sabota, trava e sente insegurança.
-                </p>
-                <div class="grid md:grid-cols-2 gap-4">
-                    <div class="p-5 border border-gray-100 rounded-xl hover:shadow-md transition">
-                        <p class="text-gray-600">Você repete escolhas que geram sofrimento.</p>
+                {[
+                    "Relacionamentos diferentes, mas a mesma sensação de abandono.",
+                    "Novas oportunidades, mas a mesma dificuldade de sustentar dinheiro.",
+                    "Pessoas diferentes, mas a mesma necessidade de provar valor.",
+                    "Decisões diferentes, mas a mesma culpa depois."
+                ].map(item => `
+                    <div class="p-6 bg-white border border-gray-100 rounded-2xl flex items-center gap-4">
+                        <span class="w-2 h-2 bg-rose-400 rounded-full"></span>
+                        <span class="text-gray-700">${item}</span>
                     </div>
-                    <div class="p-5 border border-gray-100 rounded-xl hover:shadow-md transition">
-                        <p class="text-gray-600">Dificuldade de se posicionar nos relacionamentos.</p>
-                    </div>
-                    <div class="p-5 border border-gray-100 rounded-xl hover:shadow-md transition">
-                        <p class="text-gray-600">Trava em decisões importantes.</p>
-                    </div>
-                    <div class="p-5 border border-gray-100 rounded-xl hover:shadow-md transition">
-                        <p class="text-gray-600">Sente que não tem o controle emocional.</p>
-                    </div>
-                </div>
-                <p class="text-xl font-bold text-center mt-8 text-primary uppercase tracking-tighter">
-                    Às vezes, não é falta de consciência. É uma memória emocional antiga conduzindo suas respostas.
+                `).join('')}
+                <p class="text-xl font-bold text-center mt-10 text-primary">
+                    Às vezes, o problema não está apenas na escolha atual. Está no padrão emocional que orienta suas escolhas.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Aprofundamento -->
-    <section class="py-20 bg-gray-900 text-white">
-        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-            <div>
-                <h2 class="text-3xl md:text-4xl font-bold mb-8 leading-tight">
-                    O sofrimento se repete quando o cérebro continua respondendo a partir de registros antigos.
-                </h2>
-                <p class="text-gray-400 text-lg mb-6 leading-relaxed">
-                    Muitas das suas reações não começam no momento atual. Elas são ativadas por memórias que o cérebro aprendeu a reconhecer como ameaça ou proteção.
-                </p>
-            </div>
-            <div class="space-y-4">
-                <div class="flex items-start gap-4">
-                    <div class="bg-primary/20 p-2 rounded-lg text-primary">✓</div>
-                    <p class="text-gray-300">Na hora de agir, o corpo recua.</p>
-                </div>
-                <div class="flex items-start gap-4">
-                    <div class="bg-primary/20 p-2 rounded-lg text-primary">✓</div>
-                    <p class="text-gray-300">A emoção domina e o padrão se repete.</p>
-                </div>
-                <div class="flex items-start gap-4">
-                    <div class="bg-primary/20 p-2 rounded-lg text-primary">✓</div>
-                    <p class="text-gray-300">Você se vê novamente no mesmo lugar.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Método -->
-    <section class="py-20">
+    <!-- Reposicionamento -->
+    <section class="py-24 bg-gray-50 overflow-hidden">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-black mb-6">O Processo</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Baseado na neurociência e na reconsolidação de memórias, atuamos diretamente na raiz dos padrões automáticos.
-                </p>
-            </div>
-            <div class="grid lg:grid-cols-3 gap-8">
-                <div class="bg-soft p-10 rounded-3xl border border-gray-100">
-                    <h3 class="text-2xl font-bold mb-6 text-primary">Estrutura</h3>
-                    <p class="text-gray-700 leading-relaxed">
-                        Processo realizado em 8 encontros focais, com sessões de até 1h30 para reorganizar respostas emocionais.
-                    </p>
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="order-2 md:order-1">
+                    <img src="https://julianagrimaldioficial.com.br/wp-content/uploads/2026/03/juliana-grimaldi-terapia-6.webp" alt="Terapia Relacionamento e Dinheiro" class="rounded-3xl shadow-2xl">
                 </div>
-                <div class="lg:col-span-2 bg-white p-10 rounded-3xl border-2 border-primary shadow-xl">
-                    <h3 class="text-2xl font-bold mb-6">O que transformamos</h3>
-                    <div class="grid md:grid-cols-2 gap-x-8 gap-y-4">
-                        <ul class="space-y-3">
-                            <li class="flex items-center gap-3">
-                                <span class="w-2 h-2 bg-primary rounded-full"></span>
-                                <span>Autossabotagem recorrente</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <span class="w-2 h-2 bg-primary rounded-full"></span>
-                                <span>Insegurança profunda</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <span class="w-2 h-2 bg-primary rounded-full"></span>
-                                <span>Bloqueios em relacionamentos</span>
-                            </li>
-                        </ul>
-                        <ul class="space-y-3">
-                            <li class="flex items-center gap-3">
-                                <span class="w-2 h-2 bg-primary rounded-full"></span>
-                                <span>Dificuldade de posicionamento</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <span class="w-2 h-2 bg-primary rounded-full"></span>
-                                <span>Dores e traumas antigos</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <span class="w-2 h-2 bg-primary rounded-full"></span>
-                                <span>Paralisação diante da vida</span>
-                            </li>
-                        </ul>
+                <div class="order-1 md:order-2">
+                    <h2 class="text-3xl md:text-4xl font-black mb-8 leading-tight">Relacionamento e dinheiro também ativam memórias emocionais.</h2>
+                    <div class="space-y-6">
+                        <div class="border-l-4 border-primary pl-6">
+                            <p class="font-bold text-gray-900 mb-2">Dinheiro</p>
+                            <p class="text-gray-600 text-sm">Pode tocar merecimento, segurança, medo, culpa e valor pessoal.</p>
+                        </div>
+                        <div class="border-l-4 border-primary pl-6">
+                            <p class="font-bold text-gray-900 mb-2">Relacionamentos</p>
+                            <p class="text-gray-600 text-sm">Podem tocar abandono, rejeição, necessidade de aprovação e medo de não ser escolhida.</p>
+                        </div>
+                        <p class="text-gray-500 text-sm leading-relaxed mt-8">
+                            Quando essas áreas ficam presas a registros antigos, você pode até tentar agir diferente, mas seu sistema interno continua procurando o familiar, mesmo quando machuca.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -161,39 +102,46 @@
     </section>
 
     <!-- Para quem é -->
-    <section class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-            <div class="order-2 md:order-1">
-                <img src="https://julianagrimaldioficial.com.br/wp-content/uploads/2026/03/juliana-grimaldi-terapia-6.webp" alt="Terapia Desbloqueio" class="rounded-3xl shadow-xl">
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Este processo é para você se:</h2>
+            <div class="max-w-3xl mx-auto space-y-4">
+                {[
+                    "Sente que sempre atrai relações que te diminuem.",
+                    "Tem dificuldade de se priorizar afetivamente.",
+                    "Sente culpa ao colocar limites.",
+                    "Sabota-se quando começa a crescer financeiramente.",
+                    "Trabalha muito, mas não sustenta prosperidade com leveza.",
+                    "Associa dinheiro a medo, instabilidade ou culpa."
+                ].map(item => `
+                    <div class="flex items-start gap-4 pb-4 border-b border-gray-100">
+                        <span class="text-primary font-bold">✓</span>
+                        <span class="text-gray-700 font-medium">${item}</span>
+                    </div>
+                `).join('')}
             </div>
-            <div class="order-1 md:order-2">
-                <h2 class="text-3xl md:text-4xl font-bold mb-10">Esse processo é para você se:</h2>
-                <ul class="space-y-6">
-                    <li class="flex items-start gap-4 pb-4 border-b border-gray-200">
-                        <span class="text-primary font-bold">→</span>
-                        <span class="text-gray-700 font-medium">Sente que repete padrões, mesmo tentando mudar.</span>
-                    </li>
-                    <li class="flex items-start gap-4 pb-4 border-b border-gray-200">
-                        <span class="text-primary font-bold">→</span>
-                        <span class="text-gray-700 font-medium">Tem comportamentos de autossabotagem.</span>
-                    </li>
-                    <li class="flex items-start gap-4 pb-4 border-b border-gray-200">
-                        <span class="text-primary font-bold">→</span>
-                        <span class="text-gray-700 font-medium">Vive bloqueios emocionais que afetam decisões.</span>
-                    </li>
-                    <li class="flex items-start gap-4 pb-4 border-b border-gray-200">
-                        <span class="text-primary font-bold">→</span>
-                        <span class="text-gray-700 font-medium">Dores antigas ainda influenciam sua vida atual.</span>
-                    </li>
-                    <li class="flex items-start gap-4 pb-4 border-b border-gray-200">
-                        <span class="text-primary font-bold">→</span>
-                        <span class="text-gray-700 font-medium">Dificuldade de romper ciclos racionais.</span>
-                    </li>
-                    <li class="flex items-start gap-4 pb-4 border-b border-gray-200">
-                        <span class="text-primary font-bold">→</span>
-                        <span class="text-gray-700 font-medium">Deseja transformar a forma como reage ao sofrimento.</span>
-                    </li>
-                </ul>
+        </div>
+    </section>
+
+    <!-- Método -->
+    <section class="py-24 bg-gray-900 text-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-5xl font-black mb-16 text-center">O Processo na Raiz</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="bg-white/5 p-8 rounded-3xl border border-white/10">
+                    <h3 class="text-xl font-bold mb-6 text-primary">Mapeamento e Leitura</h3>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li>• Identificação dos padrões nos relacionamentos e vida financeira.</li>
+                        <li>• Compreensão do que cada repetição tenta proteger ou compensar.</li>
+                    </ul>
+                </div>
+                <div class="bg-white/5 p-8 rounded-3xl border border-white/10">
+                    <h3 class="text-xl font-bold mb-6 text-primary">Atualização e Construção</h3>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li>• Reorganização dos sentidos ligados a amor, valor e merecimento.</li>
+                        <li>• Desenvolvimento de escolhas com menos reação automática.</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -201,32 +149,18 @@
     <!-- Resultado -->
     <section class="py-20 text-center">
         <div class="container mx-auto px-6 max-w-4xl">
-            <h2 class="text-3xl md:text-5xl font-black mb-8 leading-tight">Quando o padrão emocional muda, a vida muda junto.</h2>
+            <h2 class="text-3xl md:text-4xl font-bold mb-8">Você não precisa continuar escolhendo a partir da ferida.</h2>
             <p class="text-xl text-gray-600 mb-12">
-                A transformação começa quando o cérebro passa a construir novas respostas diante das situações que antes ativavam dor, medo ou insegurança.
+                A transformação não está em controlar tudo o que acontece fora. Está em parar de responder a partir das mesmas marcas internas.
             </p>
-            <div class="grid sm:grid-cols-3 gap-6">
-                <div class="p-8 rounded-2xl bg-soft border border-gray-100">
-                    <p class="text-primary font-black text-2xl mb-2">Consciência</p>
-                    <p class="text-sm text-gray-500">Mais clareza emocional</p>
-                </div>
-                <div class="p-8 rounded-2xl bg-soft border border-gray-100">
-                    <p class="text-primary font-black text-2xl mb-2">Liberdade</p>
-                    <p class="text-sm text-gray-500">Para romper ciclos</p>
-                </div>
-                <div class="p-8 rounded-2xl bg-soft border border-gray-100">
-                    <p class="text-primary font-black text-2xl mb-2">Segurança</p>
-                    <p class="text-sm text-gray-500">Para novas escolhas</p>
-                </div>
-            </div>
         </div>
     </section>
 
     <!-- CTA Final -->
     <footer class="py-24 bg-primary text-white text-center">
         <div class="container mx-auto px-6 max-w-3xl">
-            <h2 class="text-3xl md:text-4xl font-bold mb-8">Você não precisa continuar repetindo padrões que já percebeu, mas ainda não conseguiu transformar.</h2>
-            <p class="text-xl mb-12 opacity-90">Inicie o processo de Desbloqueio Emocional e comece a acessar a raiz das respostas que hoje limitam sua vida.</p>
+            <h2 class="text-3xl md:text-4xl font-bold mb-8">O ciclo não se quebra apenas porque você entendeu.</h2>
+            <p class="text-xl mb-12 opacity-90">Ele começa a mudar quando você acessa a raiz. Dê o primeiro passo para transformar seus relacionamentos e vida financeira.</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="#" class="bg-gray-900 text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-black transition shadow-2xl">Ver Pacote: R$ 1.997</a>
                 <a href="#" class="bg-white text-primary px-10 py-5 rounded-full font-bold text-lg hover:bg-gray-100 transition shadow-2xl">Falar com Equipe</a>

@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Roboto', sans-serif; color: #333; }
+        body { font-family: 'Roboto', sans-serif; color: #1a1a1a; }
         h1, h2, h3, .font-lato { font-family: 'Lato', sans-serif; }
         .bg-primary { background-color: #00d082; }
         .text-primary { color: #00d082; }
@@ -19,8 +19,12 @@
 
     <!-- Header -->
     <header class="py-6 border-b border-gray-100">
-        <div class="container mx-auto px-6 flex justify-center">
-            <img src="https://julianagrimaldioficial.com.br/wp-content/uploads/2026/02/Logo-Juliana-Grimaldi-1.png" alt="Juliana Grimaldi" class="h-12 md:h-16">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="../index.html" class="text-gray-400 hover:text-primary transition">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            </a>
+            <img src="https://julianagrimaldioficial.com.br/wp-content/uploads/2026/02/Logo-Juliana-Grimaldi-1.png" alt="Juliana Grimaldi" class="h-10 md:h-12">
+            <div class="w-6"></div>
         </div>
     </header>
 
@@ -28,15 +32,12 @@
     <section class="py-16 md:py-24 bg-soft">
         <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
             <div>
-                <span class="text-primary font-bold tracking-widest uppercase text-sm mb-4 block">Protagonismo Profissional</span>
+                <span class="text-primary font-bold tracking-widest uppercase text-xs mb-4 block">Protagonismo Profissional</span>
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight mb-6">
-                    Você não trava na carreira por falta de competência.
+                    Pare de diminuir sua presença para caber em espaços que já deveriam reconhecer o seu valor.
                 </h1>
                 <p class="text-xl text-gray-600 mb-8 leading-relaxed">
-                    Trava porque seu cérebro ainda opera em padrões emocionais que geram insegurança, hesitação e autossabotagem.
-                </p>
-                <p class="text-lg text-gray-700 mb-10 border-l-4 border-primary pl-6 py-2">
-                    Um processo em 10 encontros, com sessões de até 1h30, para identificar e atualizar as memórias emocionais que impactam seu posicionamento, seus comportamentos no ambiente corporativo, suas decisões e seu crescimento profissional.
+                    Um processo estruturado para mulheres que desejam se posicionar com mais segurança, clareza e autonomia na carreira, sem serem conduzidas pela culpa, pelo medo da desaprovação ou pela sensação constante de insuficiência.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
                     <a href="#" class="bg-primary hover:bg-[#00b070] text-white px-8 py-4 rounded-full font-bold text-center transition shadow-lg">Ver Método: R$ 2.997</a>
@@ -52,185 +53,116 @@
 
     <!-- Identificação -->
     <section class="py-20">
-        <div class="container mx-auto px-6 max-w-4xl text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12">Você entrega muito, mas sente que cresce pouco.</h2>
-            <div class="grid gap-6 text-left">
-                <p class="text-lg text-gray-700 leading-relaxed bg-gray-50 p-6 rounded-2xl border-l-4 border-gray-200">
-                    Você assume responsabilidades, resolve problemas e sustenta demandas importantes. Mas, quando precisa se posicionar, algo dentro de você hesita.
-                </p>
-                <div class="grid md:grid-cols-2 gap-4">
-                    <div class="p-5 border border-gray-100 rounded-xl hover:shadow-md transition">
-                        <p class="text-gray-600">Você se cala para evitar julgamento.</p>
-                    </div>
-                    <div class="p-5 border border-gray-100 rounded-xl hover:shadow-md transition">
-                        <p class="text-gray-600">Você recua quando deveria sustentar seu valor.</p>
-                    </div>
-                    <div class="p-5 border border-gray-100 rounded-xl hover:shadow-md transition">
-                        <p class="text-gray-600">Você duvida de si, mesmo tendo competência.</p>
-                    </div>
-                    <div class="p-5 border border-gray-100 rounded-xl hover:shadow-md transition">
-                        <p class="text-gray-600">Você sente que precisa provar o tempo todo.</p>
-                    </div>
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="text-3xl md:text-4xl font-bold mb-10 text-center">Você entrega muito, mas sente que ainda não ocupa o lugar que poderia ocupar.</h2>
+            <div class="grid gap-6">
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex items-start gap-4">
+                    <div class="text-primary mt-1">✓</div>
+                    <p class="text-gray-700">Você é competente, sustenta responsabilidades e resolve problemas. Entrega mais do que muita gente ao seu redor.</p>
                 </div>
-                <p class="text-xl font-bold text-center mt-8 text-primary uppercase tracking-tighter">
-                    Isso não é falta de capacidade. É um padrão emocional operando no automático.
+                <p class="text-lg text-gray-600 italic px-6 border-l-4 border-gray-100">
+                    Mas, mesmo assim, existe uma trava. Na hora de se posicionar, você calcula demais. Na hora de cobrar, sente culpa. Na hora de aparecer, se retrai.
                 </p>
+                <div class="bg-rose-50 p-8 rounded-3xl border border-rose-100 text-center mt-6">
+                    <p class="text-rose-900 font-bold text-lg mb-2">Isso não é falta de capacidade.</p>
+                    <p class="text-rose-800 opacity-80">É um padrão emocional que pode estar associando visibilidade, crescimento e autoridade a risco.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Aprofundamento -->
-    <section class="py-20 bg-gray-900 text-white">
+    <!-- Reposicionamento -->
+    <section class="py-20 bg-gray-900 text-white overflow-hidden relative">
         <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
             <div>
-                <h2 class="text-3xl md:text-4xl font-bold mb-8 leading-tight">
-                    Sua carreira não pode continuar limitada por padrões emocionais que fazem você diminuir a própria potência.
+                <h2 class="text-3xl md:text-5xl font-black mb-8 leading-tight">
+                    Protagonismo não é performar força. É sustentar presença interna.
                 </h2>
-                <p class="text-gray-400 text-lg mb-6 leading-relaxed">
-                    Muitas vezes, o que trava o crescimento profissional não é ausência de preparo, conhecimento ou experiência. É a forma como o cérebro aprendeu a responder diante de exposição, cobrança, autoridade, julgamento, reconhecimento e risco.
+                <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+                    Muitas mulheres tentam crescer profissionalmente copiando fórmulas externas: falar mais alto, parecer mais duras ou esconder vulnerabilidades. Mas protagonismo real não nasce de personagem.
                 </p>
-            </div>
-            <div class="space-y-4">
-                <div class="flex items-start gap-4">
-                    <div class="bg-primary/20 p-2 rounded-lg text-primary">✓</div>
-                    <p class="text-gray-300">Você hesita e se esconde.</p>
-                </div>
-                <div class="flex items-start gap-4">
-                    <div class="bg-primary/20 p-2 rounded-lg text-primary">✓</div>
-                    <p class="text-gray-300">Você evita conflitos e não se posiciona.</p>
-                </div>
-                <div class="flex items-start gap-4">
-                    <div class="bg-primary/20 p-2 rounded-lg text-primary">✓</div>
-                    <p class="text-gray-300">Você entrega muito, mas não ocupa o espaço proporcional ao seu valor.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Método -->
-    <section class="py-20">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-black mb-6">O Método</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Através da neurociência e da reconsolidação de memórias, trabalhamos diretamente na raiz dos padrões automáticos.
-                </p>
-            </div>
-            <div class="grid lg:grid-cols-3 gap-8">
-                <div class="bg-soft p-10 rounded-3xl border border-gray-100">
-                    <h3 class="text-2xl font-bold mb-6 text-primary">Estrutura</h3>
-                    <p class="text-gray-700 leading-relaxed">
-                        Processo realizado em 10 encontros semanais, com sessões profundas de até 1h30 cada.
+                <div class="space-y-4">
+                    <p class="flex items-center gap-4 text-gray-300">
+                        <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+                        Posicionar-se sem pedir desculpas por existir.
+                    </p>
+                    <p class="flex items-center gap-4 text-gray-300">
+                        <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+                        Dizer o que pensa sem medo de perder espaço ou aprovação.
                     </p>
                 </div>
-                <div class="lg:col-span-2 bg-white p-10 rounded-3xl border-2 border-primary shadow-xl">
-                    <h3 class="text-2xl font-bold mb-6">Foco do processo</h3>
-                    <div class="grid md:grid-cols-2 gap-x-8 gap-y-4">
-                        <ul class="space-y-3">
-                            <li class="flex items-center gap-3">
-                                <span class="w-2 h-2 bg-primary rounded-full"></span>
-                                <span>Posicionamento profissional</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <span class="w-2 h-2 bg-primary rounded-full"></span>
-                                <span>Comportamentos sabotadores</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <span class="w-2 h-2 bg-primary rounded-full"></span>
-                                <span>Capacidade de decisão</span>
-                            </li>
-                        </ul>
-                        <ul class="space-y-3">
-                            <li class="flex items-center gap-3">
-                                <span class="w-2 h-2 bg-primary rounded-full"></span>
-                                <span>Segurança para se expressar</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <span class="w-2 h-2 bg-primary rounded-full"></span>
-                                <span>Sustentação de valor</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <span class="w-2 h-2 bg-primary rounded-full"></span>
-                                <span>Crescimento acelerado</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+            </div>
+            <div class="relative">
+                <div class="absolute inset-0 bg-primary/10 rounded-3xl rotate-3"></div>
+                <img src="https://julianagrimaldioficial.com.br/wp-content/uploads/2026/03/Ju-Grimaldi-e1772728610601.png" alt="Juliana Grimaldi" class="relative rounded-3xl shadow-2xl grayscale hover:grayscale-0 transition duration-700">
             </div>
         </div>
     </section>
 
     <!-- Para quem é -->
     <section class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-            <div class="order-2 md:order-1">
-                <img src="https://julianagrimaldioficial.com.br/wp-content/uploads/2026/03/juliana-grimaldi-terapia-4.webp" alt="Terapia" class="rounded-3xl shadow-xl">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Este método é para você se:</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {[
+                    "Sente que tem potencial, mas não consegue se posicionar.",
+                    "Trava na hora de cobrar, negociar ou defender ideias.",
+                    "Medo de parecer arrogante ao falar de conquistas.",
+                    "Cobra-se demais e se reconhece de menos.",
+                    "Sente que precisa provar valor o tempo todo.",
+                    "Sente que a qualquer momento vão descobrir que você 'não é tão boa'."
+                ].map(item => `
+                    <div class="bg-white p-6 rounded-2xl border border-gray-100 flex items-start gap-4">
+                        <span class="text-primary font-bold">→</span>
+                        <span class="text-gray-700 text-sm leading-relaxed">${item}</span>
+                    </div>
+                `).join('')}
             </div>
-            <div class="order-1 md:order-2">
-                <h2 class="text-3xl md:text-4xl font-bold mb-10">Esse processo é para você se:</h2>
-                <ul class="space-y-6">
-                    <li class="flex items-start gap-4 pb-4 border-b border-gray-200">
-                        <span class="text-primary font-bold">→</span>
-                        <span class="text-gray-700 font-medium">Entrega muito, mas sente que cresce pouco.</span>
-                    </li>
-                    <li class="flex items-start gap-4 pb-4 border-b border-gray-200">
-                        <span class="text-primary font-bold">→</span>
-                        <span class="text-gray-700 font-medium">Se cala para evitar julgamento.</span>
-                    </li>
-                    <li class="flex items-start gap-4 pb-4 border-b border-gray-200">
-                        <span class="text-primary font-bold">→</span>
-                        <span class="text-gray-700 font-medium">Hesita quando precisa se posicionar.</span>
-                    </li>
-                    <li class="flex items-start gap-4 pb-4 border-b border-gray-200">
-                        <span class="text-primary font-bold">→</span>
-                        <span class="text-gray-700 font-medium">Assume responsabilidades, mas não sustenta o próprio valor.</span>
-                    </li>
-                    <li class="flex items-start gap-4 pb-4 border-b border-gray-200">
-                        <span class="text-primary font-bold">→</span>
-                        <span class="text-gray-700 font-medium">Sente insegurança diante de exposição, cobrança ou reconhecimento.</span>
-                    </li>
-                    <li class="flex items-start gap-4 pb-4 border-b border-gray-200">
-                        <span class="text-primary font-bold">→</span>
-                        <span class="text-gray-700 font-medium">Tem comportamentos de autossabotagem no ambiente profissional.</span>
-                    </li>
-                </ul>
+        </div>
+    </section>
+
+    <!-- Método (Pilares) -->
+    <section class="py-24">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-black mb-4 uppercase tracking-tighter">O Método</h2>
+                <p class="text-gray-500">Trabalhamos através de três pilares centrais</p>
+            </div>
+            <div class="grid lg:grid-cols-3 gap-8">
+                <div class="p-10 rounded-3xl bg-soft border border-gray-100 hover:border-primary/30 transition">
+                    <span class="text-5xl font-black text-primary/20 mb-6 block">01</span>
+                    <h3 class="text-xl font-bold mb-4">Mapeamento da insegurança</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Identificação dos gatilhos que fazem você se calar, se diminuir ou buscar aprovação excessiva.</p>
+                </div>
+                <div class="p-10 rounded-3xl bg-soft border border-gray-100 hover:border-primary/30 transition">
+                    <span class="text-5xl font-black text-primary/20 mb-6 block">02</span>
+                    <h3 class="text-xl font-bold mb-4">Atualização de significados</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Compreensão das memórias e interpretações que associaram exposição ou autoridade a perigo.</p>
+                </div>
+                <div class="p-10 rounded-3xl bg-soft border border-gray-100 hover:border-primary/30 transition">
+                    <span class="text-5xl font-black text-primary/20 mb-6 block">03</span>
+                    <h3 class="text-xl font-bold mb-4">Nova postura consciente</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Desenvolvimento de respostas para conversas difíceis e posicionamento público firme.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Resultado -->
-    <section class="py-20 text-center">
+    <section class="py-20 text-center bg-gray-900 text-white">
         <div class="container mx-auto px-6 max-w-4xl">
-            <h2 class="text-3xl md:text-5xl font-black mb-8 leading-tight">Quando a raiz emocional muda, sua postura muda junto.</h2>
-            <p class="text-xl text-gray-600 mb-12">
-                O objetivo não é transformar você em outra pessoa. É permitir que você sustente, com mais consciência e segurança, a profissional que você já é.
+            <h2 class="text-3xl md:text-5xl font-black mb-8 leading-tight">Você não precisa forçar autoridade. Precisa parar de pedir permissão para tê-la.</h2>
+            <p class="text-xl text-gray-400 mb-12">
+                O objetivo não é fazer você virar outra pessoa. É permitir que você pare de negociar seu valor a partir do medo e construa uma relação clara com sua competência.
             </p>
-            <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="p-6 rounded-2xl bg-soft border border-gray-100">
-                    <p class="text-primary font-black text-2xl mb-2">Clareza</p>
-                    <p class="text-sm text-gray-500">Para decidir</p>
-                </div>
-                <div class="p-6 rounded-2xl bg-soft border border-gray-100">
-                    <p class="text-primary font-black text-2xl mb-2">Firmeza</p>
-                    <p class="text-sm text-gray-500">Para posicionar</p>
-                </div>
-                <div class="p-6 rounded-2xl bg-soft border border-gray-100">
-                    <p class="text-primary font-black text-2xl mb-2">Autonomia</p>
-                    <p class="text-sm text-gray-500">Para ocupar espaço</p>
-                </div>
-                <div class="p-6 rounded-2xl bg-soft border border-gray-100">
-                    <p class="text-primary font-black text-2xl mb-2">Segurança</p>
-                    <p class="text-sm text-gray-500">Para sustentar valor</p>
-                </div>
-            </div>
         </div>
     </section>
 
     <!-- CTA Final -->
     <footer class="py-24 bg-primary text-white text-center">
         <div class="container mx-auto px-6 max-w-3xl">
-            <h2 class="text-3xl md:text-4xl font-bold mb-8">Sua carreira não pode continuar limitada por padrões emocionais que fazem você diminuir a própria potência.</h2>
-            <p class="text-xl mb-12 opacity-90">Inicie o processo de Protagonismo Profissional e comece a atualizar as respostas emocionais que impactam seu crescimento.</p>
+            <h2 class="text-3xl md:text-4xl font-bold mb-8">Você não precisa continuar sendo excelente em silêncio.</h2>
+            <p class="text-xl mb-12 opacity-90">Desenvolva uma presença profissional mais segura, consciente e coerente com sua capacidade real.</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="#" class="bg-gray-900 text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-black transition shadow-2xl">Ver Método: R$ 2.997</a>
                 <a href="#" class="bg-white text-primary px-10 py-5 rounded-full font-bold text-lg hover:bg-gray-100 transition shadow-2xl">Falar com Equipe</a>
