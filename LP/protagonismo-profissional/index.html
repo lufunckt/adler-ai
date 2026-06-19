@@ -5,17 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Protagonismo Profissional | Juliana Grimaldi</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;900&family=Open+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Roboto', sans-serif; color: #1a1a1a; -webkit-font-smoothing: antialiased; }
-        h1, h2, h3, .font-lato { font-family: 'Lato', sans-serif; }
-        .bg-primary { background-color: #00d082; }
-        .text-primary { color: #00d082; }
-        .border-primary { border-color: #00d082; }
+        body { font-family: 'Open Sans', sans-serif; color: #1a1a1a; }
+        h1, h2, h3, .font-montserrat { font-family: 'Montserrat', sans-serif; }
+
+        /* Novas Cores da Marca */
+        .bg-primary { background-color: #00cfb4; }
+        .text-primary { color: #00cfb4; }
+        .border-primary { border-color: #00cfb4; }
+
+        .bg-dark-blue { background-color: #164478; }
+        .text-dark-blue { color: #164478; }
+        .border-dark-blue { border-color: #164478; }
+
         .bg-soft { background-color: #f9fafb; }
-        .btn-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .btn-hover:hover { transform: scale(1.02); filter: brightness(1.05); }
+
+        /* Ajuste automático de contrastes nos botões hover */
+        .hover\:bg-\[\#00b070\]:hover { background-color: #00a892 !important; }
+        .hover\:bg-\[\#0f2d52\]:hover { background-color: #0f2d52 !important; }
     </style>
+
 </head>
 <body class="bg-white">
 
@@ -35,7 +45,7 @@
         <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center relative z-10">
             <div class="text-center lg:text-left">
                 <span class="text-primary font-bold tracking-[0.2em] uppercase text-[10px] mb-6 block">Protagonismo Profissional</span>
-                <h1 class="text-4xl md:text-6xl font-black text-gray-900 leading-[1.1] mb-8 tracking-tighter">
+                <h1 class="text-4xl md:text-6xl font-black text-dark-blue leading-[1.1] mb-8 tracking-tighter">
                     Pare de diminuir sua presença para caber em espaços que já deveriam reconhecer o seu valor.
                 </h1>
                 <p class="text-lg md:text-xl text-gray-500 mb-10 leading-relaxed font-light">
@@ -43,7 +53,7 @@
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                     <a href="#" class="bg-primary text-white px-10 py-5 rounded-2xl font-bold text-center btn-hover shadow-xl shadow-primary/20">Ver Método: R$ 2.997</a>
-                    <a href="#" class="border-2 border-gray-900 text-gray-900 px-10 py-5 rounded-2xl font-bold text-center hover:bg-gray-900 hover:text-white transition-all">Falar com a equipe</a>
+                    <a href="#" class="border-2 border-dark-blue text-dark-blue px-10 py-5 rounded-2xl font-bold text-center hover:bg-dark-blue hover:text-white transition-all">Falar com a equipe</a>
                 </div>
             </div>
             <div class="relative group">
@@ -77,7 +87,7 @@
     </section>
 
     <!-- Reposicionamento -->
-    <section class="py-32 bg-gray-900 text-white overflow-hidden relative">
+    <section class="py-32 bg-dark-blue text-white overflow-hidden relative">
         <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
             <div class="relative z-10">
                 <h2 class="text-4xl md:text-6xl font-black mb-10 leading-[1.1] tracking-tighter">
@@ -171,7 +181,7 @@
     </section>
 
     <!-- Resultado -->
-    <section class="py-32 bg-gray-900 text-white text-center relative overflow-hidden">
+    <section class="py-32 bg-dark-blue text-white text-center relative overflow-hidden">
         <div class="container mx-auto px-6 max-w-4xl relative z-10">
             <h2 class="text-4xl md:text-6xl font-black mb-10 leading-[1.1] tracking-tighter">Você não precisa forçar autoridade. Precisa parar de pedir permissão para tê-la.</h2>
             <p class="text-xl text-gray-400 mb-12 font-light leading-relaxed">
@@ -187,7 +197,7 @@
             <h2 class="text-4xl md:text-5xl font-black mb-10 tracking-tight">Você não precisa continuar sendo excelente em silêncio.</h2>
             <p class="text-xl mb-16 opacity-80 font-light leading-relaxed">Desenvolva uma presença profissional mais segura, consciente e coerente com sua capacidade real.</p>
             <div class="flex flex-col sm:flex-row gap-6 justify-center">
-                <a href="#" class="bg-gray-900 text-white px-12 py-6 rounded-2xl font-bold text-lg hover:scale-105 transition shadow-2xl">Ver Método: R$ 2.997</a>
+                <a href="#" class="bg-dark-blue text-white px-12 py-6 rounded-2xl font-bold text-lg hover:scale-105 transition shadow-2xl">Ver Método: R$ 2.997</a>
                 <a href="#" class="bg-white text-primary px-12 py-6 rounded-2xl font-bold text-lg hover:scale-105 transition shadow-2xl">Falar com Equipe</a>
             </div>
             <p class="mt-24 text-xs opacity-40">© 2026 Juliana Grimaldi. Todos os direitos reservados.</p>

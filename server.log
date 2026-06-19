@@ -1,7 +1,3 @@
-127.0.0.1 - - [16/Jun/2026 10:17:49] "GET /LP/index.html HTTP/1.1" 200 -
-127.0.0.1 - - [16/Jun/2026 10:17:53] "GET /LP/protagonismo-profissional/index.html HTTP/1.1" 200 -
-127.0.0.1 - - [16/Jun/2026 10:17:57] "GET /LP/desbloqueio-emocional/index.html HTTP/1.1" 200 -
-127.0.0.1 - - [16/Jun/2026 10:18:01] "GET /LP/diagnostico-raiz/index.html HTTP/1.1" 200 -
-127.0.0.1 - - [16/Jun/2026 10:18:04] "GET /LP/diario-emocional/index.html HTTP/1.1" 200 -
-127.0.0.1 - - [16/Jun/2026 10:18:07] "GET /LP/autonomia-interna/index.html HTTP/1.1" 200 -
-127.0.0.1 - - [16/Jun/2026 10:18:10] "GET /LP/visibilidade-natural/index.html HTTP/1.1" 200 -
+127.0.0.1 - - [19/Jun/2026 21:52:18] "GET /LP/index.html HTTP/1.1" 200 -
+127.0.0.1 - - [19/Jun/2026 21:52:22] "GET /LP/protagonismo-profissional/index.html HTTP/1.1" 200 -
+127.0.0.1 - - [19/Jun/2026 21:52:27] "GET /LP/desbloqueio-emocional/index.html HTTP/1.1" 200 -
