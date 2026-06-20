@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diário Emocional — Eu me percebendo | Juliana Grimaldi</title>
     <script src="https://cdn.tailwindcss.com"></script>
-            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;900&family=Open+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+                <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;900&family=Open+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Open Sans', sans-serif; color: #1a1a1a; }
         h1, h2, h3, .font-montserrat { font-family: 'Montserrat', sans-serif; }
 
-        /* Novas Cores da Marca */
+        /* Paleta Oficial do Site Original */
         .bg-primary { background-color: #00cfb4; }
         .text-primary { color: #00cfb4; }
         .border-primary { border-color: #00cfb4; }
@@ -21,9 +21,9 @@
 
         .bg-soft { background-color: #f9fafb; }
 
-        /* Ajuste automático de contrastes nos botões hover */
+        /* Ajuste de Hover e Contrastes */
         .hover\:bg-\[\#00b070\]:hover { background-color: #00a892 !important; }
-        .hover\:bg-\[\#0f2d52\]:hover { background-color: #0f2d52 !important; }
+        .hover\:bg-\[\#005a73\]:hover { background-color: #0f2d52 !important; }
     </style>
 
 </head>
@@ -56,11 +56,23 @@
                     <a href="#conteudo" class="border-2 border-gray-300 text-gray-700 px-10 py-5 rounded-2xl font-bold text-center hover:bg-gray-100 transition-all">Ver como funciona</a>
                 </div>
             </div>
-            <div class="relative group">
-                <div class="absolute -inset-4 bg-primary/10 rounded-[40px] rotate-3 transition-transform group-hover:rotate-0 duration-700"></div>
-                <img src="https://julianagrimaldioficial.com.br/wp-content/uploads/2026/03/Captura-de-tela-2026-03-24-211056.png" alt="E-book Diário Emocional" class="rounded-[32px] shadow-2xl relative z-10 border-8 border-white">
+            <div class="relative w-64 md:w-80 mx-auto" style="perspective: 1000px;">
+                <div class="relative w-full h-auto aspect-[2/3] transition-transform duration-500 ease-in-out transform shadow-2xl rounded-r-lg group hover:rotate-y-0" style="transform-style: preserve-3d; transform: rotateY(-25deg);">
+
+                    <div class="absolute inset-0 w-full h-full rounded-r-lg overflow-hidden border-l border-white/20 z-10">
+                        <img src="../assets/img/capa-diario.png" alt="O Diário Emocional" class="w-full h-full object-cover">
+
+                        <div class="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent pointer-events-none"></div>
+                    </div>
+
+                    <div class="absolute top-0 left-0 h-full w-8 bg-[#0a1a2f] origin-left" style="transform: rotateY(90deg); transform-origin: left;">
+                        <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
+                    </div>
+
+                    <div class="absolute -bottom-4 left-4 right-0 h-4 bg-black/40 blur-md rounded-[100%] z-0" style="transform: rotateX(80deg);"></div>
+                </div>
             </div>
-        </div>
+            </div>
     </section>
 
     <!-- Identificação -->
