@@ -63,7 +63,7 @@ def select_provider(task: AdlerAITask) -> ProviderSelection:
 
 def try_generate_structured(
     *,
-    task: AdlerAITask,
+    task: AdlerAITask, context: Any = None,
     schema_model: type[_TModel],
     system_prompt: str,
     user_prompt: str,
@@ -75,6 +75,17 @@ def try_generate_structured(
         return None, selection, selection.reason if selection.reason != "configured" else None
 
     schema = _prune_schema(schema_model.model_json_schema())
+    # Inject clinician style if context is provided
+    if context and hasattr(context, "writing_style"):
+        system_prompt = (
+            f"{system_prompt}\n\n"
+            f"CLINICIAN STYLE ADAPTATION:\n"
+            f"- Writing style: {context.writing_style}\n"
+            f"- Preferred structure: {context.preferred_structure}\n"
+            f"- Primary approach: {context.primary_approach}\n"
+            "Adjust the tone and formatting of the JSON fields to match this style."
+        )
+
     try:
         if selection.provider == "ollama":
             raw_content = _generate_with_ollama(
@@ -88,6 +99,7 @@ def try_generate_structured(
             raw_content = _generate_with_gemini(
                 model=selection.model or settings.gemini_model,
                 schema=schema,
+
                 system_prompt=system_prompt,
                 user_prompt=user_prompt,
                 temperature=temperature,

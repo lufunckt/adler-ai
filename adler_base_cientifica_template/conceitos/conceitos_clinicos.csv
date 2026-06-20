@@ -1,32 +1,36 @@
 conceito,chave_clinica,aplicacao_pratica,fonte
-psicoterapia no transtorno de personalidade borderline,evidencias de ensaios clinicos indicam reducao moderada de sintomas com psicoterapias estruturadas,priorizar encaminhamento para psicoterapia manualizada especifica em vez de farmacoterapia isolada,doc_001
-terapia dialetico comportamental dbt,evidencia consistente de reducao de comportamento suicida e autolesao em multiplos ensaios clinicos,indicar dbt para pacientes com borderline grave com risco de autolesao em formato estruturado,doc_001
-terapia do esquema schema therapy,ensaios clinicos mostram eficacia comparavel a outras terapias estruturadas com melhora funcional relevante,utilizar como alternativa a dbt especialmente em padroes relacionais cronicos,doc_001
-comparacao dbt versus schema therapy,ensaio clinico randomizado nao mostrou diferenca significativa entre abordagens com grande tamanho de efeito em ambas,escolher abordagem com base em disponibilidade perfil do paciente e expertise da equipe,doc_002
-limitacoes da evidencia em psicoterapia borderline,alta taxa de nao resposta e ausencia de predicao clara de qual terapia funciona melhor para cada paciente,monitorar resposta clinica continuamente e ajustar abordagem quando necessario,doc_001
-uso de psicofarmacos em borderline,nao ha evidencia consistente para tratar sintomas nucleares com medicacao,usar medicacao apenas como adjuvante para sintomas especificos evitando polifarmacia,doc_001
-fundamentos psicanaliticos clinicos,conceitos de inconsciente mecanismos de defesa e transferencia permanecem relevantes na pratica moderna,utilizar formulacao psicodinamica para compreender padroes relacionais e reacoes terapeuticas,doc_003
-psicoterapia psicodinamica baseada em evidencia,modelos estruturados como mentalization based therapy e terapia focada na transferencia mostram eficacia em ensaios clinicos,aplicar protocolos estruturados com monitoramento de resultados,doc_003
-terapia cognitiva de beck,modelo baseado em identificacao de pensamentos automaticos e crencas centrais com reestruturacao cognitiva,aplicar tecnicas de reestruturacao cognitiva e experimentos comportamentais em transtornos do humor,doc_004
-integracao psicanalise apego neurociencia,evidencias mostram convergencia entre modelos psicodinamicos teoria do apego e neurobiologia,usar avaliacao de apego e regulacao emocional para orientar escolha terapeutica,doc_003
-eficacia geral da terapia cognitivo comportamental,beneficio consistente porem modesto em ampla gama de condicoes com melhora de qualidade de vida,utilizar tcc como abordagem base em diversos transtornos mantendo expectativas realistas de efeito,doc_005
-tcc em depressao,efeitos moderados a grandes comparados a controle com eficacia semelhante a farmacoterapia no curto prazo e superior no medio prazo,indicar tcc como tratamento de primeira linha em depressao podendo substituir ou combinar com medicacao,doc_006
-comparacao tcc versus outras psicoterapias,nao ha superioridade clara da tcc sobre outras psicoterapias estruturadas,escolher abordagem com base em perfil do paciente disponibilidade e preferencia clinica,doc_006
-icbt versus tcc presencial,efeito equivalente entre formatos guiados online e presencial,expandir uso de icbt para aumentar acesso sem perda de eficacia,doc_007
-icbt guiada versus nao guiada,intervencoes guiadas apresentam melhor desempenho em quadros moderados a graves,priorizar suporte profissional em casos mais graves,doc_007
+alianca terapeutica,vinculo colaborativo entre clinico e paciente focado em metas e tarefas,monitorar rupturas e reparos na alianca para reduzir evasao,doc_003
+antipsicoticos efeitos metabolicos,ganho de peso e dislipidemia,monitorar metabolismo,doc_082
 autoajuda baseada em tcc,efeitos pequenos a moderados com numero necessario para tratar em torno de oito,utilizar como estrategia inicial ou complementar em quadros leves,doc_007
+comparacao dbt versus schema therapy,ensaio clinico randomizado nao mostrou diferenca significativa entre abordagens com grande tamanho de efeito em ambas,escolher abordagem com base em disponibilidade perfil do paciente e expertise da equipe,doc_002
+comparacao entre terapias no borderline,nao ha superioridade clara entre abordagens como dbt psicodinamica mentalizacao e schema therapy,escolher tratamento com base em contexto clinico e recursos disponiveis,doc_010
+comparacao tcc versus outras psicoterapias,nao ha superioridade clara da tcc sobre outras psicoterapias estruturadas,escolher abordagem com base em perfil do paciente disponibilidade e preferencia clinica,doc_006
+conceito,chave_clinica,aplicacao_pratica,fonte
+dbt no transtorno de personalidade borderline,rede de evidencia mais robusta entre terapias com eficacia consistente,indicar dbt especialmente em casos com autolesao e impulsividade,doc_010
+eficacia geral da terapia cognitivo comportamental,beneficio consistente porem modesto em ampla gama de condicoes com melhora de qualidade de vida,utilizar tcc como abordagem base em diversos transtornos mantendo expectativas realistas de efeito,doc_005
+exposicao com prevencao de resposta,exposicao ao estimulo temido sem a execucao do ritual de neutralizacao,planejar hierarquia de exposicao e monitorar habituacao da ansiedade,doc_004
+farmacogenetica cyp2c19,metabolizacao de ssri,ajustar dose conforme metabolizador,doc_083
+fundamentos psicanaliticos clinicos,conceitos de inconsciente mecanismos de defesa e transferencia permanecem relevantes na pratica moderna,utilizar formulacao psicodinamica para compreender padroes relacionais e reacoes terapeuticas,doc_003
+icbt guiada versus nao guiada,intervencoes guiadas apresentam melhor desempenho em quadros moderados a graves,priorizar suporte profissional em casos mais graves,doc_007
+icbt versus tcc presencial,efeito equivalente entre formatos guiados online e presencial,expandir uso de icbt para aumentar acesso sem perda de eficacia,doc_007
+implementacao de tcc e act em sistemas de saude,programas multifacetados aumentam adesao e geram melhora sintomatica moderada a grande,investir em treinamento estruturado e suporte institucional para escalar intervencoes,doc_011
+integracao psicanalise apego neurociencia,evidencias mostram convergencia entre modelos psicodinamicos teoria do apego e neurobiologia,usar avaliacao de apego e regulacao emocional para orientar escolha terapeutica,doc_003
+janela terapeutica do litio,faixa estreita de concentracao plasmatica segura (geralmente 0.6 a 1.2 mEq/L),coletar litemia 12h apos a ultima dose para ajuste preciso,doc_081
+limitacoes da evidencia em psicoterapia borderline,alta taxa de nao resposta e ausencia de predicao clara de qual terapia funciona melhor para cada paciente,monitorar resposta clinica continuamente e ajustar abordagem quando necessario,doc_001
+litio estabilizador,faixa terapeutica estreita,monitorar exames regularmente,doc_081
+naltrexona opioides,antagonista opioide,usar em dependencia e evitar opioides,doc_084
+psicoterapia no transtorno de personalidade borderline,evidencias de ensaios clinicos indicam reducao moderada de sintomas com psicoterapias estruturadas,priorizar encaminhamento para psicoterapia manualizada especifica em vez de farmacoterapia isolada,doc_001
+psicoterapia psicodinamica baseada em evidencia,modelos estruturados como mentalization based therapy e terapia focada na transferencia mostram eficacia em ensaios clinicos,aplicar protocolos estruturados com monitoramento de resultados,doc_003
+psicoterapias estruturadas em borderline,efeitos moderados em sintomas autoagressao e uso de servicos em comparacao ao controle,priorizar terapias manualizadas especializadas para borderline,doc_010
+reparentalizacao limitada,atendimento das necessidades emocionais do paciente dentro dos limites terapeuticos,oferecer suporte e seguranca para esquemas de privacao emocional,doc_001
+ssri mecanismo,inibicao recaptacao serotonina,usar como primeira linha em depressao,doc_080
 tcc em criancas e adolescentes,efeitos moderados a grandes com altas taxas de remissao em contexto clinico real,aplicar tcc como abordagem principal em transtornos internalizantes e externalizantes em jovens,doc_008
-tcc em transtornos de ansiedade e relacionados,efeitos grandes comparados a lista de espera e pequenos a moderados comparados a cuidados usuais,manter uso clinico reconhecendo variacao de efeito conforme comparador,doc_009
-tcc para insonia com comorbidades,efeitos moderados a grandes com melhora adicional em depressao ptsd e uso de alcool,indicar tcc i como tratamento de primeira linha para insonia,doc_009
+tcc em depressao,efeitos moderados a grandes comparados a controle com eficacia semelhante a farmacoterapia no curto prazo e superior no medio prazo,indicar tcc como tratamento de primeira linha em depressao podendo substituir ou combinar com medicacao,doc_006
 tcc em esquizofrenia,efeitos pequenos a medios com evidencia limitada em follow up,utilizar como tratamento adjuvante e nao como monoterapia,doc_009
 tcc em transtorno do espectro autista,efeitos pequenos a medios com necessidade de maior robustez metodologica,aplicar com cautela e adaptar intervencoes ao perfil do paciente,doc_009
-psicoterapias estruturadas em borderline,efeitos moderados em sintomas autoagressao e uso de servicos em comparacao ao controle,priorizar terapias manualizadas especializadas para borderline,doc_010
-dbt no transtorno de personalidade borderline,rede de evidencia mais robusta entre terapias com eficacia consistente,indicar dbt especialmente em casos com autolesao e impulsividade,doc_010
-comparacao entre terapias no borderline,nao ha superioridade clara entre abordagens como dbt psicodinamica mentalizacao e schema therapy,escolher tratamento com base em contexto clinico e recursos disponiveis,doc_010
-implementacao de tcc e act em sistemas de saude,programas multifacetados aumentam adesao e geram melhora sintomatica moderada a grande,investir em treinamento estruturado e suporte institucional para escalar intervencoes,doc_011
-act e terapias de terceira onda,base de evidencia crescente especialmente em dor cronica e saude mental,integrar act como complemento em abordagens modernas de psicoterapia,doc_011
-ssri mecanismo,inibicao recaptacao serotonina,usar como primeira linha em depressao,doc_080
-litio estabilizador,faixa terapeutica estreita,monitorar exames regularmente,doc_081
-antipsicoticos efeitos metabolicos,ganho de peso e dislipidemia,monitorar metabolismo,doc_082
-farmacogenetica cyp2c19,metabolizacao de ssri,ajustar dose conforme metabolizador,doc_083
-naltrexona opioides,antagonista opioide,usar em dependencia e evitar opioides,doc_084
+tcc em transtornos de ansiedade e relacionados,efeitos grandes comparados a lista de espera e pequenos a moderados comparados a cuidados usuais,manter uso clinico reconhecendo variacao de efeito conforme comparador,doc_009
+tcc para insonia com comorbidades,efeitos moderados a grandes com melhora adicional em depressao ptsd e uso de alcool,indicar tcc i como tratamento de primeira linha para insonia,doc_009
+terapia cognitiva de beck,modelo baseado em identificacao de pensamentos automaticos e crencas centrais com reestruturacao cognitiva,aplicar tecnicas de reestruturacao cognitiva e experimentos comportamentais em transtornos do humor,doc_004
+terapia dialetico comportamental dbt,evidencia consistente de reducao de comportamento suicida e autolesao em multiplos ensaios clinicos,indicar dbt para pacientes com borderline grave com risco de autolesao em formato estruturado,doc_001
+terapia do esquema schema therapy,ensaios clinicos mostram eficacia comparavel a outras terapias estruturadas com melhora funcional relevante,utilizar como alternativa a dbt especialmente em padroes relacionais cronicos,doc_001
+uso de psicofarmacos em borderline,nao ha evidencia consistente para tratar sintomas nucleares com medicacao,usar medicacao apenas como adjuvante para sintomas especificos evitando polifarmacia,doc_001

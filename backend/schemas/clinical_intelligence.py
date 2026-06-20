@@ -51,6 +51,11 @@ class ClinicalSessionInput(BaseModel):
     def normalize_list(cls, value: list[str]) -> list[str]:
         return [item.strip() for item in value if item and item.strip()]
 
+class PharmacogeneticsUpdate(BaseModel):
+    status: str
+    phenotype: str | None = None
+    result_json: dict | None = None
+
 
 class ClinicalPattern(BaseModel):
     id: str

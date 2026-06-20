@@ -30,6 +30,96 @@ async function call<T>(path: string, options: RequestOptions = {}) {
   return (await response.json()) as T;
 }
 
+export type AdlerPatientRegistryItem = {
+  id: string;
+  name: string;
+  initials: string;
+  status: "active" | "inactive";
+  focus: string;
+  diagnosis: string;
+  current_protocol: string;
+  default_session: number;
+};
+
+export type AdlerScheduleItem = {
+  id: string;
+  patient_id: string;
+  patient_name: string;
+  time: string;
+  duration: string;
+  session_label: string;
+  mode: string;
+  room_label: string;
+  prep_note: string;
+  status: "completed" | "next" | "scheduled";
+};
+
+export type AdlerDashboardResponse = {
+  clinician: Record<string, any>;
+  notes: string;
+  recent_notes: any[];
+  schedule: AdlerScheduleItem[];
+  summary: Record<string, any>;
+  tasks: any[];
+};
+
+export type AdlerBootstrapResponse = {
+  dashboard: AdlerDashboardResponse;
+  documents: any[];
+  patients: AdlerPatientRegistryItem[];
+};
+
+export function fetchAdlerBootstrap() {
+  return call<AdlerBootstrapResponse>("/api/adler/bootstrap");
+}
+
+export function fetchAdlerDashboard() {
+  return call<AdlerDashboardResponse>("/api/adler/dashboard");
+}
+
+export function fetchAdlerPatients(search?: string, status = "all") {
+  const params = new URLSearchParams();
+  if (search) params.set("search", search);
+  params.set("status", status);
+  return call<AdlerPatientRegistryItem[]>(`/api/adler/patients?${params}`);
+}
+
+export function createAdlerPatient(patient: { name: string; focus: string }) {
+  return call<AdlerPatientRegistryItem>("/api/adler/patients", {
+    method: "POST",
+    body: JSON.stringify(patient)
+  });
+}
+
+export function updateAdlerPatient(id: string, patient: Partial<AdlerPatientRegistryItem>) {
+  return call<AdlerPatientRegistryItem>(`/api/adler/patients/${id}`, {
+    method: "PUT",
+    body: JSON.stringify(patient)
+  });
+}
+
+export function deleteAdlerPatient(id: string) {
+  return call<{ status: string }>(`/api/adler/patients/${id}`, {
+    method: "DELETE"
+  });
+}
+
+export function createAdlerAppointment(appt: { patient_id: string; time: string; note: string }) {
+  return call<AdlerScheduleItem>("/api/adler/appointments", {
+    method: "POST",
+    body: JSON.stringify({
+      ...appt,
+      prep_note: appt.note
+    })
+  });
+}
+
+export function deleteAdlerAppointment(id: string) {
+  return call<{ status: string }>(`/api/adler/appointments/${id}`, {
+    method: "DELETE"
+  });
+}
+
 export type AdlerDocumentModel = {
   arquivo: string;
   contexto: string;
@@ -315,3 +405,21 @@ export function fetchAdlerWhatsAppDashboard(patientId: string) {
     `/api/adler/whatsapp/patients/${patientId}/dashboard`
   );
 }
+
+/**
+ * Generic API client for raw calls
+ */
+export const api = {
+  get: <T>(path: string) => call<T>(path),
+  post: <T>(path: string, body: any) => call<T>(path, {
+    method: "POST",
+    body: JSON.stringify(body)
+  }),
+  put: <T>(path: string, body: any) => call<T>(path, {
+    method: "PUT",
+    body: JSON.stringify(body)
+  }),
+  delete: <T>(path: string) => call<T>(path, {
+    method: "DELETE"
+  })
+};

@@ -1,4 +1,4 @@
-"""Authentication routes for the CRM app."""
+"""Authentication routes for the Adler AI."""
 
 from __future__ import annotations
 
@@ -43,6 +43,8 @@ def register(payload: RegisterPayload, db: Session = Depends(get_db)) -> AuthRes
     db.add(user)
     db.commit()
     db.refresh(user)
+    if not user.is_approved:
+        raise HTTPException(status_code=403, detail="Aguardando liberação do administrador.")
     return _create_auth_response(user, db)
 
 
@@ -51,6 +53,8 @@ def login(payload: LoginPayload, db: Session = Depends(get_db)) -> AuthResponse:
     user = db.query(User).filter(User.email == payload.email.lower()).first()
     if not user or not verify_password(payload.password, user.password_hash):
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid credentials")
+    if not user.is_approved:
+        raise HTTPException(status_code=403, detail="Aguardando liberação do administrador.")
     return _create_auth_response(user, db)
 
 
@@ -73,3 +77,21 @@ def logout(
             db.delete(session)
             db.commit()
     return {"status": "logged_out"}
+
+@router.post("/onboarding")
+def complete_onboarding(
+    payload: dict,
+    user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    from backend.models.adler_science_knowledge import AdlerClinicianProfile
+    profile = db.query(AdlerClinicianProfile).filter_by(user_id=str(user.id)).first()
+    if not profile:
+        profile = AdlerClinicianProfile(user_id=str(user.id))
+        db.add(profile)
+
+    approach = payload.get("approach", "schema")
+    profile.primary_approach = approach
+    profile.onboarding_completed = True
+    db.commit()
+    return {"status": "completed", "approach": approach}

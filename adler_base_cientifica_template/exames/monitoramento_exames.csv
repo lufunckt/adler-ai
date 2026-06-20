@@ -4,3 +4,6 @@ litio,creatinina e ureia,baseline e trimestral,funcao renal,sim,risco de insufic
 litio,tsh e t4 livre,baseline e semestral,funcao tireoidiana,sim,hipotireoidismo,doc_081
 quetiapina,glicemia e perfil lipidico,baseline e semestral,risco metabolico,sim,sindrome metabolica,doc_082
 quetiapina,peso e imc,mensal inicialmente,monitoramento metabolico,sim,ganho de peso,doc_082
+valproato,enzimas hepaticas (tgo/tgp),anual ou se houver sintomas,hepatotoxicidade,sim,ictericia ou dor abdominal,doc_084
+clozapina,hemograma completo (leucocitos/neutrofilos),semanal inicialmente,risco de agranulocitose,sim,febre ou dor de garganta,doc_082
+venlafaxina,pressao arterial,mensal,hipertensao dose-dependente,nao,cefaleia ou tontura,doc_080

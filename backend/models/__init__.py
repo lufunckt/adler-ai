@@ -14,6 +14,16 @@ from .adler_clinical import (
 )
 from .adler_patient import AdlerAppointment, AdlerPatient
 from .adler_workspace import AdlerTenantDocument, AdlerTenantNote
+from .adler_science_knowledge import (
+    AdlerStaticScience,
+    AdlerClinicalEvidence,
+    AdlerMedicationRef,
+    AdlerTherapeuticProtocol,
+    AdlerKnowledgeStaging,
+    AdlerClinicianProfile,
+    AdlerClinicianBehaviorLog,
+    AdlerClinicianPreferenceModel,
+)
 from .base import Base
 from .user import User
 from .user_session import UserSession
@@ -36,4 +46,12 @@ __all__ = [
     "AdlerAppointment",
     "AdlerTenantDocument",
     "AdlerTenantNote",
+    "AdlerStaticScience",
+    "AdlerClinicalEvidence",
+    "AdlerMedicationRef",
+    "AdlerTherapeuticProtocol",
+    "AdlerKnowledgeStaging",
+    "AdlerClinicianProfile",
+    "AdlerClinicianBehaviorLog",
+    "AdlerClinicianPreferenceModel",
 ]

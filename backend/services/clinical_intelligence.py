@@ -37,6 +37,7 @@ from backend.schemas.clinical_intelligence import (
     ClinicalHypothesis,
     ClinicalIntelligenceApproach,
     ClinicalMapEdge,
+    PharmacogeneticsUpdate,
     ClinicalMapNode,
     ClinicalMechanism,
     ClinicalPattern,
@@ -53,6 +54,7 @@ from backend.schemas.clinical_intelligence import (
     WhatsappCheckinCreate,
     WhatsappCheckinRead,
 )
+from backend.services.adler_science import get_clinical_criteria, list_concepts_by_keywords
 from backend.services.adler_ai_router import try_generate_structured
 from backend.services.adler_store import get_patient
 
@@ -252,7 +254,7 @@ def _analysis_from_ai_payload(
     )
 
 
-def _analysis_route_prompt(payload: ClinicalSessionInput, baseline: ClinicalAnalysisJSON) -> tuple[str, str]:
+def _analysis_route_prompt(payload: ClinicalSessionInput, baseline: ClinicalAnalysisJSON, approach_info=None, evidence=None) -> tuple[str, str]:
     system_prompt = (
         "You are Adler AI's clinical structuring layer. "
         "Return grounded JSON only. "
@@ -272,6 +274,18 @@ def _analysis_route_prompt(payload: ClinicalSessionInput, baseline: ClinicalAnal
         f"Session input JSON:\n{json.dumps(payload.model_dump(mode='json'), ensure_ascii=True)}\n\n"
         f"Baseline structured analysis JSON:\n{json.dumps(_analysis_payload_from_baseline(baseline), ensure_ascii=True)}"
     )
+    if approach_info:
+        system_prompt = (
+            f"{system_prompt}\n\n"
+            f"CLINICAL APPROACH GROUNDING ({approach_info.approach.upper()}):\n"
+            f"- Primary Goal: {approach_info.characteristics_json.get("goal") if approach_info.characteristics_json else "N/A"}\n"
+            f"- Standard Techniques: {approach_info.characteristics_json.get("techniques") if approach_info.characteristics_json else "N/A"}\n"
+            f"Structure your insights and action plans using this therapeutic stance."
+        )
+    if evidence:
+        subjects = [e.subject for e in evidence[:3]] # limit for prompt space
+        system_prompt = f"{system_prompt}\n\nSCIENTIFIC EVIDENCE GROUNDING:\n- Available evidence for: {subjects}.\n- Use official study IDs if referencing standard protocols."
+
     return system_prompt, user_prompt
 
 
@@ -385,9 +399,13 @@ def _build_structured_analysis_rules(payload: ClinicalSessionInput, tenant_id: s
     return analysis
 
 
-def _build_structured_analysis(payload: ClinicalSessionInput, tenant_id: str) -> tuple[ClinicalAnalysisJSON, str]:
+def _build_structured_analysis(payload: ClinicalSessionInput, tenant_id: str, db: Session) -> tuple[ClinicalAnalysisJSON, str]:
+    from backend.models.adler_science_knowledge import AdlerTherapeuticProtocol, AdlerClinicalEvidence
+    approach_info = db.query(AdlerTherapeuticProtocol).filter_by(approach=payload.abordagem_clinica).first()
+    # Simple evidence grounding for specific symptoms if found
+    evidence = db.query(AdlerClinicalEvidence).all()
     baseline = _build_structured_analysis_rules(payload, tenant_id)
-    system_prompt, user_prompt = _analysis_route_prompt(payload, baseline)
+    system_prompt, user_prompt = _analysis_route_prompt(payload, baseline, approach_info, evidence)
     ai_payload, selection, _error = try_generate_structured(
         task="session_analysis",
         schema_model=AIClinicalAnalysisPayload,
@@ -537,7 +555,7 @@ def create_structured_analysis(
     db.flush()
 
     try:
-        analysis, engine_name = _build_structured_analysis(payload, tenant_id)
+        analysis, engine_name = _build_structured_analysis(payload, tenant_id, db)
     except ValidationError as exc:
         db.rollback()
         raise HTTPException(status_code=422, detail=exc.errors()) from exc
@@ -1225,6 +1243,48 @@ def request_pharmacogenetics(
     )
 
 
+def update_pharmacogenetics_result(
+    *,
+    db: Session,
+    tenant_id: str,
+    request_id: str,
+    payload: PharmacogeneticsUpdate,
+) -> dict:
+    # Em um banco real, o request_id estaria dentro do JSON ou seria uma coluna real.
+    # Como AdlerPharmacogeneticsResult.result_json contém o request_id, buscamos por lá (ou simplificamos no MVP).
+    # Para o MVP, assumimos que o gene + patient_id identifica se não houver coluna request_id.
+    # Mas AdlerPharmacogeneticsResult tem 'result_json'.
+
+    # Busca simplificada para MVP (em produção, request_id seria uma coluna indexada)
+    records = db.query(AdlerPharmacogeneticsResult).filter(
+        AdlerPharmacogeneticsResult.tenant_id == tenant_id
+    ).all()
+
+    record = next((r for r in records if r.result_json.get("request_id") == request_id), None)
+
+    if not record:
+        raise HTTPException(status_code=404, detail="Solicitação PGx não encontrada.")
+
+    if payload.phenotype:
+        record.phenotype = payload.phenotype
+
+    # Atualiza JSON mantendo dados antigos
+    new_json = dict(record.result_json)
+    new_json["status"] = payload.status
+    if payload.result_json:
+        new_json.update(payload.result_json)
+
+    record.result_json = new_json
+    db.add(record)
+    db.commit()
+    db.refresh(record)
+
+    return {
+        "status": payload.status,
+        "request_id": request_id,
+        "message": "Resultado atualizado com sucesso.",
+        "next_steps": ["Revisar implicações clínicas", "Discutir com o paciente"]
+    }
 def create_whatsapp_checkin(
     *,
     db: Session,
